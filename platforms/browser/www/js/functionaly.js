@@ -865,11 +865,13 @@ function ajax(g, oid) {
 	var xmlhttp = getXmlHttp();
 	var randomNum = Math.round((Math.random() * (40000 - 1) + 1));
 
+	/*
 	if(undefined!==window.localStorage["acc_sessionID"] && null!==window.localStorage["acc_sessionID"] && window.localStorage["acc_sessionID"]!=="") {
 		var app_ex_run_id = window.localStorage["acc_sessionID"];
 	}else {
 		var app_ex_run_id = 0;
 	}
+*/
 
 	if(g=="auth_user") {
 		var user_phone_num = "+7"+document.getElementById("user_phone_num").value;
