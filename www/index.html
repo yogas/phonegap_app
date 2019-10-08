@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<!--        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">-->
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+		<meta charset="utf-8">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+
+		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+		<link rel="stylesheet" href="css/jquery-ui.css">
+		<script type="text/javascript" src="cordova.js"></script>
+		<script type="text/javascript" src="js/index.js"></script>
+		<script src="js/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript" src="js/jquery-ui.js"></script>
+		<script src="js/jquery.mobile-1.4.5.min.js"></script>
+		<script>
+			$(document).bind('mobileinit',function(){
+	//	    	alert("before mobileinit");
+				$.support.cors = true;
+				$.mobile.allowCrossDomainPages = true;
+				$.mobile.ajaxEnabled = true;
+				$.mobile.touchOverflowEnabled = true;
+
+				$.mobile.changePage.defaults.changeHash = false;
+				$.mobile.hashListeningEnabled = false;
+				$.mobile.pushStateEnabled = false;
+	//	    	alert("after mobileinit");
+			});
+		</script>
+
+		<link rel="stylesheet" href="css/swiper.css">
+		<script src="js/swiper.js"></script>
+
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$(window).unbind();
+
+				$(window).bind('pageshow resize orientationchange', function(e){
+	//				max_height();
+				});
+
+				$("* #index-page").on("click", function() {
+				    /*
+					$("* #fon-type-file1").html("<div class='plus'>+</div><span>Иконка</span><input type='file' onchange='upload_img_to_server_icon(\"add\")' name='add_app_icon' id='add-app-icon' /><input type='hidden' name='addeded_icon' value='' id='addeded_icon' />");
+					$("* #swiper-container-2").html("");
+					$("* #swiper-container-2").css("display", "none");
+					getDataFromServer();
+					*/
+				});
+
+
+/*
+				getDataFromServer();
+				updateServerSession();
+				setInterval('getDataFromServer()', 3800);
+	//			alert(111);
+	*/
+/*
+				$("* #add-app-icon").on("change", function() {
+					upload_img_to_server_icon('add');
+				});
+				$("* #add-app-screen").on("change", function() {
+					upload_img_to_server_screen('add');
+				});
+
+				$("* #edit-app-icon").on("change", function() {
+					upload_img_to_server_icon('edit');
+				});
+				$("* #edit-app-screen").on("change", function() {
+					upload_img_to_server_screen('edit');
+				});
+*/
+			});
+	/*
+			function max_height(){
+				var h = $('div[data-role="header"]').outerHeight(true);
+				var f = $('div[data-role="footer"]').outerHeight(true);
+				var w = $(window).height();
+				var c = $('div[data-role="content"]');
+				var c_h = c.height();
+				var c_oh = c.outerHeight(true);
+				var c_new = w - h - f - c_oh + c_h;
+				var total = h + f + c_oh;
+				if(c_h<c.get(0).scrollHeight){
+					c.height(c.get(0).scrollHeight);
+				}else{
+					c.height(c_new);
+				}
+			}     */
+		</script>
+		<!--<script src="js/functionaly.js"></script>-->
+
+<!--        <title>Hello World</title>-->
+    </head>
+    <body>
+        <div data-role="page" id="index" data-theme="f">
+            <div data-role="header">
+                <h1>АВТОРИЗАЦИЯ</h1>
+                <a href="#overlayPanel2" class="ui-btn-right ui-btn-inline ui-corner-all ui-shadow">
+                    <img src="images/menu-btn.png" width="30" height="24" />
+                </a>
+            </div>
+            <div class="clr"></div>
+            <div data-role="panel" id="overlayPanel2" data-display="overlay" data-position="right">
+                <div class="menu-panel-title">МЕНЮ</div>
+                <a href="#overlayPanel2" class="ui-btn-right ui-btn-inline ui-corner-all ui-shadow">
+                    <img src="images/menu-btn.png" width="30" height="24" />
+                </a>
+                <div class="clr" style="height:20px;"></div>
+                <ul class="menu" id="menu-3-quest">
+                    <!--<li class="active"><a href="#login-page" id="login-page">Авторизация</a></li>-->
+                    <li><a href="#index" id="index-page">Резервуары</a></li>
+                    <li><a href="#index" id="index-app-page">Поддержка</a></li>
+                    <li><a href="#index" id="index2-app-page">Новости</a></li>
+                    <li><a href="#index" id="index3-app-page">О компании</a></li>
+                    <li><a href="#index" id="index4-app-page">Настройки</a></li>
+                </ul>
+            </div>
+            <div data-role="content" style="padding-top:50px;">
+                <div class="app-content" id="app-content-login-page">
+                    <form method="GET" name="app_auth_form" class="app_auth_form">
+                        <input type="text" name="user_email" id="user_email" placeholder="example@mail.com" />
+                        <input type="password" name="user_pass" id="user_pass" placeholder="введите пароль" />
+                        <a href="javascript:auth_user();" id="app_auth_subm">Войти</a>
+                        <a href="javascript:forrget_user_pass();" id="app_forrget_pass_subm">восстановить пароль</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- ================== *** ================== -->
+
+    </body>
+</html>
