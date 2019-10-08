@@ -870,115 +870,11 @@ function ajax(g, oid) {
 	}else {
 		var app_ex_run_id = 0;
 	}
+
 	if(g=="auth_user") {
 		var user_phone_num = "+7"+document.getElementById("user_phone_num").value;
 		var user_enter_pass = document.getElementById("user_pass").value;
         xmlhttp.open('GET', 'http://super.aspen.ru/mobile_ajax_files/test.php?operation='+g+'&eri='+app_ex_run_id+'&upn='+user_phone_num+'&uep='+user_enter_pass+'&rndtik='+randomNum, true);
-	}else if(g=="spy_mode_on" || g=="push_notice_on") {
-		var option_value = document.getElementById(g).value;
-		xmlhttp.open('GET', 'http://super.aspen.ru/mobile_ajax_files/test.php?operation='+g+'&option_value='+option_value+'&eri='+app_ex_run_id+'&rndtik='+randomNum, true);
-	}else if(g=="user_confirm_code") {
-		var user_enter_code = document.getElementById("user_sms_code").value;
-		var confirm_phone_num = window.localStorage["new_user_phone"];
-		xmlhttp.open('GET', 'http://super.aspen.ru/mobile_ajax_files/test.php?operation='+g+'&confirm_phone_num='+confirm_phone_num+'&confirm_code='+user_enter_code+'&eri='+app_ex_run_id+'&rndtik='+randomNum, true);
-	}else if(g=="my_profile_form_save") {
-//		var my_new_phone_num = "";
-		var my_new_phone_num = $("* input#user_phone_num")[1].value;
-		var my_new_pass = $("* #user_new_pass")[0].value;
-
-		if(my_new_pass!=="" && undefined!==my_new_pass) {
-        	var user_new_pass = '&my_new_pass='+my_new_pass;
-		}else {
-        	var user_new_pass = '';
-		}
-		xmlhttp.open('GET', 'http://super.aspen.ru/mobile_ajax_files/test.php?operation='+g+user_new_pass+'&my_new_phone_num='+my_new_phone_num+'&eri='+app_ex_run_id+'&rndtik='+randomNum, true);
-	}else if(g=="add_app") {
-		var data_res = get_app_add_form_data();
-		var data_str = '';
-		for(var i=0; i!==13; i++) {
-	        if(data_res[3]==2) {
-				if(i==5 || i==6) {
-					continue;
-				}
-	    	}
-			data_str += '&'+data_res[2][i]+'='+data_res[1][i];
-		}
-
-		var addeded_screens = new Array();
-		var screen_list_str = '';
-		if(document.getElementById("swiper-wrapper-2")!==null) {
-			var screen_list = document.getElementById("swiper-wrapper-2").childNodes;
-			var c = 1;
-	        for(var i=0; i!==$("* #swiper-wrapper-2")[0].childElementCount; i++) {
-	            if(i!==0 && i%2==1) {
-		        	addeded_screens[c] = screen_list[i].value;
-		        	screen_list_str += '&screen_'+c+'='+addeded_screens[c];
-					c++;
-	        	}else {
-	           		continue;
-	        	}
-			}
-		}else {
-			var screen_list_ = 0;
-		}
-
-		var addeded_icon_name = $("* #addeded_icon")[0].value;
-		var add_app_form22 = document.getElementById("add_app_form");
-		add_app_form22.reset();
-		xmlhttp.open('GET', 'http://super.aspen.ru/mobile_ajax_files/test.php?operation='+g+data_str+screen_list_str+'&addeded_icon='+addeded_icon_name+'&eri='+app_ex_run_id+'&rndtik='+randomNum, true);
-		$("* #fon-type-file1").html("<div class='plus'>+</div><span>Иконка</span><input type='file' name='add_app_icon' onchange='upload_img_to_server_icon()' id='add-app-icon' /><input type='hidden' name='addeded_icon' id='addeded_icon' />");
-		$("* #swiper-wrapper-2").empty();
-//		$("* #fon-type-file2").css("display", "block");
-	}else if(g=="delete_app") {
-		if(confirm("Удалить приложение?")) {
-			xmlhttp.open('GET', 'http://super.aspen.ru/mobile_ajax_files/test.php?operation='+g+'&aid='+oid+'&eri='+app_ex_run_id+'&rndtik='+randomNum, true);
-		} else {
-			return null;
-			$("#index-page").click();
-		}
-	}else if(g=="apply_app") {
-		xmlhttp.open('GET', 'http://super.aspen.ru/mobile_ajax_files/test.php?operation='+g+'&aid='+oid+'&eri='+app_ex_run_id+'&rndtik='+randomNum, true);
-	}else if(g=="get_edit_data_app") {
-		xmlhttp.open('GET', 'http://super.aspen.ru/mobile_ajax_files/test.php?operation='+g+'&aid='+oid+'&eri='+app_ex_run_id+'&rndtik='+randomNum, true);
-	}else if(g=="edit_app") {
-		var data_res = get_app_edit_form_data();
-		var add_app_form = $("* #edit_app_form");
-		if(add_app_form[0][4].checked==true) {
-			var field_for12 = 1;
-		}else {
-			var field_for12 = 0;
-		}
-		var data_str = '';
-		for(var i=0; i!==13; i++) {
-	        if(data_res[3]==2) {
-				if(i==5 || i==6) {
-					continue;
-				}
-	    	}
-			data_str += '&'+data_res[2][i]+'='+data_res[1][i];
-		}
-		var edited_screens = new Array();
-		var edit_screen_list_str = '';
-		var edit_screen_list = $("* #swiper-wrapper-3")[0].childNodes;
-		var c = 1;
-
-        for(var i=0; i!==$("* #swiper-wrapper-3")[0].childElementCount; i++) {
-            if(undefined!==edit_screen_list[i].value) {
-	        	edited_screens[c] = edit_screen_list[i].value;
-	        	edit_screen_list_str += '&edit_screen_'+c+'='+edited_screens[c];
-				c++;
-        	}else {
-           		continue;
-        	}
-		}
-		var edited_icon_name = $("* #edited_icon")[0].value;
-
-		xmlhttp.open('GET', 'http://super.aspen.ru/mobile_ajax_files/test.php?operation='+g+data_str+edit_screen_list_str+'&edited_icon='+edited_icon_name+'&and_ios='+field_for12+'&aid='+oid+'&eri='+app_ex_run_id+'&rndtik='+randomNum, true);
-	}else if(g=="get_app_ditail_data") {
-		xmlhttp.open('GET', 'http://super.aspen.ru/mobile_ajax_files/test.php?operation='+g+'&aid='+oid+'&eri='+app_ex_run_id+'&rndtik='+randomNum, true);
-	}else if(g=="forrget_user_pass") {
-		var phone_num = document.getElementById("user_phone_num").value;
-		xmlhttp.open('GET', 'http://super.aspen.ru/mobile_ajax_files/test.php?operation='+g+'&phone_num='+phone_num+'&eri='+app_ex_run_id+'&rndtik='+randomNum, true);
 	}else {
         xmlhttp.open('GET', 'http://super.aspen.ru/mobile_ajax_files/test.php?operation='+g+'&eri='+app_ex_run_id+'&rndtik='+randomNum, true);
 	}
