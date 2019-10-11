@@ -11,13 +11,14 @@
 		<link rel="stylesheet" href="css/style.css" />
 		<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
 		<link rel="stylesheet" href="css/jquery-ui.css">
+
 		<script type="text/javascript" src="cordova.js"></script>
 		<script type="text/javascript" src="js/index.js"></script>
 		<script src="js/jquery-1.11.3.min.js"></script>
 		<script type="text/javascript" src="js/jquery-ui.js"></script>
 		<script src="js/jquery.mobile-1.4.5.min.js"></script>
 		<script>
-			$(document).bind('mobileinit',function(){
+			$(document).bind('mobileinit',function() {
 	//	    	alert("before mobileinit");
 				$.support.cors = true;
 				$.mobile.allowCrossDomainPages = true;
@@ -41,19 +42,19 @@
 				$(window).bind('pageshow resize orientationchange', function(e){
 	//				max_height();
 				});
-
+/*
 				$("* #index-page").on("click", function() {
 				    /*
 					$("* #fon-type-file1").html("<div class='plus'>+</div><span>Иконка</span><input type='file' onchange='upload_img_to_server_icon(\"add\")' name='add_app_icon' id='add-app-icon' /><input type='hidden' name='addeded_icon' value='' id='addeded_icon' />");
 					$("* #swiper-container-2").html("");
 					$("* #swiper-container-2").css("display", "none");
 					getDataFromServer();
-					*/
+					*//*
 				});
-
-
-/*
+*/
 				getDataFromServer();
+
+				/*
 				updateServerSession();
 				setInterval('getDataFromServer()', 3800);
 	//			alert(111);
@@ -91,43 +92,89 @@
 				}
 			}     */
 		</script>
-		<!--<script src="js/functionaly.js"></script>-->
+		<script src="js/functionaly.js"></script>
 
-<!--        <title>Hello World</title>-->
+
     </head>
     <body>
         <!-- ================== страница авторизации (главная страница) ================== -->
         <div data-role="page" id="index" data-theme="f">
             <div data-role="header">
-                <h1>АВТОРИЗАЦИЯ</h1>
-                <a href="#overlayPanel2" class="ui-btn-right ui-btn-inline ui-corner-all ui-shadow">
+                <img style="display: block;margin: 0 auto;padding-top: 12px;" src="img/logo.png" />
+
+                <a href="#overlayPanel1" class="ui-btn-right ui-btn-inline ui-corner-all ui-shadow">
                     <img src="images/menu-btn.png" width="30" height="24" />
                 </a>
             </div>
             <div class="clr"></div>
-            <div data-role="panel" id="overlayPanel2" data-display="overlay" data-position="right">
-                <div class="menu-panel-title">МЕНЮ</div>
-                <a href="#overlayPanel2" class="ui-btn-right ui-btn-inline ui-corner-all ui-shadow">
+            <div data-role="panel" id="overlayPanel1" data-display="overlay" data-position="left">
+                <!--<div class="menu-panel-title">МЕНЮ</div>-->
+                <a href="#overlayPanel1" class="ui-btn-right ui-btn-inline ui-corner-all ui-shadow">
                     <img src="images/menu-btn.png" width="30" height="24" />
                 </a>
                 <div class="clr" style="height:20px;"></div>
-                <ul class="menu" id="menu-3-quest">
+                <ul class="menu">
                     <!--<li class="active"><a href="#login-page" id="login-page">Авторизация</a></li>-->
                     <li><a href="#index" id="index-page">Резервуары</a></li>
-                    <li><a href="#index" id="index-app-page">Поддержка</a></li>
+                    <li><a href="#support" id="support-page">Поддержка</a></li>
                     <li><a href="#index" id="index2-app-page">Новости</a></li>
                     <li><a href="#index" id="index3-app-page">О компании</a></li>
                     <li><a href="#index" id="index4-app-page">Настройки</a></li>
                 </ul>
             </div>
             <div data-role="content" style="padding-top:50px;">
-                <div class="app-content" id="app-content-login-page">
+                <div class="app-content" id="index-page-content">
+                    Резервуары
+                    <!--
                     <form method="GET" name="app_auth_form" class="app_auth_form">
                         <input type="text" name="user_email" id="user_email" placeholder="example@mail.com" />
                         <input type="password" name="user_pass" id="user_pass" placeholder="введите пароль" />
                         <a href="javascript:auth_user();" id="app_auth_subm">Войти</a>
                         <a href="javascript:forrget_user_pass();" id="app_forrget_pass_subm">восстановить пароль</a>
                     </form>
+                    -->
+
+                </div>
+            </div>
+        </div>
+        <!-- ================== *** ================== -->
+        <!-- ================== страница поддержки ================== -->
+        <div data-role="page" id="support" data-theme="f">
+            <div data-role="header">
+                <img style="display: block;margin: 0 auto;padding-top: 12px;" src="img/logo.png" />
+
+                <a href="#overlayPanel2" class="ui-btn-right ui-btn-inline ui-corner-all ui-shadow">
+                    <img src="images/menu-btn.png" width="30" height="24" />
+                </a>
+            </div>
+            <div class="clr"></div>
+            <div data-role="panel" id="overlayPanel2" data-display="overlay" data-position="left">
+                <!--<div class="menu-panel-title">МЕНЮ</div>-->
+                <a href="#overlayPanel2" class="ui-btn-right ui-btn-inline ui-corner-all ui-shadow">
+                    <img src="images/menu-btn.png" width="30" height="24" />
+                </a>
+                <div class="clr" style="height:20px;"></div>
+                <ul class="menu">
+                    <!--<li class="active"><a href="#login-page" id="login-page">Авторизация</a></li>-->
+                    <li><a href="#index" id="index-page">Резервуары</a></li>
+                    <li><a href="#support" id="support-page">Поддержка</a></li>
+                    <li><a href="#index" id="index2-app-page">Новости</a></li>
+                    <li><a href="#index" id="index3-app-page">О компании</a></li>
+                    <li><a href="#index" id="index4-app-page">Настройки</a></li>
+                </ul>
+            </div>
+            <div data-role="content" style="padding-top:50px;">
+                <div class="app-content" id="support-page-content">
+                    Поддержка
+                    <!--
+                    <form method="GET" name="app_auth_form" class="app_auth_form">
+                        <input type="text" name="user_email" id="user_email" placeholder="example@mail.com" />
+                        <input type="password" name="user_pass" id="user_pass" placeholder="введите пароль" />
+                        <a href="javascript:auth_user();" id="app_auth_subm">Войти</a>
+                        <a href="javascript:forrget_user_pass();" id="app_forrget_pass_subm">восстановить пароль</a>
+                    </form>
+                    -->
+
                 </div>
             </div>
         </div>
