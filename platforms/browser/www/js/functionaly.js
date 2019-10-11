@@ -103,9 +103,8 @@ function ajax_response_ctrl(g, res) {
                     html_source += '<li><b>Device Name:</b> '+ res.data[t]['name'] +'</li>';
                     html_source += '<li><b>Device Type:</b> '+ res.data[t]['type'] +'</li>';
                     html_source += '<li><b>Device Object:</b> '+ res.data[t]['object'] +'</li>';
+                    html_source += '<li><b>Device Parent Object:</b> '+ res.data[t]['parent_object'] +'</li>';
                     html_source += '<li><b>Device Identifier:</b> '+ res.data[t]['identifier'] +'</li>';
-                    //html_source += '<li><b>ID:</b> '+ res.data[t]['name'] +'</li>';
-                    //html_source += '<li><b>ID:</b> '+ res.data[t]['name'] +'</li>';
                 }
 
                 html_source += '</ul>';
