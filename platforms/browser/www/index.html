@@ -6,7 +6,6 @@
         <meta name="msapplication-tap-highlight" content="no">
 		<meta charset="utf-8">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-        <link rel="stylesheet" type="text/css" href="css/index.css">
 
 		<link rel="stylesheet" href="css/style.css" />
 		<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
@@ -17,6 +16,7 @@
 		<script src="js/jquery-1.11.3.min.js"></script>
 		<script type="text/javascript" src="js/jquery-ui.js"></script>
 		<script src="js/jquery.mobile-1.4.5.min.js"></script>
+        <script src="js/functionaly.js"></script>
 		<script>
 			$(document).bind('mobileinit',function() {
 	//	    	alert("before mobileinit");
@@ -30,51 +30,52 @@
 				$.mobile.pushStateEnabled = false;
 	//	    	alert("after mobileinit");
 			});
-		</script>
 
-		<link rel="stylesheet" href="css/swiper.css">
-		<script src="js/swiper.js"></script>
+			//console.log();
+            //if (localStorage.getItem("acc_sessionID") < 1) {
+                checkSession();
+            //}
+
+		</script>
 
 		<script type="text/javascript">
 			$(document).ready(function() {
 				$(window).unbind();
-                //$.mobile.changePage('#support');
 
 				$(window).bind('pageshow resize orientationchange', function(e){
 	//				max_height();
 				});
-/*
-				$("* #index-page").on("click", function() {
-				    /*
-					$("* #fon-type-file1").html("<div class='plus'>+</div><span>Иконка</span><input type='file' onchange='upload_img_to_server_icon(\"add\")' name='add_app_icon' id='add-app-icon' /><input type='hidden' name='addeded_icon' value='' id='addeded_icon' />");
-					$("* #swiper-container-2").html("");
-					$("* #swiper-container-2").css("display", "none");
-					getDataFromServer();
-					*//*
-				});
-*/
-				getDataFromServer();
 
-				/*
-				updateServerSession();
-				setInterval('getDataFromServer()', 3800);
-	//			alert(111);
-	*/
-/*
-				$("* #add-app-icon").on("change", function() {
-					upload_img_to_server_icon('add');
-				});
-				$("* #add-app-screen").on("change", function() {
-					upload_img_to_server_screen('add');
-				});
+				$("#devices-page, #devices-page-2, #devices-page-3, #devices-page-4").on("click", function() {
+                    //window.localStorage["acc_sessionID"] = 0;
+                    //console.log(this.rel);
+                    //checkSession();
+                    //console.log(window.localStorage["acc_sessionID"]);
+                    checkSession();
+                    if (localStorage.getItem("acc_sessionID") == 1) {
+                        //console.log(12345);
+                        $.mobile.changePage('#' + this.rel);
+                        //$.mobile.changePage('#devices');
+                        getDataFromServer();
+                    }
+                });
+                $("#support-page, #support-page-2, #support-page-3, #support-page-4").on("click", function() {
+                    //window.localStorage["acc_sessionID"] = 0;
+                    checkSession();
+                    if (localStorage.getItem("acc_sessionID") == 1) {
+                        $.mobile.changePage('#' + this.rel);
+                        //$.mobile.changePage('#devices');
+                        //getDataFromServer();
+                    }
+                });
 
-				$("* #edit-app-icon").on("change", function() {
-					upload_img_to_server_icon('edit');
-				});
-				$("* #edit-app-screen").on("change", function() {
-					upload_img_to_server_screen('edit');
-				});
-*/
+                /*
+                if (window.localStorage["acc_sessionID"] == 1) {
+                    $.mobile.changePage('#devices');
+                    getDataFromServer();
+                }
+                */
+
 			});
 	/*
 			function max_height(){
@@ -93,13 +94,34 @@
 				}
 			}     */
 		</script>
-		<script src="js/functionaly.js"></script>
-
 
     </head>
     <body>
-        <!-- ================== страница авторизации (главная страница) ================== -->
+        <!-- ================== главная страница ================== -->
         <div data-role="page" id="index" data-theme="f">
+            <div data-role="header">
+                <img style="display: block;margin: 0 auto;padding-top: 12px;" src="img/logo.png" />
+
+                <a href="#overlayPanel1" class="ui-btn-right ui-btn-inline ui-corner-all ui-shadow">
+                    <img src="images/menu-btn.png" width="30" height="24" />
+                </a>
+            </div>
+
+            <div data-role="content" style="padding-top:50px;">
+                <div class="app-content" id="index-page-content">
+                    <script>
+                        //console.log(localStorage.getItem("acc_sessionID"));
+                        if (localStorage.getItem("acc_sessionID") == 1) {
+                            //console.log(1111);
+                            $.mobile.changePage('#devices');
+                        }
+                    </script>
+                </div>
+            </div>
+        </div>
+        <!-- ================== *** ================== -->
+        <!-- ================== страница авторизации ================== -->
+        <div data-role="page" id="auth" data-theme="f">
             <div data-role="header">
                 <img style="display: block;margin: 0 auto;padding-top: 12px;" src="img/logo.png" />
 
@@ -116,24 +138,28 @@
                 <div class="clr" style="height:20px;"></div>
                 <ul class="menu">
                     <!--<li class="active"><a href="#login-page" id="login-page">Авторизация</a></li>-->
-                    <li><a href="#index" id="index-page">Резервуары</a></li>
-                    <li><a href="#support" id="support-page">Поддержка</a></li>
-                    <li><a href="#index" id="index2-app-page">Новости</a></li>
-                    <li><a href="#index" id="index3-app-page">О компании</a></li>
-                    <li><a href="#index" id="index4-app-page">Настройки</a></li>
+                    <li><a href="#" rel="devices" id="devices-page">Резервуары</a></li>
+                    <li><a href="#" rel="support" id="support-page">Поддержка</a></li>
+                    <li><a href="#" id="index2-app-page">Новости</a></li>
+                    <li><a href="#" id="index3-app-page">О компании</a></li>
+                    <li><a href="#" id="index4-app-page">Настройки</a></li>
                 </ul>
             </div>
             <div data-role="content" style="padding-top:50px;">
-                <div class="app-content" id="index-page-content">
-                    Резервуары
-                    <!--
+                <div class="app-content" id="auth-page-content">
+                    <script>
+                        if (localStorage.getItem("acc_sessionID") == 1) {
+                            //console.log(1111);
+                            $.mobile.changePage('#devices');
+                        }
+                    </script>
+                    <h1>Авторизация</h1>
                     <form method="GET" name="app_auth_form" class="app_auth_form">
-                        <input type="text" name="user_email" id="user_email" placeholder="example@mail.com" />
-                        <input type="password" name="user_pass" id="user_pass" placeholder="введите пароль" />
+                        <input type="text" value="" class="text-fields" name="user_email" id="user_email" placeholder="Ваш email" />
+                        <input type="password" value="" class="text-fields" name="user_pass" id="user_pass" placeholder="Пароль" />
                         <a href="javascript:auth_user();" id="app_auth_subm">Войти</a>
-                        <a href="javascript:forrget_user_pass();" id="app_forrget_pass_subm">восстановить пароль</a>
+                        <a href="javascript:forrget_user_pass();" id="app_forrget_pass_subm">Восстановить пароль</a>
                     </form>
-                    -->
 
                 </div>
             </div>
@@ -157,11 +183,11 @@
                 <div class="clr" style="height:20px;"></div>
                 <ul class="menu">
                     <!--<li class="active"><a href="#login-page" id="login-page">Авторизация</a></li>-->
-                    <li><a href="#index" id="index-page">Резервуары</a></li>
-                    <li><a href="#support" id="support-page">Поддержка</a></li>
-                    <li><a href="#index" id="index2-app-page">Новости</a></li>
-                    <li><a href="#index" id="index3-app-page">О компании</a></li>
-                    <li><a href="#index" id="index4-app-page">Настройки</a></li>
+                    <li><a href="#" rel="devices" id="devices-page-2">Резервуары</a></li>
+                    <li><a href="#" rel="support" id="support-page-2">Поддержка</a></li>
+                    <li><a href="#" id="index2-app-page">Новости</a></li>
+                    <li><a href="#" id="index3-app-page">О компании</a></li>
+                    <li><a href="#" id="index4-app-page">Настройки</a></li>
                 </ul>
             </div>
             <div data-role="content" style="padding-top:50px;">
@@ -176,6 +202,74 @@
                     </form>
                     -->
 
+                </div>
+            </div>
+        </div>
+        <!-- ================== *** ================== -->
+        <!-- ================== страница списка резервуаров ================== -->
+        <div data-role="page" id="devices" data-theme="f">
+            <div data-role="header">
+                <img style="display: block;margin: 0 auto;padding-top: 12px;" src="img/logo.png" />
+
+                <a href="#overlayPanel3" class="ui-btn-right ui-btn-inline ui-corner-all ui-shadow">
+                    <img src="images/menu-btn.png" width="30" height="24" />
+                </a>
+            </div>
+            <div class="clr"></div>
+            <div data-role="panel" id="overlayPanel3" data-display="overlay" data-position="left">
+                <!--<div class="menu-panel-title">МЕНЮ</div>-->
+                <a href="#overlayPanel3" class="ui-btn-right ui-btn-inline ui-corner-all ui-shadow">
+                    <img src="images/menu-btn.png" width="30" height="24" />
+                </a>
+                <div class="clr" style="height:20px;"></div>
+                <ul class="menu">
+                    <!--<li class="active"><a href="#login-page" id="login-page">Авторизация</a></li>-->
+                    <li><a href="#" rel="device" id="devices-page-3">Резервуары</a></li>
+                    <li><a href="#" rel="support" id="support-page-3">Поддержка</a></li>
+                    <li><a href="#" id="index2-app-page">Новости</a></li>
+                    <li><a href="#" id="index3-app-page">О компании</a></li>
+                    <li><a href="#" id="index4-app-page">Настройки</a></li>
+                </ul>
+            </div>
+            <div data-role="content" style="padding-top:50px;">
+                <div class="app-content">
+                    <h1>СПИСОК РЕЗЕРВУАРОВ</h1>
+                    <div id="devices-page-content">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ================== *** ================== -->
+        <!-- ================== страница резервуара ================== -->
+        <div data-role="page" id="device-detail" data-theme="f">
+            <div data-role="header">
+                <img style="display: block;margin: 0 auto;padding-top: 12px;" src="img/logo.png" />
+
+                <a href="#overlayPanel4" class="ui-btn-right ui-btn-inline ui-corner-all ui-shadow">
+                    <img src="images/menu-btn.png" width="30" height="24" />
+                </a>
+            </div>
+            <div class="clr"></div>
+            <div data-role="panel" id="overlayPanel4" data-display="overlay" data-position="left">
+                <!--<div class="menu-panel-title">МЕНЮ</div>-->
+                <a href="#overlayPanel4" class="ui-btn-right ui-btn-inline ui-corner-all ui-shadow">
+                    <img src="images/menu-btn.png" width="30" height="24" />
+                </a>
+                <div class="clr" style="height:20px;"></div>
+                <ul class="menu">
+                    <!--<li class="active"><a href="#login-page" id="login-page">Авторизация</a></li>-->
+                    <li><a href="#" rel="device" id="devices-page-4">Резервуары</a></li>
+                    <li><a href="#" rel="support" id="support-page-4">Поддержка</a></li>
+                    <li><a href="#" id="index2-app-page">Новости</a></li>
+                    <li><a href="#" id="index3-app-page">О компании</a></li>
+                    <li><a href="#" id="index4-app-page">Настройки</a></li>
+                </ul>
+            </div>
+            <div data-role="content" style="padding-top:50px;">
+                <div class="app-content">
+                    <h1>РЕЗЕРВУАР</h1>
+                    <div id="device-detail-page-content">
+                    </div>
                 </div>
             </div>
         </div>

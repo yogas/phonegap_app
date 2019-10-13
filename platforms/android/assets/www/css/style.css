@@ -1,88 +1,39 @@
-/*
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
-
 
 
 @font-face {
-    font-family: OpenSans-Bold;
-    src: url(fonts/OpenSans-Bold.ttf);
+    font-family: Intro-Bold;
+    src: url(fonts/Intro-Bold.otf);
 }
 @font-face {
-    font-family: OpenSans-BoldItalic;
-    src: url(fonts/OpenSans-BoldItalic.ttf);
+    font-family: Intro-Light;
+    src: url(fonts/Intro-Light.otf);
 }
 @font-face {
-    font-family: OpenSans-ExtraBold;
-    src: url(fonts/OpenSans-ExtraBold.ttf);
+    font-family: Intro;
+    src: url(fonts/Intro-Regular.otf);
 }
-@font-face {
-    font-family: OpenSans-ExtraBoldItalic;
-    src: url(fonts/OpenSans-ExtraBoldItalic.ttf);
-}
-@font-face {
-    font-family: OpenSans-Italic;
-    src: url(fonts/OpenSans-Italic.ttf);
-}
-@font-face {
-    font-family: OpenSans-Light;
-    src: url(fonts/OpenSans-Light.ttf);
-}
-@font-face {
-    font-family: OpenSans-LightItalic;
-    src: url(fonts/OpenSans-LightItalic.ttf);
-}
-@font-face {
-    font-family: OpenSans-Regular;
-    src: url(fonts/OpenSans-Regular.ttf);
-}
-@font-face {
-    font-family: OpenSans-Semibold;
-    src: url(fonts/OpenSans-Semibold.ttf);
-}
-@font-face {
-    font-family: OpenSans-SemiboldItalic;
-    src: url(fonts/OpenSans-SemiboldItalic.ttf);
-}
-@font-face {
-    font-family: PT_Sans-Web-Regular;
-    src: url(fonts/PT_Sans-Web-Regular.ttf);
-}
+
 
 body {
 	background: #FFFFFF;
 	color: #787878;
-	font-family: "OpenSans-Semibold";
+	font-family: "Intro";
 }
 
-.rub {
-font-family: "PT_Sans-Web-Regular";
+h1 {
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #787878;
+    font-size: 32px;
 }
-
-
 
 h4 {
-display: block;
--webkit-margin-before: 0;
--webkit-margin-after: 0;
--webkit-margin-start: 0px;
--webkit-margin-end: 0px;
-font-weight: bold;
+    display: block;
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    font-weight: bold;
 }
 
 .clr {
@@ -94,154 +45,13 @@ font-weight: bold;
 }
 
 
-.app-list-item-links-block {
-    width: 320px;
-	margin-bottom: 1px;
-	padding-bottom: 15px;
-	margin-top: -1px;
-	height: 30px;
-	margin: 0 auto;
-}
-.app-list-item-links-block .apply-link {
-    display: block;
-	float: left;
-	width: 100px;
-	height: 25px;
-	padding-top: 5px;
-	background-color: #FDC911;
-	font-family: "OpenSans-Semibold";
-    font-size: 14px;
-	color: #ffffff;
-	margin-right: 10px;
-	text-decoration: none;
-}
-.app-list-item-links-block .edit-link {
-    display: block;
-	float: left;
-	margin-right: 10px;
-	text-decoration: none;
-	width: 100px;
-	height: 25px;
-	padding-top: 5px;
-	background-color: #23B14D;
-	font-family: "OpenSans-Semibold";
-    font-size: 14px;
-	color: #ffffff;
-}
-.app-list-item-links-block .delete-link {
-    display: block;
-	float: left;
-	text-decoration: none;
-	width: 100px;
-	height: 25px;
-	padding-top: 5px;
-	background-color: #FF7F26;
-	font-family: "OpenSans-Semibold";
-    font-size: 14px;
-	color: #787878;
-}
-
-
 .app-content {
     text-align: center;
-/*	max-width: 100%;
-	margin-top: 15px;*/
 	color: #787878;
-	font-family: "OpenSans-Regular";
+	font-family: "Intro";
 	font-size: 14px;
-    margin: 15px auto 0;
+    margin: 65px auto 0;
     max-width: 100%;
-}
-.app-list-item-block, .app-list-item-block A {
-    width: 100%;
-	margin-bottom: 1px;
-/*	border-top: solid 1px #8F8F8F;*/
-	border-bottom: solid 1px #8F8F8F;
-	background-color: #212121;
-	padding-bottom: 10px;
-	padding-top: 10px;
-	height: 120px;
-
-	color: #787878;
-}
-.app-list-item-block .app-list-item {
-	height: 120px;
-    margin: 0 auto;
-    max-width: 100%;
-}
-.app-list-item-block IMG {
-	display: block;
-	float: left;
-	margin-left: 10px;
-	width: 120px;
-	height: 121px;
-}
-.app-list-item-block .app-title-block {
-    float: left;
-    font-size: 12px;
-    width: 70%;
-}
-.app-list-item-block .app-title-block A {
-    display: block;
-	float: left;
-	color: #ffffff;
-	width: 70px;
-	text-align: left;
-	margin-left: 15px;
-}
-.app-list-item-block .ops-block {
-    color: #ffffff;
-    display: block;
-    float: right;
-    text-align: center;
-	max-width: 140px;
-	padding-right: 8px;
-}
-.app-list-item-block .ops-block2 {
-    color: #ffffff;
-    display: block;
-    float: left;
-    margin-left: 15px;
-    text-align: left;
-	text-decoration: underline;
-	font-size: 15px;
-/*    width: 120px;*/
-}
-.app-list-item-block .app-desc-block {
-    color: #ffffff;
-    display: block;
-    float: left;
-    font-size: 12px;
-    margin-left: 15px;
-    margin-top: 5px;
-    max-height: 80px;
-    max-width: 65%;
-    text-align: left;
-	min-width: 60%;
-}
-.app-list-item-block .app-price-block {
-    width: 100%;
-	float: left;
-/*    margin-left: 15px;*/
-    font-size: 12px;
-    padding: 0;
-}
-.app-list-item-block .app-price-block .sale-perc-block {
-    color: #ffffff;
-    font-weight: bold;
-    display: block;
-    float: left;
-    margin-right: 15px;
-}
-.app-list-item-block .app-price-block .sale-perc-block-2 {
-    color: #ffffff;
-    display: block;
-    /* float: left; */
-    margin-left: 10px;
-}
-.app-list-item-block .app-price-block .sale-perc-block .y-text, .sale-perc-block-2 .y-text {
-    font-weight: bold;
-	color: #F3E348;
 }
 
 .menu {
@@ -251,7 +61,7 @@ font-weight: bold;
 	list-style: none;
 }
 .menu LI {
-	font-family: "OpenSans-Semibold";
+	font-family: "Intro";
     font-size: 12px;
 	color: #787878;
 }
@@ -260,7 +70,7 @@ font-weight: bold;
 	line-height: 1.5;
 	display: block;
 	width: 280px;
-	font-family: "OpenSans-Semibold";
+	font-family: "Intro";
     font-size: 12px;
 	text-decoration: none;
 	font-weight: 400;
@@ -274,7 +84,7 @@ font-weight: bold;
 	padding-bottom: 20px;
 	display: block;
 	width: 280px;
-	font-family: "OpenSans-Semibold";
+	font-family: "Intro";
     font-size: 12px;
 	text-decoration: none;
 	font-weight: 400;
@@ -293,14 +103,14 @@ font-weight: bold;
 	padding-left: 42px;
 	display: block;
 	width: 100%;
-	font-family: "OpenSans-Semibold";
+	font-family: "Intro";
     font-size: 12px;
 	text-decoration: none;
 }
 .menu-panel-title {
     color: #ffffff;
     float: left;
-    font-family: "OpenSans-Semibold";
+    font-family: "Intro";
     font-size: 22px;
     left: 85px;
     margin-bottom: 0 !important;
@@ -312,97 +122,35 @@ font-weight: bold;
 }
 
 
-.app-content .my_profile_form {
-    display: block;
-	width: 300px;
-	height: 200px;
-	margin: 65px auto 0;
-}
-.app-content .my_profile_form INPUT[type="text"] {
-	border: none;
-	width: 258px;
-	height: 32px;
-	margin: 0 auto 30px;
-	padding-top: 4px;
-	display: block;
-	font-family: "OpenSans-Semibold";
-	color: #575757;
-	background-color: #ffffff;
-    position: relative;
-    top: 35px;
-}
-.app-content .my_profile_form #my_profile_subm {
-    background-image: url("images/btn_bg.png");
-    background-repeat: no-repeat;
-    background-size: 100% 40px;
-    color: #ffffff;
-    display: block;
-    font-family: "OpenSans-Semibold";
-    font-size: 16px;
-    height: 50px;
-    margin: 50px auto;
-    padding-top: 10px;
-    text-decoration: none;
-    width: 180px;
-}
-.app-content .my_profile_form SPAN {
-    background-color: #23b14d;
-    color: #ffffff;
-    display: block;
-    font-family: "OpenSans-Semibold";
-    font-size: 16px;
-    height: 20px;
-    margin-left: 21px;
-    margin-right: 0;
-    margin-top: 15px;
-    padding-right: 0;
-    padding-top: 0;
-    position: absolute;
-    text-align: center;
-    max-width: 250px;
-    z-index: 1100;
-}
-
-
 .app-content .app_auth_form {
     display: block;
 	width: 300px;
 	height: 220px;
-	margin: 65px auto 0;
+	margin: 0 auto;
 	background-color: #FFFFFF;
 }
-.app-content .app_auth_form INPUT[type="text"] {
-    border: none;
-    width: 280px;
-    height: 32px;
-    margin: 0 auto;
-    font-family: "OpenSans-Semibold";
-    text-align: center;
-    color: #575757;
-    background-color: #ffffff;
-    position: relative;
-    top: 15px;
-    margin-bottom: 10px;
+.text-fields {
+    border-bottom: solid 1px #787878 !important;
+    height: 32px !important;
+    margin: 0 auto !important;
+    font-family: "Intro" !important;
+    text-align: center !important;
+    color: #787878 !important;
+    background-color: #ffffff !important;
+    position: relative !important;
+    top: 15px !important;
+    margin-bottom: 10px !important;
 }
-.app-content .app_auth_form INPUT[type="password"] {
-	border: none;
-	width: 280px;
-	height: 32px;
-	margin: 0 auto;
-	padding-top: 4px;
-	font-family: "OpenSans-Semibold";
-	text-align: center;
-	color: #575757;
-	background-color: #ffffff;
-    position: relative;
-    top: 15px;
+.error {
+    border: solid 1px red !important;
 }
+
 .app-content .app_auth_form SPAN {
     background-color: #23b14d;
     color: #ffffff;
     display: block;
     float: left;
-    font-family: "OpenSans-Semibold";
+    font-family: "Intro";
     font-size: 16px;
     height: 27px;
     margin-left: 10px;
@@ -416,77 +164,30 @@ font-weight: bold;
     z-index: 1100;
 }
 .app-content .app_auth_form #app_auth_subm {
-    font-family: "OpenSans-Semibold";
-    font-size: 16px;
+    font-family: "Intro-Bold";
+    font-size: 20px;
 	color: #ffffff;
 	text-decoration: none;
 	display: block;
 	margin: 60px auto;
-	width: 240px;
-	height: 25px;
-	padding-top: 5px;
-	background-image: url(images/btn_bg.png);
-	background-size: 100% 30px;
+    height: 35px;
+    padding-top: 10px;
+    background: #D2D2D2;
+    border-radius: 100px;
+    text-transform: uppercase;
 }
 .app-content .app_auth_form #app_forrget_pass_subm {
-    font-family: "OpenSans-Semibold";
+    font-family: "Intro";
     font-size: 16px;
-	color: #ffffff;
+	color: #3D88BE;
 	text-decoration: none;
 	display: block;
 	margin: -40px auto;
 	width: 240px;
 	height: 25px;
 	padding-top: 5px;
-	background-image: url(images/btn_bg.png);
-	background-size: 100% 30px;
-	text-transform: uppercase;
 }
-.app-content .app_auth_confirm_form {
-    display: block;
-	width: 300px;
-	height: 200px;
-	margin: 65px auto 0;
-	background-color: #FFFFFF;
-}
-.app-content .app_auth_confirm_form INPUT[type="text"] {
-	border: none;
-	width: 105px;
-	height: 32px;
-	margin-left: 70px;
-	padding-top: 4px;
-	display: block;
-	font-family: "OpenSans-Semibold";
-	color: #575757;
-	background-color: #ffffff;
-}
-.app-content .app_auth_confirm_form SPAN {
-	display: block;
-	width: 165px;
-	height: 30px;
-	margin: 0 auto 15px;
-	padding-top: 50px;
-    font-family: "OpenSans-Semibold";
-    font-size: 15px;
-	color: #ffffff;
-}
-.app-content .app_auth_confirm_form #app_auth_confirm_subm {
-    background-image: url("images/btn_bg.png");
-    background-repeat: no-repeat;
-    background-size: 100% 37px;
-    color: #ffffff;
-    display: block;
-    font-family: "OpenSans-Semibold";
-    font-size: 16px;
-    height: 32px;
-    margin-left: 180px;
-    margin-top: -35px;
-    padding-top: 7px;
-    text-decoration: none;
-    width: 60px;
-	position: relative;
-	z-index: 3;
-}
+
 
 #menu-1-user {
     display: none;
@@ -508,501 +209,6 @@ font-weight: bold;
 }
 
 
-.app-content .add_app_form {
-
-}
-.app-content .add_app_form INPUT[type="text"].full_width {
-	width: 97%;
-	height: 32px;
-/*	margin: 0 auto;*/
-	margin-left: 5px;
-	display: block;
-	background-color: #ffffff;
-	font-family: "OpenSans-Semibold";
-	color: #575757;
-}
-.app-content .add_app_form INPUT[type="text"].fifty_width {
-	width: 98%;
-	height: 32px;
-	margin-left: 5px;
-	display: block;
-	position: relative;
-	background-color: #ffffff;
-	font-family: "OpenSans-Semibold";
-	color: #575757;
-}
-.app-content .add_app_form TEXTAREA.full_width {
-	width: 97%;
-	height: 125px !important;
-/*	margin: 0 auto;*/
-	margin-left: 5px;
-	display: block;
-	background-color: #ffffff;
-	font-family: "OpenSans-Semibold";
-	color: #575757;
-	resize: none;
-	border: none;
-}
-.app-content .add_app_form SPAN {
-    background-color: #23b14d;
-    color: #ffffff;
-	float: left;
-    font-family: "OpenSans-Semibold";
-    font-size: 13px;
-    height: 20px;
-    margin-left: 5px;
-    margin-right: 0;
-    margin-top: 15px;
-    padding-right: 3px;
-    padding-left: 5px;
-    padding-top: 0;
-    position: relative;
-    text-align: center;
-    z-index: 1100;
-}
-.app-content .add_app_form INPUT[type="checkbox"] {
-	margin-left: 15px;
-	margin-top: 11px;
-}
-.app-content .add_app_form INPUT[type="file"] {
-    display: block;
-    height: 74px;
-/*    margin-top: -10px;*/
-    opacity: 0;
-    position: absolute;
-    width: 74px;
-	z-index: 556;
-}
-.app-content .add_app_form .fonTypeFile {
-	float: left;
-	background-color: #ffffff;
-	width: 76px;
-	height: 76px;
-	margin-left: 5px;
-	margin-top: 15px;
-}
-.app-content .add_app_form .fonTypeFile IMG {
-	display: block;
-	max-width: 76px;
-	max-height: 76px;
-	height: 76px;
-	position: absolute;
-	width: 76px;
-}
-.app-content .add_app_form .fonTypeFile SPAN {
-    background-color: #ffffff;
-    color: #212121;
-    display: block;
-    font-family: "OpenSans-Semibold";
-    font-size: 14px;
-    margin-left: 0;
-	top: 15px;
-    padding: 0;
-    text-align: center;
-    width: 75px;
-	z-index: 555;
-}
-.app-content .add_app_form .fonTypeFile .plus {
-    background-color: #21b24d;
-    color: #ffffff;
-    font-family: "OpenSans-Semibold";
-    font-size: 16px;
-    height: 18px;
-    position: absolute;
-    width: 18px;
-    z-index: 555;
-}
-.app-content .add_app_form .chb_label {
-	width: 125px;
-	float: left;
-	margin-top: 7px;
-}
-.app-content .add_app_form #add_app_subm {
-    background-image: url("images/btn_bg.png");
-    background-repeat: no-repeat;
-    background-size: 100% 37px;
-    color: #ffffff;
-    display: block;
-    font-family: "OpenSans-Semibold";
-    font-size: 16px;
-    height: 32px;
-	margin: 10px auto 0;
-    padding-top: 7px;
-    text-decoration: none;
-    width: 130px;
-	position: relative;
-	z-index: 3;
-}
-.app-content .add_app_form .screens_slider {
-    float: right;
-    width: 250px;
-    height: 76px;
-/*    border: solid 1px red;*/
-    margin-top: 15px;
-}
-.app-content .add_app_form .screens_slider IMG {
-    max-width: 88px;
-    max-height: 88px;
-	margin-right: 2;
-    height: 88px;
-	float: left;
-	display: block;
-}
-
-
-
-
-
-.app-content .edit_app_form {
-
-}
-.app-content .edit_app_form INPUT[type="text"].full_width {
-	width: 97%;
-	height: 32px;
-/*	margin: 0 auto;*/
-	margin-left: 5px;
-	display: block;
-	background-color: #ffffff;
-	font-family: "OpenSans-Semibold";
-	color: #575757;
-}
-.app-content .edit_app_form INPUT[type="text"].fifty_width {
-	width: 98%;
-	height: 32px;
-	margin-left: 5px;
-	display: block;
-	position: relative;
-	background-color: #ffffff;
-	font-family: "OpenSans-Semibold";
-	color: #575757;
-}
-.app-content .edit_app_form TEXTAREA.full_width {
-	width: 97%;
-	height: 125px !important;
-/*	margin: 0 auto;*/
-	margin-left: 5px;
-	display: block;
-	background-color: #ffffff;
-	font-family: "OpenSans-Semibold";
-	color: #575757;
-	resize: none;
-	border: none;
-}
-.app-content .edit_app_form SPAN {
-    background-color: #23b14d;
-    color: #ffffff;
-	float: left;
-    font-family: "OpenSans-Semibold";
-    font-size: 13px;
-    height: 20px;
-    margin-left: 5px;
-    margin-right: 0;
-    margin-top: 15px;
-    pediting-right: 3px;
-    pediting-left: 5px;
-    pediting-top: 0;
-    position: relative;
-    text-align: center;
-    z-index: 1100;
-}
-.app-content .edit_app_form INPUT[type="checkbox"] {
-	margin-left: 15px;
-	margin-top: 11px;
-}
-.app-content .edit_app_form INPUT[type="file"] {
-    display: block;
-    height: 74px;
-/*    margin-top: -10px;*/
-    opacity: 0;
-    position: absolute;
-    width: 74px;
-	z-index: 556;
-}
-.app-content .edit_app_form .fonTypeFile {
-	float: left;
-	background-color: #ffffff;
-	width: 76px;
-	height: 76px;
-	margin-left: 5px;
-	margin-top: 15px;
-}
-.app-content .edit_app_form .fonTypeFile IMG {
-	display: block;
-	max-width: 76px;
-	width: 76px;
-	max-height: 76px;
-	height: 76px;
-	position: absolute;
-}
-.app-content .edit_app_form .fonTypeFile SPAN {
-    background-color: #ffffff;
-    color: #212121;
-    display: block;
-    font-family: "OpenSans-Semibold";
-    font-size: 14px;
-    margin-left: 0;
-	top: 15px;
-    pediting: 0;
-    text-align: center;
-    width: 75px;
-	z-index: 555;
-}
-.app-content .edit_app_form .fonTypeFile .plus {
-    background-color: #21b24d;
-    color: #ffffff;
-    font-family: "OpenSans-Semibold";
-    font-size: 16px;
-    height: 18px;
-    position: absolute;
-    width: 18px;
-    z-index: 555;
-}
-.app-content .edit_app_form .chb_label {
-	width: 125px;
-	float: left;
-	margin-top: 7px;
-}
-.app-content .edit_app_form #edit_app_subm {
-    background-image: url("images/btn_bg.png");
-    background-repeat: no-repeat;
-    background-size: 100% 37px;
-    color: #ffffff;
-    display: block;
-    font-family: "OpenSans-Semibold";
-    font-size: 16px;
-    height: 22px;
-	margin: 10px auto 0;
-    pediting-top: 7px;
-    text-decoration: none;
-    width: 130px;
-	position: relative;
-	z-index: 3;
-	padding-top: 10px;
-}
-.app-content .edit_app_form #edit_app_delete {
-    background-image: url("images/btn_bg.png");
-    background-repeat: no-repeat;
-    background-size: 100% 37px;
-    color: #ffffff;
-    display: block;
-    font-family: "OpenSans-Semibold";
-    font-size: 16px;
-    height: 22px;
-	margin: 10px auto 0;
-    pediting-top: 7px;
-    text-decoration: none;
-    width: 130px;
-	position: relative;
-	z-index: 3;
-	padding-top: 10px;
-}
-.app-content .edit_app_form .screens_slider {
-    float: right;
-    width: 200px;
-    height: 76px;
-/*    border: solid 1px red;*/
-    margin-top: 15px;
-}
-.app-content .edit_app_form .screens_slider IMG {
-    max-width: 65px;
-    max-height: 76px;
-	margin-right: 2;
-    height: 76px;
-	float: left;
-	display: block;
-}
-
-.app-content .ditail_main_img {
-	float: left;
-	width: 120px;
-	height: 120px;
-	margin-left: 5px;
-}
-.app-content .ditail_main_img IMG {
-	width: 120px;
-	height: 120px;
-}
-.app-content .right-head-block {
-    float: left;
-    font-family: "OpenSans-Semibold";
-    font-size: 17px;
-    height: 80px;
-    margin-left: 25px;
-    margin-top: 40px;
-    text-align: left;
-    width: 55%;
-}
-.app-content .right-head-block SPAN {
-	display: block;
-	float: left;
-    font-family: "OpenSans-Semibold";
-    font-size: 17px;
-	width: 100%;
-}
-.app-content .link-block {
-	width: 100%;
-	height: 45px;
-	margin-top: 15px;
-}
-.app-content .link-block .os-txt {
-	width: 160px;
-	font-family: "OpenSans-Semibold";
-    font-size: 14px;
-	height: 45px;
-	position: absolute;
-}
-.app-content .link-block .setup-link {
-    float: right;
-    height: 45px;
-    margin-left: 45%;
-    position: absolute;
-    text-align: center;
-    width: 180px;
-}
-.app-content .link-block .setup-link A {
-    width: 170px;
-    height: 25px;
-    display: block;
-    text-align: center;
-    margin: 0 auto;
-    background: linear-gradient(to top, #E4BF28, #EFF184);
-    padding-top: 5px;
-    margin-top: -10px;
-	font-family: "OpenSans-Semibold";
-    font-size: 14px;
-	color: #212121;
-	text-decoration: none;
-}
-.app-content .ditail-app-desc-block .field-label {
-    background-color: #23b14d;
-    color: #ffffff;
-/*    float: left;*/
-    font-family: "OpenSans-Semibold";
-    font-size: 13px;
-    height: 20px;
-    margin-left: 5px;
-    margin-right: 0;
-/*    margin-top: 15px;*/
-    padding-left: 5px;
-    padding-right: 5px;
-    padding-top: 0;
-/*    position: relative;*/
-    text-align: center;
-/*    z-index: 1100;*/
-}
-.app-content .ditail-app-desc-block .field-label2 {
-    background-color: #23b14d;
-    color: #ffffff;
-    float: left;
-    font-family: "OpenSans-Semibold";
-    font-size: 13px;
-    height: 20px;
-/*    margin-left: 5px;*/
-    margin-right: 0;
-/*    margin-top: 15px;*/
-    padding-left: 5px;
-    padding-right: 5px;
-    padding-top: 0;
-/*    position: relative;*/
-    text-align: center;
-/*    z-index: 1100;*/
-}
-.app-content .ditail-app-desc-block {
-	max-width: 100%;
-	text-align: left;
-	overflow: hidden;
-	word-wrap: break-word;
-	margin: 0 auto;
-}
-.app-content .ditail-app-desc-block .fifty-block {
-	float: left;
-	width: 48%;
-	margin-left: 5px;
-}
-.app-content .ditail-app-desc-block .full_width_text {
-    background-color: #ffffff;
-    color: #575757;
-/*    display: block;*/
-    font-family: "OpenSans-Semibold";
-    min-height: 32px;
-    margin-left: 5px;
-/*    width: 300px;*/
-/*	margin-top: 20px;*/
-	margin-bottom: 15px;
-	max-width: 94%;
-	z-index: 1;
-	text-align: left;
-	overflow: hidden;
-	word-wrap: break-word;
-	padding: 2px 5px 0 5px;
-}
-.app-content .ditail-app-desc-block .fifty_width_text {
-    background-color: #ffffff;
-    color: #575757;
-/*    display: block;*/
-    font-family: "OpenSans-Semibold";
-    min-height: 32px;
-/*    margin-left: 5px;*/
-/*    width: 300px;*/
-/*	margin-top: 20px;*/
-	margin-bottom: 15px;
-	width: 95%;
-	z-index: 1;
-	text-align: left;
-	overflow: hidden;
-	word-wrap: break-word;
-	padding: 2px 5px 0 5px;
-	float: left;
-}
-.app-content .ditail-app-desc-block .full_width_textar {
-    background-color: #ffffff;
-    color: #575757;
-/*    display: block;*/
-    font-family: "OpenSans-Semibold";
-    min-height: 72px;
-    margin-left: 5px;
-/*    width: 300px;*/
-/*	margin-top: 20px;*/
-	margin-bottom: 15px;
-	max-width: 94%;
-	width: 94%;
-/*	width: 296px;*/
-	z-index: 1;
-	text-align: left;
-	overflow: hidden;
-	word-wrap: break-word;
-	float: left;
-	padding: 2px 5px 0 5px;
-}
-#swiper-container-1 DIV {
-    height: 180px;
-/*	margin-right: 5px;
-	margin-left: 5px;*/
-}
-#swiper-container-1 DIV IMG {
-    height: 180px;
-	width: 75%;
-/*	width: 190px;*/
-}
-#swiper-container-2 DIV {
-    height: 76px;
-	width: 76px;
-}
-#swiper-container-2 DIV IMG {
-    height: 76px;
-	width: 76px;
-}
-#swiper-container-3 DIV {
-    height: 76px;
-	width: 76px;
-}
-#swiper-container-3 DIV IMG {
-    height: 76px;
-	width: 76px;
-}
-
-
-
 h2 { margin-top:1.5em; }
 
 p code { font-size:1.2em; font-weight:bold; } 
@@ -1020,12 +226,12 @@ pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
 
 
 	h4 {
-	display: block;
-	-webkit-margin-before: 0;
-	-webkit-margin-after: 0;
-	-webkit-margin-start: 0px;
-	-webkit-margin-end: 0px;
-	font-weight: bold;
+        display: block;
+        -webkit-margin-before: 0;
+        -webkit-margin-after: 0;
+        -webkit-margin-start: 0px;
+        -webkit-margin-end: 0px;
+        font-weight: bold;
 	}
 
 	.clr {
@@ -1036,153 +242,15 @@ pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
 		height: 15px;
 	}
 
-
-	.app-list-item-links-block {
-	    width: 320px;
-		margin-bottom: 1px;
-		padding-bottom: 15px;
-		margin-top: -1px;
-		height: 30px;
-		margin: 0 auto;
-	}
-	.app-list-item-links-block .apply-link {
-	    display: block;
-		float: left;
-		width: 100px;
-		height: 25px;
-		padding-top: 5px;
-		background-color: #FDC911;
-		font-family: "OpenSans-Semibold";
-	    font-size: 14px;
-		color: #ffffff;
-		margin-right: 10px;
-		text-decoration: none;
-	}
-	.app-list-item-links-block .edit-link {
-	    display: block;
-		float: left;
-		margin-right: 10px;
-		text-decoration: none;
-		width: 100px;
-		height: 25px;
-		padding-top: 5px;
-		background-color: #23B14D;
-		font-family: "OpenSans-Semibold";
-	    font-size: 14px;
-		color: #ffffff;
-	}
-	.app-list-item-links-block .delete-link {
-	    display: block;
-		float: left;
-		text-decoration: none;
-		width: 100px;
-		height: 25px;
-		padding-top: 5px;
-		background-color: #FF7F26;
-		font-family: "OpenSans-Semibold";
-	    font-size: 14px;
-		color: #ffffff;
-	}
-
-
 	.app-content {
 	    text-align: center;
-	/*	max-width: 100%;
-		margin-top: 15px;*/
 		color: #ffffff;
 		font-family: "OpenSans-Regular";
 		font-size: 14px;
 	    margin: 15px auto 0;
 	    max-width: 100%;
 	}
-	.app-list-item-block, .app-list-item-block A {
-	    width: 100%;
-		margin-bottom: 1px;
-	/*	border-top: solid 1px #8F8F8F;*/
-		border-bottom: solid 1px #8F8F8F;
-		background-color: #212121;
-		padding-bottom: 10px;
-		padding-top: 10px;
-		height: 95px;
 
-		color: #ffffff;
-	}
-	.app-list-item-block .app-list-item {
-		height: 120px;
-	    margin: 0 auto;
-	    max-width: 100%;
-	}
-	.app-list-item-block IMG {
-		display: block;
-		float: left;
-	    height: 95px;
-	    margin-left: 10px;
-	    width: 95px;
-	}
-	.app-list-item-block .app-title-block {
-	    float: left;
-	    font-size: 12px;
-	    width: 70%;
-	}
-	.app-list-item-block .app-title-block A {
-	    display: block;
-		float: left;
-		color: #ffffff;
-		width: 70px;
-		text-align: left;
-		margin-left: 15px;
-	}
-	.app-list-item-block .ops-block {
-	    color: #ffffff;
-	    display: block;
-	    float: right;
-	    text-align: center;
-		max-width: 140px;
-		padding-right: 8px;
-	}
-	.app-list-item-block .ops-block2 {
-	    color: #ffffff;
-	    display: block;
-	    float: left;
-	    margin-left: 15px;
-	    text-align: left;
-	/*    width: 120px;*/
-	}
-	.app-list-item-block .app-desc-block {
-	    color: #ffffff;
-	    display: block;
-	    float: left;
-	    font-size: 12px;
-	    margin-left: 15px;
-	    margin-top: 5px;
-	    max-height: 80px;
-	    max-width: 65%;
-	    text-align: left;
-	}
-	.app-list-item-block .app-price-block {
-	    width: 100%;
-		float: left;
-	/*    margin-left: 15px;*/
-	    font-size: 12px;
-	    padding: 0;
-	}
-	.app-list-item-block .app-price-block .sale-perc-block {
-	    color: #ffffff;
-	    font-weight: bold;
-	    display: block;
-	    float: left;
-	    margin-left: 0px;
-	}
-	.app-list-item-block .app-price-block .sale-perc-block-2 {
-	    color: #ffffff;
-	    display: block;
-	    /* float: left; */
-	    margin-left: 10px;
-	}
-	.app-list-item-block .app-price-block .sale-perc-block .y-text, .sale-perc-block-2 .y-text {
-	    font-weight: bold;
-		color: #F3E348;
-	}
 
 	.menu {
 	    margin: -50px 0 0;
@@ -1191,7 +259,7 @@ pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
 		list-style: none;
 	}
 	.menu LI {
-		font-family: "OpenSans-Semibold";
+		font-family: "Intro";
 	    font-size: 12px;
 		color: #ffffff;
 	}
@@ -1200,7 +268,7 @@ pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
 		line-height: 1.5;
 		display: block;
 		width: 280px;
-		font-family: "OpenSans-Semibold";
+		font-family: "Intro";
 	    font-size: 12px;
 		text-decoration: none;
 		font-weight: 400;
@@ -1213,7 +281,7 @@ pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
 		padding-bottom: 20px;
 		display: block;
 		width: 280px;
-		font-family: "OpenSans-Semibold";
+		font-family: "Intro";
 	    font-size: 12px;
 		text-decoration: none;
 		font-weight: 400;
@@ -1232,14 +300,14 @@ pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
 		padding-left: 42px;
 		display: block;
 		width: 100%;
-		font-family: "OpenSans-Semibold";
+		font-family: "Intro";
 	    font-size: 12px;
 		text-decoration: none;
 	}
 	.menu-panel-title {
 	    color: #ffffff;
 	    float: left;
-	    font-family: "OpenSans-Semibold";
+	    font-family: "Intro";
 	    font-size: 22px;
 	    left: 85px;
 	    margin-bottom: 0 !important;
@@ -1251,58 +319,6 @@ pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
 	}
 
 
-	.app-content .my_profile_form {
-	    display: block;
-		width: 300px;
-		height: 200px;
-		margin: 65px auto 0;
-	}
-	.app-content .my_profile_form INPUT[type="text"] {
-		border: none;
-		width: 258px;
-		height: 32px;
-		margin: 0 auto 30px;
-		padding-top: 4px;
-		display: block;
-		font-family: "OpenSans-Semibold";
-		color: #575757;
-		background-color: #ffffff;
-	    position: relative;
-	    top: 35px;
-	}
-	.app-content .my_profile_form #my_profile_subm {
-	    background-image: url("images/btn_bg.png");
-	    background-repeat: no-repeat;
-	    background-size: 100% 40px;
-	    color: #ffffff;
-	    display: block;
-	    font-family: "OpenSans-Semibold";
-	    font-size: 16px;
-	    height: 50px;
-	    margin: 50px auto;
-	    padding-top: 10px;
-	    text-decoration: none;
-	    width: 180px;
-	}
-	.app-content .my_profile_form SPAN {
-	    background-color: #23b14d;
-	    color: #ffffff;
-	    display: block;
-	    font-family: "OpenSans-Semibold";
-	    font-size: 16px;
-	    height: 20px;
-	    margin-left: 21px;
-	    margin-right: 0;
-	    margin-top: 15px;
-	    padding-right: 0;
-	    padding-top: 0;
-	    position: absolute;
-	    text-align: center;
-	    max-width: 250px;
-	    z-index: 1100;
-	}
-
-
 	.app-content .app_auth_form {
 	    display: block;
 		width: 300px;
@@ -1310,38 +326,29 @@ pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
 		margin: 65px auto 0;
 		background-color: #212121;
 	}
-	.app-content .app_auth_form INPUT[type="text"] {
+    .text-fields {
         border: none;
         width: 280px;
         height: 32px;
         margin: 0 auto;
-        font-family: "OpenSans-Semibold";
+        font-family: "Intro";
         text-align: center;
         color: #575757;
         background-color: #ffffff;
         position: relative;
         top: 15px;
         margin-bottom: 10px;
-	}
-	.app-content .app_auth_form INPUT[type="password"] {
-		border: none;
-		width: 280px;
-		height: 32px;
-		margin: 0 auto;
-		padding-top: 4px;
-		font-family: "OpenSans-Semibold";
-		text-align: center;
-		color: #575757;
-		background-color: #ffffff;
-	    position: relative;
-	    top: 15px;
-	}
+    }
+    .error {
+        border: solid 1px red !important;
+    }
+
 	.app-content .app_auth_form SPAN {
 	    background-color: #23b14d;
 	    color: #ffffff;
 	    display: block;
 	    float: left;
-	    font-family: "OpenSans-Semibold";
+	    font-family: "Intro";
 	    font-size: 16px;
 	    height: 27px;
 	    margin-left: 10px;
@@ -1354,77 +361,31 @@ pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
 	    width: 32px;
 	    z-index: 1100;
 	}
-	.app-content .app_auth_form #app_auth_subm {
-	    font-family: "OpenSans-Semibold";
-	    font-size: 16px;
-		color: #ffffff;
-		text-decoration: none;
-		display: block;
-		margin: 60px auto;
-		width: 240px;
-		height: 25px;
-		padding-top: 5px;
-		background-image: url(images/btn_bg.png);
-		background-size: 100% 30px;
-	}
+    .app-content .app_auth_form #app_auth_subm {
+        font-family: "Intro-Bold";
+        font-size: 20px;
+        color: #ffffff;
+        text-decoration: none;
+        display: block;
+        margin: 60px auto;
+        height: 35px;
+        padding-top: 10px;
+        background: #D2D2D2;
+        border-radius: 100px;
+        text-transform: uppercase;
+    }
     .app-content .app_auth_form #app_forrget_pass_subm {
-	    font-family: "OpenSans-Semibold";
-	    font-size: 16px;
-		color: #ffffff;
-		text-decoration: none;
-		display: block;
-		margin: -40px auto;
-		width: 240px;
-		height: 25px;
-		padding-top: 5px;
-		background-image: url(images/btn_bg.png);
-		background-size: 100% 30px;
-	}
-	.app-content .app_auth_confirm_form {
-	    display: block;
-		width: 300px;
-		height: 200px;
-		margin: 65px auto 0;
-		background-color: #212121;
-	}
-	.app-content .app_auth_confirm_form INPUT[type="text"] {
-		border: none;
-		width: 105px;
-		height: 32px;
-		margin-left: 70px;
-		padding-top: 4px;
-		display: block;
-		font-family: "OpenSans-Semibold";
-		color: #575757;
-		background-color: #ffffff;
-	}
-	.app-content .app_auth_confirm_form SPAN {
-		display: block;
-		width: 165px;
-		height: 30px;
-		margin: 0 auto 15px;
-		padding-top: 50px;
-	    font-family: "OpenSans-Semibold";
-	    font-size: 15px;
-		color: #ffffff;
-	}
-	.app-content .app_auth_confirm_form #app_auth_confirm_subm {
-	    background-image: url("images/btn_bg.png");
-	    background-repeat: no-repeat;
-	    background-size: 100% 37px;
-	    color: #ffffff;
-	    display: block;
-	    font-family: "OpenSans-Semibold";
-	    font-size: 16px;
-	    height: 32px;
-	    margin-left: 180px;
-	    margin-top: -35px;
-	    padding-top: 7px;
-	    text-decoration: none;
-	    width: 60px;
-		position: relative;
-		z-index: 3;
-	}
+        font-family: "Intro";
+        font-size: 16px;
+        color: #3D88BE;
+        text-decoration: none;
+        display: block;
+        margin: -40px auto;
+        width: 240px;
+        height: 25px;
+        padding-top: 5px;
+    }
+
 
 	#menu-1-user {
 	    display: none;
@@ -1443,473 +404,6 @@ pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
 	}
 	#menu-6-user {
 	    display: none;
-	}
-
-
-	.app-content .add_app_form {
-
-	}
-	.app-content .add_app_form INPUT[type="text"].full_width {
-		width: 97%;
-		height: 32px;
-	/*	margin: 0 auto;*/
-		margin-left: 5px;
-		display: block;
-		background-color: #ffffff;
-		font-family: "OpenSans-Semibold";
-		color: #575757;
-	}
-	.app-content .add_app_form INPUT[type="text"].fifty_width {
-		width: 98%;
-		height: 32px;
-		margin-left: 5px;
-		display: block;
-		position: relative;
-		background-color: #ffffff;
-		font-family: "OpenSans-Semibold";
-		color: #575757;
-	}
-	.app-content .add_app_form TEXTAREA.full_width {
-		width: 97%;
-		height: 125px !important;
-	/*	margin: 0 auto;*/
-		margin-left: 5px;
-		display: block;
-		background-color: #ffffff;
-		font-family: "OpenSans-Semibold";
-		color: #575757;
-		resize: none;
-		border: none;
-	}
-	.app-content .add_app_form SPAN {
-	    background-color: #23b14d;
-	    color: #ffffff;
-		float: left;
-	    font-family: "OpenSans-Semibold";
-	    font-size: 13px;
-	    height: 20px;
-	    margin-left: 5px;
-	    margin-right: 0;
-	    margin-top: 15px;
-	    padding-right: 3px;
-	    padding-left: 5px;
-	    padding-top: 0;
-	    position: relative;
-	    text-align: center;
-	    z-index: 1100;
-	}
-	.app-content .add_app_form INPUT[type="checkbox"] {
-		margin-left: 15px;
-		margin-top: 11px;
-	}
-	.app-content .add_app_form INPUT[type="file"] {
-	    display: block;
-	    height: 74px;
-	/*    margin-top: -10px;*/
-	    opacity: 0;
-	    position: absolute;
-	    width: 74px;
-		z-index: 556;
-	}
-	.app-content .add_app_form .fonTypeFile {
-		float: left;
-		background-color: #ffffff;
-		width: 76px;
-		height: 76px;
-		margin-left: 5px;
-		margin-top: 15px;
-	}
-	.app-content .add_app_form .fonTypeFile IMG {
-		display: block;
-		max-width: 76px;
-		max-height: 76px;
-		height: 76px;
-		position: absolute;
-		width: 76px;
-	}
-	.app-content .add_app_form .fonTypeFile SPAN {
-	    background-color: #ffffff;
-	    color: #212121;
-	    display: block;
-	    font-family: "OpenSans-Semibold";
-	    font-size: 14px;
-	    margin-left: 0;
-		top: 15px;
-	    padding: 0;
-	    text-align: center;
-	    width: 75px;
-		z-index: 555;
-	}
-	.app-content .add_app_form .fonTypeFile .plus {
-	    background-color: #21b24d;
-	    color: #ffffff;
-	    font-family: "OpenSans-Semibold";
-	    font-size: 16px;
-	    height: 18px;
-	    position: absolute;
-	    width: 18px;
-	    z-index: 555;
-	}
-	.app-content .add_app_form .chb_label {
-		width: 125px;
-		float: left;
-		margin-top: 7px;
-	}
-	.app-content .add_app_form #add_app_subm {
-	    background-image: url("images/btn_bg.png");
-	    background-repeat: no-repeat;
-	    background-size: 100% 37px;
-	    color: #ffffff;
-	    display: block;
-	    font-family: "OpenSans-Semibold";
-	    font-size: 16px;
-	    height: 32px;
-		margin: 10px auto 0;
-	    padding-top: 7px;
-	    text-decoration: none;
-	    width: 130px;
-		position: relative;
-		z-index: 3;
-	}
-	.app-content .add_app_form .screens_slider {
-	    float: right;
-	    width: 250px;
-	    height: 76px;
-	/*    border: solid 1px red;*/
-	    margin-top: 15px;
-	}
-	.app-content .add_app_form .screens_slider IMG {
-	    max-width: 88px;
-	    max-height: 88px;
-		margin-right: 2;
-	    height: 88px;
-		float: left;
-		display: block;
-	}
-
-
-
-
-
-	.app-content .edit_app_form {
-
-	}
-	.app-content .edit_app_form INPUT[type="text"].full_width {
-		width: 97%;
-		height: 32px;
-	/*	margin: 0 auto;*/
-		margin-left: 5px;
-		display: block;
-		background-color: #ffffff;
-		font-family: "OpenSans-Semibold";
-		color: #575757;
-	}
-	.app-content .edit_app_form INPUT[type="text"].fifty_width {
-		width: 98%;
-		height: 32px;
-		margin-left: 5px;
-		display: block;
-		position: relative;
-		background-color: #ffffff;
-		font-family: "OpenSans-Semibold";
-		color: #575757;
-	}
-	.app-content .edit_app_form TEXTAREA.full_width {
-		width: 97%;
-		height: 125px !important;
-	/*	margin: 0 auto;*/
-		margin-left: 5px;
-		display: block;
-		background-color: #ffffff;
-		font-family: "OpenSans-Semibold";
-		color: #575757;
-		resize: none;
-		border: none;
-	}
-	.app-content .edit_app_form SPAN {
-	    background-color: #23b14d;
-	    color: #ffffff;
-		float: left;
-	    font-family: "OpenSans-Semibold";
-	    font-size: 13px;
-	    height: 20px;
-	    margin-left: 5px;
-	    margin-right: 0;
-	    margin-top: 15px;
-	    pediting-right: 3px;
-	    pediting-left: 5px;
-	    pediting-top: 0;
-	    position: relative;
-	    text-align: center;
-	    z-index: 1100;
-	}
-	.app-content .edit_app_form INPUT[type="checkbox"] {
-		margin-left: 15px;
-		margin-top: 11px;
-	}
-	.app-content .edit_app_form INPUT[type="file"] {
-	    display: block;
-	    height: 74px;
-	/*    margin-top: -10px;*/
-	    opacity: 0;
-	    position: absolute;
-	    width: 74px;
-		z-index: 556;
-	}
-	.app-content .edit_app_form .fonTypeFile {
-		float: left;
-		background-color: #ffffff;
-		width: 76px;
-		height: 76px;
-		margin-left: 5px;
-		margin-top: 15px;
-	}
-	.app-content .edit_app_form .fonTypeFile IMG {
-		display: block;
-		max-width: 76px;
-		max-height: 76px;
-		height: 76px;
-		position: absolute;
-	}
-	.app-content .edit_app_form .fonTypeFile SPAN {
-	    background-color: #ffffff;
-	    color: #212121;
-	    display: block;
-	    font-family: "OpenSans-Semibold";
-	    font-size: 14px;
-	    margin-left: 0;
-		top: 15px;
-	    pediting: 0;
-	    text-align: center;
-	    width: 75px;
-		z-index: 555;
-	}
-	.app-content .edit_app_form .fonTypeFile .plus {
-	    background-color: #21b24d;
-	    color: #ffffff;
-	    font-family: "OpenSans-Semibold";
-	    font-size: 16px;
-	    height: 18px;
-	    position: absolute;
-	    width: 18px;
-	    z-index: 555;
-	}
-	.app-content .edit_app_form .chb_label {
-		width: 125px;
-		float: left;
-		margin-top: 7px;
-	}
-	.app-content .edit_app_form #edit_app_subm {
-	    background-image: url("images/btn_bg.png");
-	    background-repeat: no-repeat;
-	    background-size: 100% 37px;
-	    color: #ffffff;
-	    display: block;
-	    font-family: "OpenSans-Semibold";
-	    font-size: 16px;
-	    height: 22px;
-		margin: 10px auto 0;
-	    pediting-top: 7px;
-	    text-decoration: none;
-	    width: 130px;
-		position: relative;
-		z-index: 3;
-		padding-top: 10px;
-	}
-	.app-content .edit_app_form #edit_app_delete {
-	    background-image: url("images/btn_bg.png");
-	    background-repeat: no-repeat;
-	    background-size: 100% 37px;
-	    color: #ffffff;
-	    display: block;
-	    font-family: "OpenSans-Semibold";
-	    font-size: 16px;
-	    height: 22px;
-		margin: 10px auto 0;
-	    pediting-top: 7px;
-	    text-decoration: none;
-	    width: 130px;
-		position: relative;
-		z-index: 3;
-		padding-top: 10px;
-	}
-	.app-content .edit_app_form .screens_slider {
-	    float: right;
-	    width: 200px;
-	    height: 76px;
-	/*    border: solid 1px red;*/
-	    margin-top: 15px;
-	}
-	.app-content .edit_app_form .screens_slider IMG {
-	    max-width: 65px;
-	    max-height: 76px;
-		margin-right: 2;
-	    height: 76px;
-		float: left;
-		display: block;
-	}
-
-	.app-content .ditail_main_img {
-		float: left;
-		width: 120px;
-		height: 120px;
-		margin-left: 5px;
-	}
-	.app-content .ditail_main_img IMG {
-		width: 120px;
-		height: 120px;
-	}
-	.app-content .right-head-block {
-	    float: left;
-	    font-family: "OpenSans-Semibold";
-	    font-size: 17px;
-	    height: 80px;
-	    margin-left: 25px;
-	    margin-top: 40px;
-	    text-align: left;
-	    width: 55%;
-	}
-	.app-content .right-head-block SPAN {
-		display: block;
-		float: left;
-	    font-family: "OpenSans-Semibold";
-	    font-size: 17px;
-		width: 100%;
-	}
-	.app-content .link-block {
-		width: 100%;
-		height: 45px;
-		margin-top: 15px;
-	}
-	.app-content .link-block .os-txt {
-		width: 160px;
-		font-family: "OpenSans-Semibold";
-	    font-size: 14px;
-		height: 45px;
-		position: absolute;
-	}
-	.app-content .link-block .setup-link {
-	    float: right;
-	    height: 45px;
-	    margin-left: 45%;
-	    position: absolute;
-	    text-align: center;
-	    width: 180px;
-	}
-	.app-content .link-block .setup-link A {
-	    width: 170px;
-	    height: 25px;
-	    display: block;
-	    text-align: center;
-	    margin: 0 auto;
-	    background: linear-gradient(to top, #E4BF28, #EFF184);
-	    padding-top: 5px;
-	    margin-top: -10px;
-		font-family: "OpenSans-Semibold";
-	    font-size: 14px;
-		color: #212121;
-		text-decoration: none;
-	}
-	.app-content .ditail-app-desc-block .field-label {
-	    background-color: #23b14d;
-	    color: #ffffff;
-	/*    float: left;*/
-	    font-family: "OpenSans-Semibold";
-	    font-size: 13px;
-	    height: 20px;
-	    margin-left: 5px;
-	    margin-right: 0;
-	/*    margin-top: 15px;*/
-	    padding-left: 5px;
-	    padding-right: 5px;
-	    padding-top: 0;
-	/*    position: relative;*/
-	    text-align: center;
-	/*    z-index: 1100;*/
-	}
-	.app-content .ditail-app-desc-block .field-label2 {
-	    background-color: #23b14d;
-	    color: #ffffff;
-	    float: left;
-	    font-family: "OpenSans-Semibold";
-	    font-size: 13px;
-	    height: 20px;
-	/*    margin-left: 5px;*/
-	    margin-right: 0;
-	/*    margin-top: 15px;*/
-	    padding-left: 5px;
-	    padding-right: 5px;
-	    padding-top: 0;
-	/*    position: relative;*/
-	    text-align: center;
-	/*    z-index: 1100;*/
-	}
-	.app-content .ditail-app-desc-block {
-		max-width: 100%;
-		text-align: left;
-		overflow: hidden;
-		word-wrap: break-word;
-		margin: 0 auto;
-	}
-	.app-content .ditail-app-desc-block .fifty-block {
-		float: left;
-		width: 48%;
-		margin-left: 5px;
-	}
-	.app-content .ditail-app-desc-block .full_width_text {
-	    background-color: #ffffff;
-	    color: #575757;
-	/*    display: block;*/
-	    font-family: "OpenSans-Semibold";
-	    min-height: 32px;
-	    margin-left: 5px;
-	/*    width: 300px;*/
-	/*	margin-top: 20px;*/
-		margin-bottom: 15px;
-		max-width: 94%;
-		z-index: 1;
-		text-align: left;
-		overflow: hidden;
-		word-wrap: break-word;
-		padding: 2px 5px 0 5px;
-	}
-	.app-content .ditail-app-desc-block .fifty_width_text {
-	    background-color: #ffffff;
-	    color: #575757;
-	/*    display: block;*/
-	    font-family: "OpenSans-Semibold";
-	    min-height: 32px;
-	/*    margin-left: 5px;*/
-	/*    width: 300px;*/
-	/*	margin-top: 20px;*/
-		margin-bottom: 15px;
-		width: 96%;
-		z-index: 1;
-		text-align: left;
-		overflow: hidden;
-		word-wrap: break-word;
-		padding: 2px 5px 0 5px;
-		float: left;
-	}
-	.app-content .ditail-app-desc-block .full_width_textar {
-	    background-color: #ffffff;
-	    color: #575757;
-	/*    display: block;*/
-	    font-family: "OpenSans-Semibold";
-	    min-height: 72px;
-	    margin-left: 5px;
-	/*    width: 300px;*/
-	/*	margin-top: 20px;*/
-		margin-bottom: 15px;
-		max-width: 94%;
-		width: 94%;
-	/*	width: 296px;*/
-		z-index: 1;
-		text-align: left;
-		overflow: hidden;
-		word-wrap: break-word;
-		float: left;
-		padding: 2px 5px 0 5px;
 	}
 
 
@@ -1926,12 +420,12 @@ pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
 
 @media screen and (min-width: 240px) and (max-width: 360px) {
 	h4 {
-	display: block;
-	-webkit-margin-before: 0;
-	-webkit-margin-after: 0;
-	-webkit-margin-start: 0px;
-	-webkit-margin-end: 0px;
-	font-weight: bold;
+        display: block;
+        -webkit-margin-before: 0;
+        -webkit-margin-after: 0;
+        -webkit-margin-start: 0px;
+        -webkit-margin-end: 0px;
+        font-weight: bold;
 	}
 
 	.clr {
@@ -1943,153 +437,14 @@ pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
 	}
 
 
-	.app-list-item-links-block {
-	    width: 260px;
-		margin-bottom: 1px;
-		padding-bottom: 15px;
-		margin-top: -1px;
-		height: 30px;
-		margin: 0 auto;
-	}
-	.app-list-item-links-block .apply-link {
-	    display: block;
-		float: left;
-		width: 80px;
-		height: 25px;
-		padding-top: 5px;
-		background-color: #FDC911;
-		font-family: "OpenSans-Semibold";
-	    font-size: 14px;
-		color: #ffffff;
-		margin-right: 10px;
-		text-decoration: none;
-	}
-	.app-list-item-links-block .edit-link {
-	    display: block;
-		float: left;
-		margin-right: 10px;
-		text-decoration: none;
-		width: 80px;
-		height: 25px;
-		padding-top: 5px;
-		background-color: #23B14D;
-		font-family: "OpenSans-Semibold";
-	    font-size: 14px;
-		color: #ffffff;
-	}
-	.app-list-item-links-block .delete-link {
-	    display: block;
-		float: left;
-		text-decoration: none;
-		width: 80px;
-		height: 25px;
-		padding-top: 5px;
-		background-color: #FF7F26;
-		font-family: "OpenSans-Semibold";
-	    font-size: 14px;
-		color: #ffffff;
-	}
-
 
 	.app-content {
 	    text-align: center;
-	/*	max-width: 100%;
-		margin-top: 15px;*/
 		color: #ffffff;
 		font-family: "OpenSans-Regular";
 		font-size: 14px;
 	    margin: 15px auto 0;
 	    max-width: 100%;
-	}
-	.app-list-item-block, .app-list-item-block A {
-	    width: 100%;
-		margin-bottom: 1px;
-	/*	border-top: solid 1px #8F8F8F;*/
-		border-bottom: solid 1px #8F8F8F;
-		background-color: #212121;
-		padding-bottom: 10px;
-		padding-top: 10px;
-		max-height: 120px;
-
-		color: #ffffff;
-	}
-	.app-list-item-block .app-list-item {
-		height: 120px;
-	    margin: 0 auto;
-	    max-width: 100%;
-	}
-	.app-list-item-block IMG {
-		display: block;
-		float: left;
-	    height: 75px;
-	    margin-left: 10px;
-	    width: 75px;
-	}
-	.app-list-item-block .app-title-block {
-	    float: left;
-	    font-size: 12px;
-	    width: 70%;
-	}
-	.app-list-item-block .app-title-block A {
-	    display: block;
-		float: left;
-		color: #ffffff;
-		width: 70px;
-		text-align: left;
-		margin-left: 15px;
-	}
-	.app-list-item-block .ops-block {
-	    color: #ffffff;
-	    display: block;
-	    float: right;
-	    text-align: center;
-		max-width: 100px;
-		padding-right: 8px;
-		font-size: 12px;
-	}
-	.app-list-item-block .ops-block2 {
-	    color: #ffffff;
-	    display: block;
-	    float: left;
-	    margin-left: 15px;
-	    text-align: left;
-		max-width: 100px;
-	/*    width: 120px;*/
-	}
-	.app-list-item-block .app-desc-block {
-	    color: #ffffff;
-	    display: block;
-	    float: left;
-	    font-size: 12px;
-	    margin-left: 15px;
-	    margin-top: 5px;
-	    max-height: 80px;
-	    width: 100%;
-	    text-align: left;
-	}
-	.app-list-item-block .app-price-block {
-	    width: 100%;
-		float: left;
-	/*    margin-left: 15px;*/
-	    font-size: 12px;
-	    padding: 0;
-	}
-	.app-list-item-block .app-price-block .sale-perc-block {
-	    color: #ffffff;
-	    font-weight: bold;
-	    display: block;
-	    float: left;
-	    margin-left: 0px;
-	}
-	.app-list-item-block .app-price-block .sale-perc-block-2 {
-	    color: #ffffff;
-	    display: block;
-	    /* float: left; */
-	    margin-left: 10px;
-	}
-	.app-list-item-block .app-price-block .sale-perc-block .y-text, .sale-perc-block-2 .y-text {
-	    font-weight: bold;
-		color: #F3E348;
 	}
 
 	.menu {
@@ -2099,7 +454,7 @@ pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
 		list-style: none;
 	}
 	.menu LI {
-		font-family: "OpenSans-Semibold";
+		font-family: "Intro";
 	    font-size: 12px;
 		color: #ffffff;
 	}
@@ -2108,7 +463,7 @@ pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
 		line-height: 1.5;
 		display: block;
 		width: 280px;
-		font-family: "OpenSans-Semibold";
+		font-family: "Intro";
 	    font-size: 12px;
 		text-decoration: none;
 		font-weight: 400;
@@ -2121,7 +476,7 @@ pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
 		padding-bottom: 20px;
 		display: block;
 		width: 280px;
-		font-family: "OpenSans-Semibold";
+		font-family: "Intro";
 	    font-size: 12px;
 		text-decoration: none;
 		font-weight: 400;
@@ -2140,14 +495,14 @@ pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
 		padding-left: 42px;
 		display: block;
 		width: 100%;
-		font-family: "OpenSans-Semibold";
+		font-family: "Intro";
 	    font-size: 12px;
 		text-decoration: none;
 	}
 	.menu-panel-title {
 	    color: #ffffff;
 	    float: left;
-	    font-family: "OpenSans-Semibold";
+	    font-family: "Intro";
 	    font-size: 22px;
 	    left: 85px;
 	    margin-bottom: 0 !important;
@@ -2159,57 +514,6 @@ pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
 	}
 
 
-	.app-content .my_profile_form {
-	    display: block;
-		width: 300px;
-		height: 200px;
-		margin: 65px auto 0;
-	}
-	.app-content .my_profile_form INPUT[type="text"] {
-		border: none;
-		width: 258px;
-		height: 32px;
-		margin: 0 auto 30px;
-		padding-top: 4px;
-		display: block;
-		font-family: "OpenSans-Semibold";
-		color: #575757;
-		background-color: #ffffff;
-	    position: relative;
-	    top: 35px;
-	}
-	.app-content .my_profile_form #my_profile_subm {
-	    background-image: url("images/btn_bg.png");
-	    background-repeat: no-repeat;
-	    background-size: 100% 40px;
-	    color: #ffffff;
-	    display: block;
-	    font-family: "OpenSans-Semibold";
-	    font-size: 16px;
-	    height: 50px;
-	    margin: 50px auto;
-	    padding-top: 10px;
-	    text-decoration: none;
-	    width: 180px;
-	}
-	.app-content .my_profile_form SPAN {
-	    background-color: #23b14d;
-	    color: #ffffff;
-	    display: block;
-	    font-family: "OpenSans-Semibold";
-	    font-size: 16px;
-	    height: 20px;
-	    margin-left: 21px;
-	    margin-right: 0;
-	    margin-top: 15px;
-	    padding-right: 0;
-	    padding-top: 0;
-	    position: absolute;
-	    text-align: center;
-	    max-width: 250px;
-	    z-index: 1100;
-	}
-
 
 	.app-content .app_auth_form {
 	    display: block;
@@ -2218,38 +522,29 @@ pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
 		margin: 65px auto 0;
 		background-color: #212121;
 	}
-	.app-content .app_auth_form INPUT[type="text"] {
+    .text-fields {
         border: none;
         width: 280px;
         height: 32px;
         margin: 0 auto;
-        font-family: "OpenSans-Semibold";
+        font-family: "Intro";
         text-align: center;
         color: #575757;
         background-color: #ffffff;
         position: relative;
         top: 15px;
         margin-bottom: 10px;
-	}
-	.app-content .app_auth_form INPUT[type="password"] {
-		border: none;
-		width: 280px;
-		height: 32px;
-		margin: 0 auto;
-		padding-top: 4px;
-		font-family: "OpenSans-Semibold";
-		text-align: center;
-		color: #575757;
-		background-color: #ffffff;
-	    position: relative;
-	    top: 15px;
-	}
+    }
+    .error {
+        border: solid 1px red !important;
+    }
+
 	.app-content .app_auth_form SPAN {
 	    background-color: #23b14d;
 	    color: #ffffff;
 	    display: block;
 	    float: left;
-	    font-family: "OpenSans-Semibold";
+	    font-family: "Intro";
 	    font-size: 16px;
 	    height: 27px;
 	    margin-left: 10px;
@@ -2262,77 +557,30 @@ pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
 	    width: 32px;
 	    z-index: 1100;
 	}
-	.app-content .app_auth_form #app_auth_subm {
-	    font-family: "OpenSans-Semibold";
-	    font-size: 16px;
-		color: #ffffff;
-		text-decoration: none;
-		display: block;
-		margin: 60px auto;
-		width: 240px;
-		height: 25px;
-		padding-top: 5px;
-		background-image: url(images/btn_bg.png);
-		background-size: 100% 30px;
-	}
+    .app-content .app_auth_form #app_auth_subm {
+        font-family: "Intro-Bold";
+        font-size: 20px;
+        color: #ffffff;
+        text-decoration: none;
+        display: block;
+        margin: 60px auto;
+        height: 35px;
+        padding-top: 10px;
+        background: #D2D2D2;
+        border-radius: 100px;
+        text-transform: uppercase;
+    }
     .app-content .app_auth_form #app_forrget_pass_subm {
-	    font-family: "OpenSans-Semibold";
-	    font-size: 16px;
-		color: #ffffff;
-		text-decoration: none;
-		display: block;
-		margin: -40px auto;
-		width: 240px;
-		height: 25px;
-		padding-top: 5px;
-		background-image: url(images/btn_bg.png);
-		background-size: 100% 30px;
-	}
-	.app-content .app_auth_confirm_form {
-	    display: block;
-		width: 300px;
-		height: 200px;
-		margin: 65px auto 0;
-		background-color: #212121;
-	}
-	.app-content .app_auth_confirm_form INPUT[type="text"] {
-		border: none;
-		width: 105px;
-		height: 32px;
-		margin-left: 70px;
-		padding-top: 4px;
-		display: block;
-		font-family: "OpenSans-Semibold";
-		color: #575757;
-		background-color: #ffffff;
-	}
-	.app-content .app_auth_confirm_form SPAN {
-		display: block;
-		width: 165px;
-		height: 30px;
-		margin: 0 auto 15px;
-		padding-top: 50px;
-	    font-family: "OpenSans-Semibold";
-	    font-size: 15px;
-		color: #ffffff;
-	}
-	.app-content .app_auth_confirm_form #app_auth_confirm_subm {
-	    background-image: url("images/btn_bg.png");
-	    background-repeat: no-repeat;
-	    background-size: 100% 37px;
-	    color: #ffffff;
-	    display: block;
-	    font-family: "OpenSans-Semibold";
-	    font-size: 16px;
-	    height: 32px;
-	    margin-left: 180px;
-	    margin-top: -35px;
-	    padding-top: 7px;
-	    text-decoration: none;
-	    width: 60px;
-		position: relative;
-		z-index: 3;
-	}
+        font-family: "Intro";
+        font-size: 16px;
+        color: #3D88BE;
+        text-decoration: none;
+        display: block;
+        margin: -40px auto;
+        width: 240px;
+        height: 25px;
+        padding-top: 5px;
+    }
 
 	#menu-1-user {
 	    display: none;
@@ -2352,474 +600,6 @@ pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
 	#menu-6-user {
 	    display: none;
 	}
-
-
-	.app-content .add_app_form {
-
-	}
-	.app-content .add_app_form INPUT[type="text"].full_width {
-		width: 97%;
-		height: 32px;
-	/*	margin: 0 auto;*/
-		margin-left: 5px;
-		display: block;
-		background-color: #ffffff;
-		font-family: "OpenSans-Semibold";
-		color: #575757;
-	}
-	.app-content .add_app_form INPUT[type="text"].fifty_width {
-		width: 98%;
-		height: 32px;
-		margin-left: 5px;
-		display: block;
-		position: relative;
-		background-color: #ffffff;
-		font-family: "OpenSans-Semibold";
-		color: #575757;
-	}
-	.app-content .add_app_form TEXTAREA.full_width {
-		width: 97%;
-		height: 125px !important;
-	/*	margin: 0 auto;*/
-		margin-left: 5px;
-		display: block;
-		background-color: #ffffff;
-		font-family: "OpenSans-Semibold";
-		color: #575757;
-		resize: none;
-		border: none;
-	}
-	.app-content .add_app_form SPAN {
-	    background-color: #23b14d;
-	    color: #ffffff;
-		float: left;
-	    font-family: "OpenSans-Semibold";
-	    font-size: 11px;
-	    height: 20px;
-	    margin-left: 5px;
-	    margin-right: 0;
-	    margin-top: 15px;
-	    padding-right: 3px;
-	    padding-left: 5px;
-	    padding-top: 0;
-	    position: relative;
-	    text-align: center;
-	    z-index: 1100;
-	}
-	.app-content .add_app_form INPUT[type="checkbox"] {
-		margin-left: 15px;
-		margin-top: 11px;
-	}
-	.app-content .add_app_form INPUT[type="file"] {
-	    display: block;
-	    height: 74px;
-	/*    margin-top: -10px;*/
-	    opacity: 0;
-	    position: absolute;
-	    width: 74px;
-		z-index: 556;
-	}
-	.app-content .add_app_form .fonTypeFile {
-		float: left;
-		background-color: #ffffff;
-		width: 76px;
-		height: 76px;
-		margin-left: 5px;
-		margin-top: 15px;
-	}
-	.app-content .add_app_form .fonTypeFile IMG {
-		display: block;
-		max-width: 76px;
-		max-height: 76px;
-		height: 76px;
-		position: absolute;
-		width: 76px;
-	}
-	.app-content .add_app_form .fonTypeFile SPAN {
-	    background-color: #ffffff;
-	    color: #212121;
-	    display: block;
-	    font-family: "OpenSans-Semibold";
-	    font-size: 14px;
-	    margin-left: 0;
-		top: 15px;
-	    padding: 0;
-	    text-align: center;
-	    width: 75px;
-		z-index: 555;
-	}
-	.app-content .add_app_form .fonTypeFile .plus {
-	    background-color: #21b24d;
-	    color: #ffffff;
-	    font-family: "OpenSans-Semibold";
-	    font-size: 16px;
-	    height: 18px;
-	    position: absolute;
-	    width: 18px;
-	    z-index: 555;
-	}
-	.app-content .add_app_form .chb_label {
-		width: 125px;
-		float: left;
-		margin-top: 7px;
-	}
-	.app-content .add_app_form #add_app_subm {
-	    background-image: url("images/btn_bg.png");
-	    background-repeat: no-repeat;
-	    background-size: 100% 37px;
-	    color: #ffffff;
-	    display: block;
-	    font-family: "OpenSans-Semibold";
-	    font-size: 16px;
-	    height: 32px;
-		margin: 10px auto 0;
-	    padding-top: 7px;
-	    text-decoration: none;
-	    width: 130px;
-		position: relative;
-		z-index: 3;
-	}
-	.app-content .add_app_form .screens_slider {
-	    float: right;
-	    width: 250px;
-	    height: 76px;
-	/*    border: solid 1px red;*/
-	    margin-top: 15px;
-	}
-	.app-content .add_app_form .screens_slider IMG {
-	    max-width: 88px;
-	    max-height: 88px;
-		margin-right: 2;
-	    height: 88px;
-		float: left;
-		display: block;
-	}
-
-
-
-
-
-	.app-content .edit_app_form {
-
-	}
-	.app-content .edit_app_form INPUT[type="text"].full_width {
-		width: 97%;
-		height: 32px;
-	/*	margin: 0 auto;*/
-		margin-left: 5px;
-		display: block;
-		background-color: #ffffff;
-		font-family: "OpenSans-Semibold";
-		color: #575757;
-	}
-	.app-content .edit_app_form INPUT[type="text"].fifty_width {
-		width: 98%;
-		height: 32px;
-		margin-left: 5px;
-		display: block;
-		position: relative;
-		background-color: #ffffff;
-		font-family: "OpenSans-Semibold";
-		color: #575757;
-	}
-	.app-content .edit_app_form TEXTAREA.full_width {
-		width: 97%;
-		height: 125px !important;
-	/*	margin: 0 auto;*/
-		margin-left: 5px;
-		display: block;
-		background-color: #ffffff;
-		font-family: "OpenSans-Semibold";
-		color: #575757;
-		resize: none;
-		border: none;
-	}
-	.app-content .edit_app_form SPAN {
-	    background-color: #23b14d;
-	    color: #ffffff;
-		float: left;
-	    font-family: "OpenSans-Semibold";
-	    font-size: 11px;
-	    height: 20px;
-	    margin-left: 5px;
-	    margin-right: 0;
-	    margin-top: 15px;
-	    pediting-right: 3px;
-	    pediting-left: 5px;
-	    pediting-top: 0;
-	    position: relative;
-	    text-align: center;
-	    z-index: 1100;
-	}
-	.app-content .edit_app_form INPUT[type="checkbox"] {
-		margin-left: 15px;
-		margin-top: 11px;
-	}
-	.app-content .edit_app_form INPUT[type="file"] {
-	    display: block;
-	    height: 74px;
-	/*    margin-top: -10px;*/
-	    opacity: 0;
-	    position: absolute;
-	    width: 74px;
-		z-index: 556;
-	}
-	.app-content .edit_app_form .fonTypeFile {
-		float: left;
-		background-color: #ffffff;
-		width: 76px;
-		height: 76px;
-		margin-left: 5px;
-		margin-top: 15px;
-	}
-	.app-content .edit_app_form .fonTypeFile IMG {
-		display: block;
-		max-width: 76px;
-		max-height: 76px;
-		height: 76px;
-		position: absolute;
-	}
-	.app-content .edit_app_form .fonTypeFile SPAN {
-	    background-color: #ffffff;
-	    color: #212121;
-	    display: block;
-	    font-family: "OpenSans-Semibold";
-	    font-size: 14px;
-	    margin-left: 0;
-		top: 15px;
-	    pediting: 0;
-	    text-align: center;
-	    width: 75px;
-		z-index: 555;
-	}
-	.app-content .edit_app_form .fonTypeFile .plus {
-	    background-color: #21b24d;
-	    color: #ffffff;
-	    font-family: "OpenSans-Semibold";
-	    font-size: 16px;
-	    height: 18px;
-	    position: absolute;
-	    width: 18px;
-	    z-index: 555;
-	}
-	.app-content .edit_app_form .chb_label {
-		width: 125px;
-		float: left;
-		margin-top: 7px;
-	}
-	.app-content .edit_app_form #edit_app_subm {
-	    background-image: url("images/btn_bg.png");
-	    background-repeat: no-repeat;
-	    background-size: 100% 37px;
-	    color: #ffffff;
-	    display: block;
-	    font-family: "OpenSans-Semibold";
-	    font-size: 16px;
-	    height: 22px;
-		margin: 10px auto 0;
-	    pediting-top: 7px;
-	    text-decoration: none;
-	    width: 130px;
-		position: relative;
-		z-index: 3;
-		padding-top: 10px;
-	}
-	.app-content .edit_app_form #edit_app_delete {
-	    background-image: url("images/btn_bg.png");
-	    background-repeat: no-repeat;
-	    background-size: 100% 37px;
-	    color: #ffffff;
-	    display: block;
-	    font-family: "OpenSans-Semibold";
-	    font-size: 16px;
-	    height: 22px;
-		margin: 10px auto 0;
-	    pediting-top: 7px;
-	    text-decoration: none;
-	    width: 130px;
-		position: relative;
-		z-index: 3;
-		padding-top: 10px;
-	}
-	.app-content .edit_app_form .screens_slider {
-	    float: right;
-	    width: 200px;
-	    height: 76px;
-	/*    border: solid 1px red;*/
-	    margin-top: 15px;
-	}
-	.app-content .edit_app_form .screens_slider IMG {
-	    max-width: 65px;
-	    max-height: 76px;
-		margin-right: 2;
-	    height: 76px;
-		float: left;
-		display: block;
-	}
-
-	.app-content .ditail_main_img {
-		float: left;
-		width: 105px;
-		height: 105px;
-		margin-left: 5px;
-	}
-	.app-content .ditail_main_img IMG {
-		width: 105px;
-		height: 105px;
-	}
-	.app-content .right-head-block {
-	    float: left;
-	    font-family: "OpenSans-Semibold";
-	    font-size: 15px;
-	    height: 80px;
-	    margin-left: 15px;
-	    margin-top: 20px;
-	    text-align: left;
-	    width: 55%;
-	}
-	.app-content .right-head-block SPAN {
-		display: block;
-		float: left;
-	    font-family: "OpenSans-Semibold";
-	    font-size: 13px;
-		width: 100%;
-	}
-	.app-content .link-block {
-		width: 100%;
-		height: 45px;
-		margin-top: 15px;
-	}
-	.app-content .link-block .os-txt {
-		width: 110px;
-		font-family: "OpenSans-Semibold";
-	    font-size: 14px;
-		height: 45px;
-		position: absolute;
-	}
-	.app-content .link-block .setup-link {
-	    float: right;
-	    height: 45px;
-	    margin-left: 110px;
-	    position: absolute;
-	    text-align: center;
-	    width: 180px;
-	}
-	.app-content .link-block .setup-link A {
-	    width: 160px;
-	    height: 25px;
-	    display: block;
-	    text-align: center;
-	    margin: 0 auto;
-	    background: linear-gradient(to top, #E4BF28, #EFF184);
-	    padding-top: 10px;
-	    margin-top: -10px;
-		font-family: "OpenSans-Semibold";
-	    font-size: 12px;
-		color: #212121;
-		text-decoration: none;
-	}
-	.app-content .ditail-app-desc-block .field-label {
-	    background-color: #23b14d;
-	    color: #ffffff;
-	/*    float: left;*/
-	    font-family: "OpenSans-Semibold";
-	    font-size: 11px;
-	    height: 20px;
-	    margin-left: 5px;
-	    margin-right: 0;
-	/*    margin-top: 15px;*/
-	    padding-left: 5px;
-	    padding-right: 5px;
-	    padding-top: 0;
-	/*    position: relative;*/
-	    text-align: center;
-	/*    z-index: 1100;*/
-	}
-	.app-content .ditail-app-desc-block .field-label2 {
-	    background-color: #23b14d;
-	    color: #ffffff;
-	    float: left;
-	    font-family: "OpenSans-Semibold";
-	    font-size: 11px;
-	    height: 20px;
-	/*    margin-left: 5px;*/
-	    margin-right: 0;
-	/*    margin-top: 15px;*/
-	    padding-left: 5px;
-	    padding-right: 5px;
-	    padding-top: 0;
-	/*    position: relative;*/
-	    text-align: center;
-	/*    z-index: 1100;*/
-	}
-	.app-content .ditail-app-desc-block {
-		max-width: 100%;
-		text-align: left;
-		overflow: hidden;
-		word-wrap: break-word;
-		margin: 0 auto;
-	}
-	.app-content .ditail-app-desc-block .fifty-block {
-		float: left;
-		width: 48%;
-		margin-left: 5px;
-	}
-	.app-content .ditail-app-desc-block .full_width_text {
-	    background-color: #ffffff;
-	    color: #575757;
-	/*    display: block;*/
-	    font-family: "OpenSans-Semibold";
-	    min-height: 32px;
-	    margin-left: 5px;
-	/*    width: 300px;*/
-	/*	margin-top: 20px;*/
-		margin-bottom: 15px;
-		max-width: 94%;
-		z-index: 1;
-		text-align: left;
-		overflow: hidden;
-		word-wrap: break-word;
-		padding: 2px 5px 0 5px;
-	}
-	.app-content .ditail-app-desc-block .fifty_width_text {
-	    background-color: #ffffff;
-	    color: #575757;
-	/*    display: block;*/
-	    font-family: "OpenSans-Semibold";
-	    min-height: 32px;
-	/*    margin-left: 5px;*/
-	/*    width: 300px;*/
-	/*	margin-top: 20px;*/
-		margin-bottom: 15px;
-		width: 96%;
-		z-index: 1;
-		text-align: left;
-		overflow: hidden;
-		word-wrap: break-word;
-		padding: 2px 5px 0 5px;
-		float: left;
-	}
-	.app-content .ditail-app-desc-block .full_width_textar {
-	    background-color: #ffffff;
-	    color: #575757;
-	/*    display: block;*/
-	    font-family: "OpenSans-Semibold";
-	    min-height: 72px;
-	    margin-left: 5px;
-	/*    width: 300px;*/
-	/*	margin-top: 20px;*/
-		margin-bottom: 15px;
-		max-width: 94%;
-		width: 94%;
-	/*	width: 296px;*/
-		z-index: 1;
-		text-align: left;
-		overflow: hidden;
-		word-wrap: break-word;
-		float: left;
-		padding: 2px 5px 0 5px;
-	}
-
 
 
 	h2 { margin-top:1.5em; }
