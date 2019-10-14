@@ -58,7 +58,8 @@
                     //alert('123');
                     checkSession();
                     if (getSessionID() == 1) {
-                        $.mobile.changePage('#' + this.rel);
+                        //console.log(this.rel);
+                        $.mobile.changePage('#devices');
                         getDataFromServer();
                     } else {
                         $.mobile.changePage('#auth');
@@ -70,7 +71,7 @@
                     //$(".ui-panel-dismiss-open").css('display', 'none');
                     checkSession();
                     if (getSessionID() == 1) {
-                        $.mobile.changePage('#' + this.rel);
+                        $.mobile.changePage('#support');
                     } else {
                         $.mobile.changePage('#auth');
                     }
@@ -138,8 +139,8 @@
                 <div class="clr" style="height:20px;"></div>
                 <ul class="menu">
                     <!--<li class="active"><a href="#login-page" id="login-page">Авторизация</a></li>-->
-                    <li><a href="#" rel="devices" id="devices-page">Резервуары</a></li>
-                    <li><a href="#" rel="support" id="support-page">Поддержка</a></li>
+                    <li><a href="#" id="devices-page">Резервуары</a></li>
+                    <li><a href="#" id="support-page">Поддержка</a></li>
                     <li><a href="#" id="index2-app-page">Новости</a></li>
                     <li><a href="#" id="index3-app-page">О компании</a></li>
                     <li><a href="#" id="index4-app-page">Настройки</a></li>
@@ -177,8 +178,8 @@
                 <div class="clr" style="height:20px;"></div>
                 <ul class="menu">
                     <!--<li class="active"><a href="#login-page" id="login-page">Авторизация</a></li>-->
-                    <li><a href="#" rel="devices" id="devices-page-2">Резервуары</a></li>
-                    <li><a href="#" rel="support" id="support-page-2">Поддержка</a></li>
+                    <li><a href="#" id="devices-page-2">Резервуары</a></li>
+                    <li><a href="#" id="support-page-2">Поддержка</a></li>
                     <li><a href="#" id="index2-app-page">Новости</a></li>
                     <li><a href="#" id="index3-app-page">О компании</a></li>
                     <li><a href="#" id="index4-app-page">Настройки</a></li>
@@ -218,8 +219,8 @@
                 <div class="clr" style="height:20px;"></div>
                 <ul class="menu">
                     <!--<li class="active"><a href="#login-page" id="login-page">Авторизация</a></li>-->
-                    <li><a href="#" rel="device" id="devices-page-3">Резервуары</a></li>
-                    <li><a href="#" rel="support" id="support-page-3">Поддержка</a></li>
+                    <li><a href="#" id="devices-page-3">Резервуары</a></li>
+                    <li><a href="#" id="support-page-3">Поддержка</a></li>
                     <li><a href="#" id="index2-app-page">Новости</a></li>
                     <li><a href="#" id="index3-app-page">О компании</a></li>
                     <li><a href="#" id="index4-app-page">Настройки</a></li>
@@ -252,8 +253,8 @@
                 <div class="clr" style="height:20px;"></div>
                 <ul class="menu">
                     <!--<li class="active"><a href="#login-page" id="login-page">Авторизация</a></li>-->
-                    <li><a href="#" rel="device" id="devices-page-4">Резервуары</a></li>
-                    <li><a href="#" rel="support" id="support-page-4">Поддержка</a></li>
+                    <li><a href="#" id="devices-page-4">Резервуары</a></li>
+                    <li><a href="#" id="support-page-4">Поддержка</a></li>
                     <li><a href="#" id="index2-app-page">Новости</a></li>
                     <li><a href="#" id="index3-app-page">О компании</a></li>
                     <li><a href="#" id="index4-app-page">Настройки</a></li>
