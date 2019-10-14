@@ -159,7 +159,8 @@ function auth_user() {
 	if (document.getElementById("user_email").value != "" && document.getElementById("user_pass").value != "") {
 		document.getElementById("user_email").className = "text-fields";
 		document.getElementById("user_pass").className = "text-fields";
-		//ajax("auth_user");
+		ajax("auth_user");
+        alert('auth_user');
 	} else {
 		if(document.getElementById("user_email").value == "") {
 			document.getElementById("user_email").className = "text-fields error";
