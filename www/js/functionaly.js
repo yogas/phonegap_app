@@ -141,7 +141,9 @@ function ajax(g, oid) {
 	//xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 	xmlhttp.send();
 	xmlhttp.onreadystatechange = function() {
-	    alert(xmlhttp);
+	    alert(xmlhttp.readyState);
+	    alert(xmlhttp.status);
+	    alert(xmlhttp.JSON.parse(xmlhttp.responseText));
 		if (xmlhttp.readyState == 4) {
 			if(xmlhttp.status == 200) {
 				ajax_response_ctrl(g, JSON.parse(xmlhttp.responseText));
