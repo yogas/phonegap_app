@@ -22,6 +22,10 @@ function getDataFromServer() {
 	ajax("get_devices_list");
 }
 
+function getDeviceDetailData(oid) {
+    ajax("get_device_detail", oid);
+    $.mobile.changePage('#device-detail');
+}
 
 function getSessionID() {
     return window.localStorage["acc_sessionID"];
@@ -53,24 +57,19 @@ function ajax_response_ctrl(g, res) {
 		break;
         case 'get_devices_list':
             if (res.data) {
-
                 var html_source = '';
-                //var html_source = '<ul>';
 
                 for (var t=0; t!=res.data.length; t++) {
-                    /*
-                    html_source += '<li><b>Device ID:</b> '+ res.data[t]['id'] +'</li>';
-                    html_source += '<li><b>Device Name:</b> '+ res.data[t]['name'] +'</li>';
-                    html_source += '<li><b>Device Type:</b> '+ res.data[t]['type'] +'</li>';
-                    html_source += '<li><b>Device Object:</b> '+ res.data[t]['object'] +'</li>';
-                    html_source += '<li><b>Device Parent Object:</b> '+ res.data[t]['parent_object'] +'</li>';
-                    html_source += '<li><b>Device Identifier:</b> '+ res.data[t]['identifier'] +'</li>';
-                    */
+                    if (res.data[t]['has_alarm'] !== false && parseInt(res.data[t]['has_alarm']) !== 0) {
+                        var alarm = 'нет';
+                    } else {
+                        var alarm = 'да';
+                    }
 
-                    html_source += '<a href="#" style="margin-bottom:15px;"><div class="devoce-smart-block">';
+                    html_source += '<a href="#" onclick="getDeviceDetailData('+res.data[t]['id']+')" style="margin-bottom:15px; display:block; max-width:585px; margin:0 auto;"><div class="devoce-smart-block">';
                     html_source += '<div class="row" style="padding-top:15px;">';
                     html_source += '<div class="device-param-label">Компания</div>';
-                    html_source += '<div class="device-param-value">ООО "Трейд Холдинг"</div>';
+                    html_source += '<div class="device-param-value">'+ res.data[t]['parent_object'] +'</div>';
                     html_source += '</div>';
                     html_source += '<div class="clr"></div>';
                     html_source += '<div class="row">';
@@ -90,17 +89,15 @@ function ajax_response_ctrl(g, res) {
                     html_source += '</div>';
                     html_source += '<div class="param-block" style="margin-right:35px;">';
                     html_source += '<span class="volume">Объем, м<sup>3</sup></span>';
-                    html_source += '234,6';
+                    html_source += res.data[t]['volume'];
                     html_source += '</div>';
                     html_source += '<div class="param-block">';
                     html_source += '<span class="alert">Авария</span>';
-                    html_source += 'нет';
+                    html_source += alarm;
                     html_source += '</div>';
                     html_source += '</div>';
                     html_source += '</div></a>';
                 }
-
-                //html_source += '</ul>';
 
                 $("#devices-page-content").html("");
                 $("#devices-page-content").html(html_source);
@@ -117,6 +114,65 @@ function ajax_response_ctrl(g, res) {
                 window.localStorage["user_email"] = null;
             }
 		break;
+        case 'get_device_detail':
+            if (res.data) {
+                var detail_page_html_source = '<h1 style="margin-bottom:0 !important;">РЕЗЕРВУАР '+res.data['name']+'</h1>';
+                detail_page_html_source += '<h2 style="margin-top:0 !important;">'+res.devices['object']+'</h2>';
+
+                var tens = new Array();
+                var tempos = new Array();
+                var gtn = 1;
+                var gtn2 = 1;
+                var tens_finish = new Array();
+                var tempos_finish = new Array();
+
+                for (var n=0; n!=res.data.parameters.length; n++) {
+                    var code = String(res.data.parameters[n].code);
+                    if (code == "Tn"+gtn) {
+                        tens[n] = code;
+                        gtn++;
+                    }
+                    if (code == "T"+gtn2) {
+                        tempos[n] = code;
+                        gtn2++;
+                    }
+                }
+
+                var t = 0;
+                for (var n=0; n!=tens.length; n++) {
+                    if (undefined !== tens[n]) {
+                        tens_finish[t] = tens[n];
+                        t++;
+                    } else {
+                        continue;
+                    }
+                }
+                t = 0;
+                for (var n=0; n!=tempos.length; n++) {
+                    if (undefined !== tempos[n]) {
+                        tempos_finish[t] = tempos[n];
+                        t++;
+                    } else {
+                        continue;
+                    }
+                }
+
+                //console.log(tens_finish);
+                //console.log(tempos_finish);
+
+                detail_page_html_source += '<ul>';
+                detail_page_html_source += '<li><b>Device ID:</b> '+ res.data['id'] +'</li>';
+                detail_page_html_source += '<li><b>Device Name:</b> '+ res.data['name'] +'</li>';
+                detail_page_html_source += '<li><b>Тэнов:</b> '+ tens_finish.length +'</li>';
+                detail_page_html_source += '<li><b>Датчиков температуры:</b> '+ tempos_finish.length +'</li>';
+                detail_page_html_source += '</ul>';
+
+                $("#device-detail-page-content").html("");
+                $("#device-detail-page-content").html(detail_page_html_source);
+            } else {
+
+            }
+        break;
 	}
 }
 
@@ -135,7 +191,9 @@ function ajax(g, oid) {
         xmlhttp.open('GET', 'http://dev.hashing24.sale/main/checkSession?&identifer='+window.localStorage["user_email"]+'&rndtik='+randomNum, true);
 	} else if (g == "get_devices_list") {
         xmlhttp.open('GET', 'http://dev.hashing24.sale/main/getDevices?&identifer='+window.localStorage["user_email"]+'&rndtik='+randomNum, true);
-	} else {
+	} else if (g == "get_device_detail") {
+        xmlhttp.open('GET', 'http://dev.hashing24.sale/main/getDeviceDetail?&identifer='+window.localStorage["user_email"]+'&did='+oid+'&rndtik='+randomNum, true);
+    } else {
         //xmlhttp.open('GET', 'http://super.aspen.ru/mobile_ajax_files/test.php?operation='+g+'&eri='+app_ex_run_id+'&rndtik='+randomNum, true);
 	}
 
