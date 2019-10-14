@@ -60,7 +60,7 @@ function ajax_response_ctrl(g, res) {
                 var html_source = '';
 
                 for (var t=0; t!=res.data.length; t++) {
-                    if (res.data[t]['has_alarm'] !== false && parseInt(res.data[t]['has_alarm']) !== 0) {
+                    if (res.data[t]['has_alarm'] == false || parseInt(res.data[t]['has_alarm']) == 0) {
                         var alarm = 'нет';
                     } else {
                         var alarm = 'да';
