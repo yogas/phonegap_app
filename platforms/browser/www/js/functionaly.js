@@ -123,25 +123,28 @@ function ajax_response_ctrl(g, res) {
 
 function ajax(g, oid) {
 	var xmlhttp = getXmlHttp();
+    var randomNum = Math.round((Math.random() * (40000 - 1) + 1));
 
 	if (g == "auth_user") {
 	    alert(33354545454);
 		var user_email = document.getElementById("user_email").value;
 		var user_pass = document.getElementById("user_pass").value;
         window.localStorage["user_email"] = user_email;
-        xmlhttp.open('GET', 'http://dev.hashing24.sale/main/login?&fields[login]='+user_email+'&fields[password]='+user_pass, true);
+        xmlhttp.open('GET', 'http://dev.hashing24.sale/main/login?&fields[login]='+user_email+'&fields[password]='+user_pass+'&rndtik='+randomNum, true);
 	} else if (g == "check_server_session") {
-        xmlhttp.open('GET', 'http://dev.hashing24.sale/main/checkSession?&identifer='+window.localStorage["user_email"], true);
+        xmlhttp.open('GET', 'http://dev.hashing24.sale/main/checkSession?&identifer='+window.localStorage["user_email"]+'&rndtik='+randomNum, true);
 	} else if (g == "get_devices_list") {
-        xmlhttp.open('GET', 'http://dev.hashing24.sale/main/getDevices?&identifer='+window.localStorage["user_email"], true);
+        xmlhttp.open('GET', 'http://dev.hashing24.sale/main/getDevices?&identifer='+window.localStorage["user_email"]+'&rndtik='+randomNum, true);
 	} else {
         //xmlhttp.open('GET', 'http://super.aspen.ru/mobile_ajax_files/test.php?operation='+g+'&eri='+app_ex_run_id+'&rndtik='+randomNum, true);
 	}
 
-	//xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+	xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 	xmlhttp.send();
 	xmlhttp.onreadystatechange = function() {
-	    alert(xmlhttp);
+	    alert(xmlhttp.readyState);
+	    alert(xmlhttp.status);
+	    alert(xmlhttp.JSON.parse(xmlhttp.responseText));
 		if (xmlhttp.readyState == 4) {
 			if(xmlhttp.status == 200) {
 				ajax_response_ctrl(g, JSON.parse(xmlhttp.responseText));
@@ -153,11 +156,33 @@ function ajax(g, oid) {
 
 function auth_user() {
     alert('auth_user');
-	if(document.getElementById("user_email").value != "" && document.getElementById("user_pass").value != "") {
+	if (document.getElementById("user_email").value != "" && document.getElementById("user_pass").value != "") {
 		document.getElementById("user_email").className = "text-fields";
 		document.getElementById("user_pass").className = "text-fields";
 		ajax("auth_user");
-	}else {
+
+        /*
+        var user_email = document.getElementById("user_email").value;
+        var user_pass = document.getElementById("user_pass").value;
+        alert(user_email);
+        alert(user_pass);
+        window.localStorage["user_email"] = user_email;
+        $.ajax({
+            url: 'http://dev.hashing24.sale/main/login?&fields[login]='+user_email+'&fields[password]='+user_pass,
+            type: "GET",
+            //data: "&aid=" + appID + "&ifn=" + fileName,
+            processData: false,
+            //contentType: false,
+            success: function (res) {
+                alert('res');
+                alert(res.token);
+            },
+            faild: function (res) {
+                alert(res);
+            }
+        });
+        */
+	} else {
 		if(document.getElementById("user_email").value == "") {
 			document.getElementById("user_email").className = "text-fields error";
 		}else {
