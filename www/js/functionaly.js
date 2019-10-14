@@ -147,6 +147,7 @@ function ajax(g, oid) {
 
 
 function auth_user() {
+    alert('auth_user');
 	if(document.getElementById("user_email").value != "" && document.getElementById("user_pass").value != "") {
 		document.getElementById("user_email").className = "text-fields";
 		document.getElementById("user_pass").className = "text-fields";
