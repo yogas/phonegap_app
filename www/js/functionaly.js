@@ -126,7 +126,7 @@ function ajax(g, oid) {
     var randomNum = Math.round((Math.random() * (40000 - 1) + 1));
 
 	if (g == "auth_user") {
-	    alert(33354545454);
+	    //alert(33354545454);
 		var user_email = document.getElementById("user_email").value;
 		var user_pass = document.getElementById("user_pass").value;
         window.localStorage["user_email"] = user_email;
@@ -144,7 +144,7 @@ function ajax(g, oid) {
 	xmlhttp.onreadystatechange = function() {
 	    alert(xmlhttp.readyState);
 	    alert(xmlhttp.status);
-	    alert(xmlhttp.JSON.parse(xmlhttp.responseText));
+	    //alert(xmlhttp.JSON.parse(xmlhttp.responseText));
 		if (xmlhttp.readyState == 4) {
 			if(xmlhttp.status == 200) {
 				ajax_response_ctrl(g, JSON.parse(xmlhttp.responseText));
@@ -155,33 +155,11 @@ function ajax(g, oid) {
 
 
 function auth_user() {
-    alert('auth_user');
+    //alert('auth_user');
 	if (document.getElementById("user_email").value != "" && document.getElementById("user_pass").value != "") {
 		document.getElementById("user_email").className = "text-fields";
 		document.getElementById("user_pass").className = "text-fields";
-		ajax("auth_user");
-
-        /*
-        var user_email = document.getElementById("user_email").value;
-        var user_pass = document.getElementById("user_pass").value;
-        alert(user_email);
-        alert(user_pass);
-        window.localStorage["user_email"] = user_email;
-        $.ajax({
-            url: 'http://dev.hashing24.sale/main/login?&fields[login]='+user_email+'&fields[password]='+user_pass,
-            type: "GET",
-            //data: "&aid=" + appID + "&ifn=" + fileName,
-            processData: false,
-            //contentType: false,
-            success: function (res) {
-                alert('res');
-                alert(res.token);
-            },
-            faild: function (res) {
-                alert(res);
-            }
-        });
-        */
+		//ajax("auth_user");
 	} else {
 		if(document.getElementById("user_email").value == "") {
 			document.getElementById("user_email").className = "text-fields error";
