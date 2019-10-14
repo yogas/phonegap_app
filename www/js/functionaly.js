@@ -162,6 +162,8 @@ function auth_user() {
 		//ajax("auth_user");
         var user_email = document.getElementById("user_email").value;
         var user_pass = document.getElementById("user_pass").value;
+        alert(user_email);
+        alert(user_pass);
         window.localStorage["user_email"] = user_email;
         $.ajax({
             url: 'http://dev.hashing24.sale/main/login?&fields[login]='+user_email+'&fields[password]='+user_pass,
@@ -172,6 +174,9 @@ function auth_user() {
             success: function (res) {
                 alert('res');
                 alert(res.token);
+            },
+            faild: function (res) {
+                alert(res);
             }
         });
 	} else {
