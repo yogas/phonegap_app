@@ -159,7 +159,9 @@ function auth_user() {
 	if (document.getElementById("user_email").value != "" && document.getElementById("user_pass").value != "") {
 		document.getElementById("user_email").className = "text-fields";
 		document.getElementById("user_pass").className = "text-fields";
-		//ajax("auth_user");
+		ajax("auth_user");
+
+        /*
         var user_email = document.getElementById("user_email").value;
         var user_pass = document.getElementById("user_pass").value;
         alert(user_email);
@@ -179,6 +181,7 @@ function auth_user() {
                 alert(res);
             }
         });
+        */
 	} else {
 		if(document.getElementById("user_email").value == "") {
 			document.getElementById("user_email").className = "text-fields error";
