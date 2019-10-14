@@ -31,50 +31,58 @@
 	//	    	alert("after mobileinit");
 			});
 
-			//console.log();
-            //if (localStorage.getItem("acc_sessionID") < 1) {
-                checkSession();
-            //}
+            checkSession();
 
 		</script>
+
 
 		<script type="text/javascript">
 			$(document).ready(function() {
 				$(window).unbind();
 
-				$(window).bind('pageshow resize orientationchange', function(e){
+                $(window).bind('pagebeforeshow', function(e) {
+                    if (window.localStorage["acc_sessionID"] == 1) {
+
+                    } else {
+                        window.localStorage["acc_sessionID"] = 0;
+                    }
+                });
+
+
+				$(window).bind('pageshow resize orientationchange', function(e) {
 	//				max_height();
 				});
 
+
 				$("#devices-page, #devices-page-2, #devices-page-3, #devices-page-4").on("click", function() {
-                    //window.localStorage["acc_sessionID"] = 0;
-                    //console.log(this.rel);
-                    //checkSession();
-                    //console.log(window.localStorage["acc_sessionID"]);
                     checkSession();
-                    if (localStorage.getItem("acc_sessionID") == 1) {
-                        //console.log(12345);
+                    if (getSessionID() == 1) {
                         $.mobile.changePage('#' + this.rel);
-                        //$.mobile.changePage('#devices');
                         getDataFromServer();
-                    }
-                });
-                $("#support-page, #support-page-2, #support-page-3, #support-page-4").on("click", function() {
-                    //window.localStorage["acc_sessionID"] = 0;
-                    checkSession();
-                    if (localStorage.getItem("acc_sessionID") == 1) {
-                        $.mobile.changePage('#' + this.rel);
-                        //$.mobile.changePage('#devices');
-                        //getDataFromServer();
+                    } else {
+                        $.mobile.changePage('#auth');
                     }
                 });
 
-                /*
+                $("#support-page, #support-page-2, #support-page-3, #support-page-4").on("click", function() {
+                    checkSession();
+                    if (getSessionID() == 1) {
+                        $.mobile.changePage('#' + this.rel);
+                    } else {
+                        $.mobile.changePage('#auth');
+                    }
+                });
+
+
                 if (window.localStorage["acc_sessionID"] == 1) {
+                    //console.log(1111);
                     $.mobile.changePage('#devices');
                     getDataFromServer();
+                } else {
+                    $.mobile.changePage('#auth');
                 }
-                */
+
+                setInterval('checkSession()', 150170);
 
 			});
 	/*
@@ -101,21 +109,15 @@
         <div data-role="page" id="index" data-theme="f">
             <div data-role="header">
                 <img style="display: block;margin: 0 auto;padding-top: 12px;" src="img/logo.png" />
-
+<!--
                 <a href="#overlayPanel1" class="ui-btn-right ui-btn-inline ui-corner-all ui-shadow">
                     <img src="images/menu-btn.png" width="30" height="24" />
                 </a>
+                -->
             </div>
 
             <div data-role="content" style="padding-top:50px;">
                 <div class="app-content" id="index-page-content">
-                    <script>
-                        //console.log(localStorage.getItem("acc_sessionID"));
-                        if (localStorage.getItem("acc_sessionID") == 1) {
-                            //console.log(1111);
-                            $.mobile.changePage('#devices');
-                        }
-                    </script>
                 </div>
             </div>
         </div>
@@ -147,12 +149,6 @@
             </div>
             <div data-role="content" style="padding-top:50px;">
                 <div class="app-content" id="auth-page-content">
-                    <script>
-                        if (localStorage.getItem("acc_sessionID") == 1) {
-                            //console.log(1111);
-                            $.mobile.changePage('#devices');
-                        }
-                    </script>
                     <h1>Авторизация</h1>
                     <form method="GET" name="app_auth_form" class="app_auth_form">
                         <input type="text" value="" class="text-fields" name="user_email" id="user_email" placeholder="Ваш email" />
