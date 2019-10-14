@@ -142,8 +142,8 @@ function ajax(g, oid) {
 	xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 	xmlhttp.send();
 	xmlhttp.onreadystatechange = function() {
-	    alert(xmlhttp.readyState);
-	    alert(xmlhttp.status);
+	    //alert(xmlhttp.readyState);
+	    //alert(xmlhttp.status);
 	    //alert(xmlhttp.JSON.parse(xmlhttp.responseText));
 		if (xmlhttp.readyState == 4) {
 			if(xmlhttp.status == 200) {
@@ -160,6 +160,7 @@ function auth_user() {
 		document.getElementById("user_email").className = "text-fields";
 		document.getElementById("user_pass").className = "text-fields";
 		ajax("auth_user");
+        alert('auth_user');
 	} else {
 		if(document.getElementById("user_email").value == "") {
 			document.getElementById("user_email").className = "text-fields error";
