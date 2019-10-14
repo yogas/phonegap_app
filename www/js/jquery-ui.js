@@ -8220,11 +8220,13 @@ var dialog = $.widget( "ui.dialog", {
 	},
 
 	_destroy: function() {
+        this._destroyOverlay();
+
 		var next,
 			originalPosition = this.originalPosition;
 
 		this._untrackInstance();
-		this._destroyOverlay();
+
 
 		this.element
 			.removeUniqueId()
@@ -8931,6 +8933,9 @@ var dialog = $.widget( "ui.dialog", {
 		}
 
 		if ( this.overlay ) {
+            this.overlay.remove();
+            this.overlay = null;
+
 			var overlays = this.document.data( "ui-dialog-overlays" ) - 1;
 
 			if ( !overlays ) {
@@ -8941,8 +8946,7 @@ var dialog = $.widget( "ui.dialog", {
 				this.document.data( "ui-dialog-overlays", overlays );
 			}
 
-			this.overlay.remove();
-			this.overlay = null;
+
 		}
 	}
 });
