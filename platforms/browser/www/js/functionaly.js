@@ -36,16 +36,16 @@ function checkSession() {
 function ajax_response_ctrl(g, res) {
 	switch(g) {
 		case 'auth_user':
-            alert(6576765756756);
+            //alert(6576765756756);
 			if (res.token) {
-                alert('xxxxxxxxxxxxxxxxxxxxx');
+                //alert('xxxxxxxxxxxxxxxxxxxxx');
             	//document.getElementById("user_pass").style.border = "solid 1px red";
                 window.localStorage["acc_sessionID"] = 1;
                 window.localStorage["user_email"] = res.data;
                 $.mobile.changePage('#devices');
                 getDataFromServer();
 			} else {
-                alert('yyyyyyyyyyyyyyyyyyyyyy');
+                //alert('yyyyyyyyyyyyyyyyyyyyyy');
                 window.localStorage["acc_sessionID"] = 0;
                 window.localStorage["user_email"] = null;
                 $.mobile.changePage('#auth');
@@ -160,7 +160,7 @@ function auth_user() {
 		document.getElementById("user_email").className = "text-fields";
 		document.getElementById("user_pass").className = "text-fields";
 		ajax("auth_user");
-        alert('auth_user');
+        //alert('auth_user');
 	} else {
 		if(document.getElementById("user_email").value == "") {
 			document.getElementById("user_email").className = "text-fields error";
