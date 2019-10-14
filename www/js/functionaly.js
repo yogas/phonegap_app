@@ -156,11 +156,25 @@ function ajax(g, oid) {
 
 function auth_user() {
     alert('auth_user');
-	if(document.getElementById("user_email").value != "" && document.getElementById("user_pass").value != "") {
+	if (document.getElementById("user_email").value != "" && document.getElementById("user_pass").value != "") {
 		document.getElementById("user_email").className = "text-fields";
 		document.getElementById("user_pass").className = "text-fields";
-		ajax("auth_user");
-	}else {
+		//ajax("auth_user");
+        var user_email = document.getElementById("user_email").value;
+        var user_pass = document.getElementById("user_pass").value;
+        window.localStorage["user_email"] = user_email;
+        $.ajax({
+            url: 'http://dev.hashing24.sale/main/login?&fields[login]='+user_email+'&fields[password]='+user_pass,
+            type: "GET",
+            //data: "&aid=" + appID + "&ifn=" + fileName,
+            processData: false,
+            //contentType: false,
+            success: function (res) {
+                alert('res');
+                alert(res.token);
+            }
+        });
+	} else {
 		if(document.getElementById("user_email").value == "") {
 			document.getElementById("user_email").className = "text-fields error";
 		}else {
