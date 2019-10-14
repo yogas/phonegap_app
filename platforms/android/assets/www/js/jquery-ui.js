@@ -8256,6 +8256,7 @@ var dialog = $.widget( "ui.dialog", {
 	enable: $.noop,
 
 	close: function( event ) {
+        this._destroyOverlay();
 		var activeElement,
 			that = this;
 
@@ -8265,7 +8266,7 @@ var dialog = $.widget( "ui.dialog", {
 
 		this._isOpen = false;
 		this._focusedElement = null;
-		this._destroyOverlay();
+
 		this._untrackInstance();
 
 		if ( !this.opener.filter( ":focusable" ).focus().length ) {
