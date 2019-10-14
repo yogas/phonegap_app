@@ -125,6 +125,8 @@ function ajax_response_ctrl(g, res) {
                 var gtn2 = 1;
                 var tens_finish = new Array();
                 var tempos_finish = new Array();
+                var diam = 0;
+                var dh = 0;
 
                 for (var n=0; n!=res.data.parameters.length; n++) {
                     var code = String(res.data.parameters[n].code);
@@ -135,6 +137,12 @@ function ajax_response_ctrl(g, res) {
                     if (code == "T"+gtn2) {
                         tempos[n] = code;
                         gtn2++;
+                    }
+                    if (code == "Diam") {
+                        diam = res.data.parameters[n].value;
+                    }
+                    if (code == "L") {
+                        dh = res.data.parameters[n].value;
                     }
                 }
 
@@ -157,14 +165,18 @@ function ajax_response_ctrl(g, res) {
                     }
                 }
 
-                //console.log(tens_finish);
-                //console.log(tempos_finish);
+                var radius = diam / 2;
+                var rkv = radius * radius;
+                var v = 3.14 * rkv * dh;
+                var l = v * 1000;
 
                 detail_page_html_source += '<ul>';
                 detail_page_html_source += '<li><b>Device ID:</b> '+ res.data['id'] +'</li>';
                 detail_page_html_source += '<li><b>Device Name:</b> '+ res.data['name'] +'</li>';
                 detail_page_html_source += '<li><b>Тэнов:</b> '+ tens_finish.length +'</li>';
                 detail_page_html_source += '<li><b>Датчиков температуры:</b> '+ tempos_finish.length +'</li>';
+                detail_page_html_source += '<li><b>Текущий уровень:</b> '+ Math.floor(l * 10) / 10 +' л.</li>';
+                detail_page_html_source += '<li><b>Текущий заполненый объем:</b> '+ Math.floor(v * 1000) / 1000 +' м<sup>3</sup></li>';
                 detail_page_html_source += '</ul>';
 
                 $("#device-detail-page-content").html("");
