@@ -41,7 +41,7 @@
 				$(window).unbind();
 
                 $(window).bind('pagebeforeshow', function(e) {
-                    if (window.localStorage["acc_sessionID"] == 1) {
+                    if (getSessionID() == 1) {
 
                     } else {
                         window.localStorage["acc_sessionID"] = 0;
@@ -67,6 +67,7 @@
 
                 $("#support-page, #support-page-2, #support-page-3, #support-page-4").on("click", function() {
                     //alert('312');
+                    //$(".ui-panel-dismiss-open").css('display', 'none');
                     checkSession();
                     if (getSessionID() == 1) {
                         $.mobile.changePage('#' + this.rel);
@@ -76,7 +77,7 @@
                 });
 
 
-                if (window.localStorage["acc_sessionID"] == 1) {
+                if (getSessionID() == 1) {
                     //console.log(1111);
                     $.mobile.changePage('#devices');
                     getDataFromServer();

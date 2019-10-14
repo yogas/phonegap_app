@@ -67,6 +67,7 @@
 
                 $("#support-page, #support-page-2, #support-page-3, #support-page-4").on("click", function() {
                     //alert('312');
+                    //$(".ui-panel-dismiss-open").css('display', 'none');
                     checkSession();
                     if (getSessionID() == 1) {
                         $.mobile.changePage('#' + this.rel);
