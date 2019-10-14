@@ -138,7 +138,7 @@ function ajax(g, oid) {
         //xmlhttp.open('GET', 'http://super.aspen.ru/mobile_ajax_files/test.php?operation='+g+'&eri='+app_ex_run_id+'&rndtik='+randomNum, true);
 	}
 
-	//xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+	xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 	xmlhttp.send();
 	xmlhttp.onreadystatechange = function() {
 	    alert(xmlhttp.readyState);
