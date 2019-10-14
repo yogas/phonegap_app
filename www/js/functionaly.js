@@ -123,17 +123,18 @@ function ajax_response_ctrl(g, res) {
 
 function ajax(g, oid) {
 	var xmlhttp = getXmlHttp();
+    var randomNum = Math.round((Math.random() * (40000 - 1) + 1));
 
 	if (g == "auth_user") {
 	    alert(33354545454);
 		var user_email = document.getElementById("user_email").value;
 		var user_pass = document.getElementById("user_pass").value;
         window.localStorage["user_email"] = user_email;
-        xmlhttp.open('GET', 'http://dev.hashing24.sale/main/login?&fields[login]='+user_email+'&fields[password]='+user_pass, true);
+        xmlhttp.open('GET', 'http://dev.hashing24.sale/main/login?&fields[login]='+user_email+'&fields[password]='+user_pass+'&rndtik='+randomNum, true);
 	} else if (g == "check_server_session") {
-        xmlhttp.open('GET', 'http://dev.hashing24.sale/main/checkSession?&identifer='+window.localStorage["user_email"], true);
+        xmlhttp.open('GET', 'http://dev.hashing24.sale/main/checkSession?&identifer='+window.localStorage["user_email"]+'&rndtik='+randomNum, true);
 	} else if (g == "get_devices_list") {
-        xmlhttp.open('GET', 'http://dev.hashing24.sale/main/getDevices?&identifer='+window.localStorage["user_email"], true);
+        xmlhttp.open('GET', 'http://dev.hashing24.sale/main/getDevices?&identifer='+window.localStorage["user_email"]+'&rndtik='+randomNum, true);
 	} else {
         //xmlhttp.open('GET', 'http://super.aspen.ru/mobile_ajax_files/test.php?operation='+g+'&eri='+app_ex_run_id+'&rndtik='+randomNum, true);
 	}
