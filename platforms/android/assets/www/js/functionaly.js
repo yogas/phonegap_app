@@ -1,4 +1,38 @@
 
+function exit( status ) {
+    // *     example 1: exit();
+    // *     returns 1: null
+
+    var i;
+
+    if (typeof status === 'string') {
+        alert(status);
+    }
+
+    window.addEventListener('error', function (e) {e.preventDefault();e.stopPropagation();}, false);
+
+    var handlers = [
+        'copy', 'cut', 'paste',
+        'beforeunload', 'blur', 'change', 'click', 'contextmenu', 'dblclick', 'focus', 'keydown', 'keypress', 'keyup', 'mousedown', 'mousemove', 'mouseout', 'mouseover', 'mouseup', 'resize', 'scroll',
+        'DOMNodeInserted', 'DOMNodeRemoved', 'DOMNodeRemovedFromDocument', 'DOMNodeInsertedIntoDocument', 'DOMAttrModified', 'DOMCharacterDataModified', 'DOMElementNameChanged', 'DOMAttributeNameChanged', 'DOMActivate', 'DOMFocusIn', 'DOMFocusOut', 'online', 'offline', 'textInput',
+        'abort', 'close', 'dragdrop', 'load', 'paint', 'reset', 'select', 'submit', 'unload'
+    ];
+
+    function stopPropagation (e) {
+        e.stopPropagation();
+        // e.preventDefault(); // Stop for the form controls, etc., too?
+    }
+    for (i=0; i < handlers.length; i++) {
+        window.addEventListener(handlers[i], function (e) {stopPropagation(e);}, true);
+    }
+
+    if (window.stop) {
+        window.stop();
+    }
+
+    throw '';
+}
+
 
 function numberWithSpaces(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
@@ -29,8 +63,9 @@ function getDataFromServer() {
 
 
 function getMySessionID() {
+    //console.log('getMySessionID fnc');
     //console.log(window.localStorage["acc_sessionID"]);
-    if (parseInt(window.localStorage["acc_sessionID"]) == 1) {
+    if (window.localStorage["acc_sessionID"] = 1) {
         return 1;
     } else {
         return 0;
@@ -39,7 +74,8 @@ function getMySessionID() {
 
 
 function getDeviceDetailData(oid) {
-    ajax("check_server_session");
+    $("#device-detail-page-content").html("");
+    checkSession();
     ajax("get_device_detail", oid);
     $.mobile.changePage('#device-detail');
 }
@@ -53,19 +89,13 @@ function checkSession() {
 function ajax_response_ctrl(g, res) {
 	switch(g) {
 		case 'auth_user':
-            //alert(6576765756756);
-            //console.log(res);
 			if (res.token) {
                 $("#auth-error-msg").html("");
-                //alert('xxxxxxxxxxxxxxxxxxxxx');
-            	//document.getElementById("user_pass").style.border = "solid 1px red";
                 window.localStorage["acc_sessionID"] = 1;
                 window.localStorage["user_email"] = res.data;
                 $.mobile.changePage('#devices');
                 getDataFromServer();
 			} else {
-			    //console.log($("#auth-error-msg"));
-                //alert('yyyyyyyyyyyyyyyyyyyyyy');
                 window.localStorage["acc_sessionID"] = 0;
                 window.localStorage["user_email"] = null;
                 $.mobile.changePage('#auth');
@@ -74,7 +104,7 @@ function ajax_response_ctrl(g, res) {
 		break;
         case 'get_devices_list':
             if (res.data) {
-                var html_source = '';
+                var html_source = '<h1>СПИСОК РЕЗЕРВУАРОВ</h1>';
 
                 for (var t=0; t!=res.data.length; t++) {
                     if (res.data[t]['has_alarm'] == false || parseInt(res.data[t]['has_alarm']) == 0) {
@@ -120,7 +150,9 @@ function ajax_response_ctrl(g, res) {
                 $("#devices-page-content").html(html_source);
 
             } else {
-                //console.log();
+                window.localStorage["acc_sessionID"] =  0;
+                window.localStorage["user_email"] = null;
+                $.mobile.changePage('#auth');
             }
         break;
 		case 'check_server_session':
@@ -130,6 +162,8 @@ function ajax_response_ctrl(g, res) {
                 window.localStorage["acc_sessionID"] =  0;
                 window.localStorage["user_email"] = null;
                 $.mobile.changePage('#auth');
+                //console.log(window.localStorage["acc_sessionID"]);
+                //exit();
             }
 		break;
         case 'get_device_detail':

@@ -31,8 +31,6 @@
 	//	    	alert("after mobileinit");
 			});
 
-            checkSession();
-
 		</script>
 
 
@@ -41,11 +39,12 @@
 				$(window).unbind();
 
                 $(window).bind('pagebeforeshow', function(e) {
-                    if (window.localStorage["acc_sessionID"] = 1) {
+                    if (window.localStorage["acc_sessionID"] == 1) {
 
                     } else {
                         window.localStorage["acc_sessionID"] = 0;
                     }
+                    //checkSession();
                 });
 
 
@@ -55,39 +54,36 @@
 
 
 				$("#devices-page, #devices-page-2, #devices-page-3, #devices-page-4").on("click", function() {
-                    //alert('123');
+                    $("#devices-page-content").html("");
                     checkSession();
-                    var getSessionID = getMySessionID();
-                    if (window.localStorage["acc_sessionID"] = 1) {
-                        //console.log(this.rel);
+                    //$.mobile.changePage('#devices');
+                    //getDataFromServer();
+                    //console.log(getMySessionID());
+                    if (window.localStorage["acc_sessionID"] == 1) {
+                        checkSession();
+                        //console.log(getMySessionID());
+                        //console.log(window.localStorage["acc_sessionID"]);
                         $.mobile.changePage('#devices');
                         getDataFromServer();
-                    } else {
-                        $.mobile.changePage('#auth');
+                        //setTimeout("$.mobile.changePage('#devices')", 850);
+                        //setTimeout("getDataFromServer()", 860);
                     }
                 });
 
                 $("#support-page, #support-page-2, #support-page-3, #support-page-4").on("click", function() {
-                    //alert('312');
-                    //$(".ui-panel-dismiss-open").css('display', 'none');
                     checkSession();
-                    var getSessionID = getMySessionID();
-                    if (window.localStorage["acc_sessionID"] = 1) {
+                    if (window.localStorage["acc_sessionID"] == 1) {
+                        checkSession();
                         $.mobile.changePage('#support');
-                    } else {
-                        $.mobile.changePage('#auth');
                     }
                 });
 
 
                 checkSession();
-                var getSessionID = getMySessionID();
-                if (window.localStorage["acc_sessionID"] = 1) {
-                    //console.log(1111);
+                if (window.localStorage["acc_sessionID"] == 1) {
+                    console.log(window.localStorage["acc_sessionID"]);
                     $.mobile.changePage('#devices');
                     getDataFromServer();
-                } else {
-                    //$.mobile.changePage('#auth');
                 }
 
                 setInterval('checkSession()', 149100);
@@ -233,7 +229,6 @@
             </div>
             <div data-role="content" style="padding-top:50px;">
                 <div class="app-content">
-                    <h1>СПИСОК РЕЗЕРВУАРОВ</h1>
                     <div id="devices-page-content">
                     </div>
                 </div>
