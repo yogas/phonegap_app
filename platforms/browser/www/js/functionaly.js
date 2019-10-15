@@ -27,10 +27,6 @@ function getDeviceDetailData(oid) {
     $.mobile.changePage('#device-detail');
 }
 
-function getSessionID() {
-    return window.localStorage["acc_sessionID"];
-}
-
 
 function checkSession() {
 	ajax("check_server_session");
