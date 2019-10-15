@@ -169,12 +169,30 @@ function ajax_response_ctrl(g, res) {
                 var rkv = radius * radius;
                 var v = 3.14 * rkv * dh;
                 var l = v * 1000;
+                var ten_of_section = tens_finish.length / tempos_finish.length;
+
+                var deviceDt = '';
+                var device_wf_h = document.getElementById("device-work-frame").offsetHeight;
+                var lineheight_temp_block = device_wf_h / tempos_finish.length;
+                var bgs = ["#BE3D3D", "#3DBE52", "#3D88BE"];
+
+                for(var dtn=0; dtn!=tempos_finish.length; dtn++) {
+                    if (dtn == 0) {
+                        var lineheight = lineheight_temp_block / 4;
+                    } else {
+                        var lineheight = ((lineheight_temp_block * dtn) + (lineheight_temp_block / 2)) - (lineheight_temp_block / 4);
+                    }
+                    deviceDt += '<span class="device-dt" style="top:'+lineheight+'px; background-color:'+bgs[dtn]+'; left:-30px;">'+tempos_finish[dtn]+'</span>';
+                }
+
+                $("#device-work-frame").html(deviceDt);
 
                 detail_page_html_source += '<ul>';
                 detail_page_html_source += '<li><b>Device ID:</b> '+ res.data['id'] +'</li>';
                 detail_page_html_source += '<li><b>Device Name:</b> '+ res.data['name'] +'</li>';
                 detail_page_html_source += '<li><b>Тэнов:</b> '+ tens_finish.length +'</li>';
                 detail_page_html_source += '<li><b>Датчиков температуры:</b> '+ tempos_finish.length +'</li>';
+                detail_page_html_source += '<li><b>Тэнов на секцию:</b> '+ ten_of_section +'</li>';
                 detail_page_html_source += '<li><b>Текущий уровень:</b> '+ Math.floor(l * 10) / 10 +' л.</li>';
                 detail_page_html_source += '<li><b>Текущий заполненый объем:</b> '+ Math.floor(v * 1000) / 1000 +' м<sup>3</sup></li>';
                 detail_page_html_source += '</ul>';
