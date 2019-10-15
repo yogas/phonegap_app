@@ -6,15 +6,15 @@
         <param name="onload" value="true" />
     </feature>
     <allow-intent href="market:*" />
-    <name>PhoneGap App</name>
+    <name>FLAMAX App</name>
     <description>
-        PhoneGap App.
+        FLAMAX App.
     </description>
     <author email="ny_18@list.ru" href="http://hh.ru/resume/c6270200ff012684510039ed1f4c59364f6171">
 		Luxxx
     </author>
     <content src="index.html" />
-    <preference name="fullscreen" value="false" />
+    <preference name="fullscreen" value="true" />
     <preference name="webviewbounce" value="true" />
     <preference name="useBrowserHistory" value="true" />
     <preference name="exit-on-suspend" value="true" />

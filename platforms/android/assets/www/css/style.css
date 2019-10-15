@@ -431,25 +431,50 @@ pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
     height: 20px;
     color: #ffffff;
     font-size: 11px;
+    z-index: 48;
 }
 .device-tn {
     display: block;
     position: relative;
-    width: 55px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
+    border-radius: 25px;
     color: #ffffff;
     font-size: 11px;
     float: right;
-    background-color: red;
     clear: both;
     margin-bottom: 5px;
+    line-height: 2.2;
 }
+
 .vodichka {
     background-color: #7BC6E7;
     width: 100%;
     position: relative;
     z-index: 45;
     opacity: 0.6;
+}
+.vodichka-text {
+    color: #3D88BE;
+    font-size: 28px;
+    font-family: "Roboto-Bold";
+    font-weight: bold;
+    text-align: right !important;
+    vertical-align: bottom;
+    float: none !important;
+    top: 47%;
+    margin-left: 20%;
+    position: relative;
+}
+
+.auth-error-msg {
+    color: red;
+}
+.sn-block {
+    max-width: 170px;
+    background-color: #000000;
+    color: #FFFFFF;
+    margin: 0 auto;
 }
 
 

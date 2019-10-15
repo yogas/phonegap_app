@@ -18,11 +18,6 @@
 		<script src="js/jquery.mobile-1.4.5.min.js"></script>
         <script src="js/functionaly.js"></script>
 		<script>
-            function getMySessionID() {
-                console.log(window.localStorage["acc_sessionID"]);
-                return window.localStorage["acc_sessionID"];
-            }
-
 			$(document).bind('mobileinit',function() {
 	//	    	alert("before mobileinit");
 				$.support.cors = true;
@@ -47,10 +42,17 @@
 
                 $(window).bind('pagebeforeshow', function(e) {
                     var getSessionID = getMySessionID();
+                    /*
                     if (getSessionID == 1) {
 
                     } else {
                         window.localStorage["acc_sessionID"] = 0;
+                    }
+                    */
+                    if (/*window.localStorage["acc_sessionID"]*/getSessionID == 1) {
+                        //$.mobile.changePage('#support');
+                    } else {
+                        $.mobile.changePage('#auth');
                     }
                 });
 
@@ -86,7 +88,9 @@
                 });
 
 
-                if (window.localStorage["acc_sessionID"] == 1) {
+                checkSession();
+                var getSessionID = getMySessionID();
+                if (getSessionID == 1) {
                     //console.log(1111);
                     $.mobile.changePage('#devices');
                     getDataFromServer();
@@ -157,6 +161,7 @@
             <div data-role="content" style="padding-top:50px;">
                 <div class="app-content" id="auth-page-content">
                     <h1>Авторизация</h1>
+                    <div class="auth-error-msg" id="auth-error-msg"></div>
                     <form method="GET" name="app_auth_form" class="app_auth_form">
                         <input type="text" value="" class="text-fields" name="user_email" id="user_email" placeholder="Ваш email" />
                         <input type="password" value="" class="text-fields" name="user_pass" id="user_pass" placeholder="Пароль" />
