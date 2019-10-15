@@ -127,6 +127,7 @@ function ajax_response_ctrl(g, res) {
                 var tempos_finish = new Array();
                 var diam = 0;
                 var dh = 0;
+                var h = 0;
 
                 for (var n=0; n!=res.data.parameters.length; n++) {
                     var code = String(res.data.parameters[n].code);
@@ -143,6 +144,9 @@ function ajax_response_ctrl(g, res) {
                     }
                     if (code == "L") {
                         dh = res.data.parameters[n].value;
+                    }
+                    if (code == "H") {
+                        h = res.data.parameters[n].value;
                     }
                 }
 
@@ -193,6 +197,11 @@ function ajax_response_ctrl(g, res) {
                     deviceDt += '</span>';
                 }
 
+                var one_percent_H = Math.floor((h / 100) * 10000) / 10000;
+                var percents_L = Math.floor((dh / one_percent_H) * 100) / 100;
+                var vodichkaHeight = Math.ceil(6 * percents_L);
+                var vodichkaTop = 600 - vodichkaHeight;
+
                 //$("#device-work-frame").html(deviceDt);
                 detail_page_html_source += '<div class="device-schema-block">\n' +
                     '                        <div class="hight-level-brd">\n' +
@@ -210,7 +219,7 @@ function ajax_response_ctrl(g, res) {
                     '                        <div class="low-level-brd">\n' +
                     '                            <span class="low-lavel-block">НЕВЫБИРАЕМЫЙ ОСТАТОК</span>\n' +
                     '                        </div>\n' +
-                    '                    </div>';
+                    '                    <div class="vodichka" style="height:'+vodichkaHeight+'px; margin-top:-'+(vodichkaHeight - 10)+'px;"></div></div>';
 
 
                 detail_page_html_source += '<ul>';

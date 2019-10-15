@@ -444,6 +444,13 @@ pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
     clear: both;
     margin-bottom: 5px;
 }
+.vodichka {
+    background-color: #7BC6E7;
+    width: 100%;
+    position: relative;
+    z-index: 45;
+    opacity: 0.6;
+}
 
 
 
