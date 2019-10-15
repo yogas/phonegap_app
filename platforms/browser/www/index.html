@@ -78,7 +78,7 @@
                 });
 
 
-                if (getSessionID() == 1) {
+                if (window.localStorage["acc_sessionID"] == 1) {
                     //console.log(1111);
                     $.mobile.changePage('#devices');
                     getDataFromServer();
