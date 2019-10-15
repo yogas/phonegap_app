@@ -124,6 +124,7 @@ function ajax_response_ctrl(g, res) {
                 var diam = 0;
                 var dh = 0;
                 var h = 0;
+                var tos = 0;
 
                 for (var n=0; n!=res.data.parameters.length; n++) {
                     var code = String(res.data.parameters[n].code);
@@ -142,6 +143,9 @@ function ajax_response_ctrl(g, res) {
                         dh = res.data.parameters[n].value;
                     }
                     if (code == "H") {
+                        h = res.data.parameters[n].value;
+                    }
+                    if (tos == "T_OS") {
                         h = res.data.parameters[n].value;
                     }
                 }
@@ -226,6 +230,7 @@ function ajax_response_ctrl(g, res) {
                 detail_page_html_source += '<li><b>Тэнов на секцию:</b> '+ ten_of_section +'</li>';
                 detail_page_html_source += '<li><b>Текущий уровень:</b> '+ Math.floor(l * 10) / 10 +' л.</li>';
                 detail_page_html_source += '<li><b>Текущий заполненый объем:</b> '+ Math.floor(v * 1000) / 1000 +' м<sup>3</sup></li>';
+                detail_page_html_source += '<li><b>T_OS:</b> '+ tos +'</li>';
                 detail_page_html_source += '</ul>';
 
                 $("#device-detail-page-content").html("");
