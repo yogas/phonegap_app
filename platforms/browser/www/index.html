@@ -41,18 +41,10 @@
 				$(window).unbind();
 
                 $(window).bind('pagebeforeshow', function(e) {
-                    var getSessionID = getMySessionID();
-                    /*
-                    if (getSessionID == 1) {
+                    if (window.localStorage["acc_sessionID"] = 1) {
 
                     } else {
                         window.localStorage["acc_sessionID"] = 0;
-                    }
-                    */
-                    if (/*window.localStorage["acc_sessionID"]*/getSessionID == 1) {
-                        //$.mobile.changePage('#support');
-                    } else {
-                        $.mobile.changePage('#auth');
                     }
                 });
 
@@ -66,7 +58,7 @@
                     //alert('123');
                     checkSession();
                     var getSessionID = getMySessionID();
-                    if (getSessionID == 1) {
+                    if (window.localStorage["acc_sessionID"] = 1) {
                         //console.log(this.rel);
                         $.mobile.changePage('#devices');
                         getDataFromServer();
@@ -80,7 +72,7 @@
                     //$(".ui-panel-dismiss-open").css('display', 'none');
                     checkSession();
                     var getSessionID = getMySessionID();
-                    if (getSessionID == 1) {
+                    if (window.localStorage["acc_sessionID"] = 1) {
                         $.mobile.changePage('#support');
                     } else {
                         $.mobile.changePage('#auth');
@@ -90,12 +82,12 @@
 
                 checkSession();
                 var getSessionID = getMySessionID();
-                if (getSessionID == 1) {
+                if (window.localStorage["acc_sessionID"] = 1) {
                     //console.log(1111);
                     $.mobile.changePage('#devices');
                     getDataFromServer();
                 } else {
-                    $.mobile.changePage('#auth');
+                    //$.mobile.changePage('#auth');
                 }
 
                 setInterval('checkSession()', 149100);
