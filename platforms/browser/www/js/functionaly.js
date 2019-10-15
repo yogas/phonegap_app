@@ -171,8 +171,9 @@ function ajax_response_ctrl(g, res) {
                 var l = v * 1000;
                 var ten_of_section = tens_finish.length / tempos_finish.length;
 
+                //var deviceTn = '';
                 var deviceDt = '';
-                var device_wf_h = document.getElementById("device-work-frame").offsetHeight;
+                var device_wf_h = 360;//document.getElementById("device-work-frame").offsetHeight;
                 var lineheight_temp_block = device_wf_h / tempos_finish.length;
                 var bgs = ["#BE3D3D", "#3DBE52", "#3D88BE"];
 
@@ -183,9 +184,34 @@ function ajax_response_ctrl(g, res) {
                         var lineheight = ((lineheight_temp_block * dtn) + (lineheight_temp_block / 2)) - (lineheight_temp_block / 4);
                     }
                     deviceDt += '<span class="device-dt" style="top:'+lineheight+'px; background-color:'+bgs[dtn]+'; left:-30px;">'+tempos_finish[dtn]+'</span>';
+                    deviceDt += '<span style="/*top:'+lineheight+'px; */display:block; position:relative; z-index:33; width:55px; float:right; right:-30px; clear:both;">';
+
+                    for (var tnn=0; tnn!=ten_of_section; tnn++) {
+                        deviceDt += '<span class="device-tn" style="">'+tempos_finish[dtn]+'</span>';
+                    }
+
+                    deviceDt += '</span>';
                 }
 
-                $("#device-work-frame").html(deviceDt);
+                //$("#device-work-frame").html(deviceDt);
+                detail_page_html_source += '<div class="device-schema-block">\n' +
+                    '                        <div class="hight-level-brd">\n' +
+                    '                            <span class="hight-lavel-block">ПЕРЕЛИВ</span>\n' +
+                    '                        </div>\n' +
+                    '                        <div class="max-level-brd">\n' +
+                    '                            <span class="max-lavel-block">MAX</span>\n' +
+                    '                        </div>\n' +
+                    '\n' +
+                    '                        <div class="device-work-frame" id="device-work-frame">'+deviceDt+'</div>\n' +
+                    '\n' +
+                    '                        <div class="min-level-brd">\n' +
+                    '                            <span class="min-lavel-block">MIN</span>\n' +
+                    '                        </div>\n' +
+                    '                        <div class="low-level-brd">\n' +
+                    '                            <span class="low-lavel-block">НЕВЫБИРАЕМЫЙ ОСТАТОК</span>\n' +
+                    '                        </div>\n' +
+                    '                    </div>';
+
 
                 detail_page_html_source += '<ul>';
                 detail_page_html_source += '<li><b>Device ID:</b> '+ res.data['id'] +'</li>';

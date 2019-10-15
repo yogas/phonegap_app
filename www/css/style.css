@@ -432,6 +432,18 @@ pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
     color: #ffffff;
     font-size: 11px;
 }
+.device-tn {
+    display: block;
+    position: relative;
+    width: 55px;
+    height: 20px;
+    color: #ffffff;
+    font-size: 11px;
+    float: right;
+    background-color: red;
+    clear: both;
+    margin-bottom: 5px;
+}
 
 
 
