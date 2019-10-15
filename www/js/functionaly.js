@@ -219,7 +219,7 @@ function ajax_response_ctrl(g, res) {
                     '                        <div class="low-level-brd">\n' +
                     '                            <span class="low-lavel-block">НЕВЫБИРАЕМЫЙ ОСТАТОК</span>\n' +
                     '                        </div>\n' +
-                    '                    <div class="vodichka" style="height:'+vodichkaHeight+'px; margin-top:-'+(vodichkaHeight - 10)+'px;"></div></div>';
+                    '                    <div class="vodichka" style="height:'+vodichkaHeight+'px; margin-top:-'+(vodichkaHeight - 75)+'px;"></div></div>';
 
 
                 detail_page_html_source += '<ul>';
