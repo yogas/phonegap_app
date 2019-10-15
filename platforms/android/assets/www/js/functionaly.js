@@ -150,9 +150,12 @@ function ajax_response_ctrl(g, res) {
                 $("#devices-page-content").html(html_source);
 
             } else {
+                /*
                 window.localStorage["acc_sessionID"] =  0;
                 window.localStorage["user_email"] = null;
                 $.mobile.changePage('#auth');
+                */
+                checkSession();
             }
         break;
 		case 'check_server_session':
