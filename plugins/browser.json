@@ -9,6 +9,9 @@
     "installed_plugins": {
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "xyz.luxxx.app_saler"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "flamax.app"
         }
     },
     "dependent_plugins": {}
