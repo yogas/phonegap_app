@@ -17,7 +17,7 @@
        under the License.
  */
 
-package xyz.luxxx.app_saler;
+package flamax.app;
 
 import android.os.Bundle;
 import org.apache.cordova.*;

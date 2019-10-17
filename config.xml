@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="xyz.luxxx.app_saler" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="flamax.app" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>FLAMAX App</name>
     <description>
         FLAMAX App.
@@ -11,6 +11,7 @@
     <plugin name="cordova-plugin-whitelist" source="npm" spec="1.1.0" />
     <plugin name="phonegap-plugin-push" spec="~2.1.2" >
         <variable name="FCM_VERSION" value="11.0.1" />
+        <variable name="SENDER_ID" value="405571286464" />
     </plugin>
     <preference name="fullscreen" value="true" />
     <preference name="webviewbounce" value="true" />
