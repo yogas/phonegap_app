@@ -44,6 +44,7 @@
                 }
                 //xmlhttp.open("GET","savetoken.php?token="+currentToken, true);
                 //xmlhttp.send();
+                alert(currentToken);
             }
 
             //Настройки FCM
@@ -58,36 +59,41 @@
             //инициализируем подключение к FCM
             firebase.initializeApp(config);
             const messaging = firebase.messaging();
-            console.log('NO LOAD TOKEN');
+            alert('NO LOAD TOKEN');
+            //console.log('NO LOAD TOKEN');
             //document.getElementById('token').innerHTML = 'NO LOAD TOKEN';
 
-            /*
+
             //запрос на показ Web-PUSH браузеру
             messaging.requestPermission()
                 .then(function() {
-                    console.log('Notification permission granted.');
+                    alert('Notification permission granted.');
+                    //console.log('Notification permission granted.');
                     // Если нотификация разрешена, получаем токен.
                     messaging.getToken()
                         .then(function(currentToken) {
                             if (currentToken) {
-                                console.log(currentToken);
+                                //console.log(currentToken);
                                 alert(currentToken);
                                 //отправка токена на сервер
                                 SendTokenToServer(currentToken);
                                 //document.getElementById('token').innerHTML = currentToken;
                             } else {
-                                console.log('No Instance ID token available. Request permission to generate one.');
+                                alert('No Instance ID token available. Request permission to generate one.');
+                                //console.log('No Instance ID token available. Request permission to generate one.');
                             }
                         })
                         .catch(function(err) {
-                            console.log('An error occurred while retrieving token. ', err);
-                            showToken('Error retrieving Instance ID token. ', err);
+                            alert('An error occurred while retrieving token. ', err);
+                            //console.log('An error occurred while retrieving token. ', err);
+                            //showToken('Error retrieving Instance ID token. ', err);
                         });
                     // ...
                 })
                 .catch(function(err) {
-                    console.log('Unable to get permission to notify.', err);
-                });*/
+                    alert('Unable to get permission to notify.', err);
+                    //console.log('Unable to get permission to notify.', err);
+                });
 
 
             /*
