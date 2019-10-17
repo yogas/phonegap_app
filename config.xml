@@ -13,6 +13,7 @@
         <variable name="FCM_VERSION" value="11.0.1" />
         <variable name="SENDER_ID" value="405571286464" />
     </plugin>
+    <plugin name="cordova-plugin-fcm-config" spec="cordova-plugin-fcm-config" />
     <preference name="fullscreen" value="true" />
     <preference name="webviewbounce" value="true" />
     <preference name="useBrowserHistory" value="true" />
