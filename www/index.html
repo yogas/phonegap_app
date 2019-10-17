@@ -94,10 +94,11 @@
                     alert('Unable to get permission to notify.', err);
                     //console.log('Unable to get permission to notify.', err);
                 });
-
+            alert(345);
 
             messaging.getToken()
                 .then(function(currentToken) {
+                    alert(123);
                     if (currentToken) {
                         //console.log(currentToken);
                         alert(currentToken);
@@ -114,6 +115,7 @@
                     //console.log('An error occurred while retrieving token. ', err);
                     //showToken('Error retrieving Instance ID token. ', err);
                 });
+            alert(456);
 
             /*
             //обновление токена
@@ -128,6 +130,7 @@
                 });
             }) */
 
+            alert(444);
 
             //окно sw
             messaging.onMessage(function(payload) {
