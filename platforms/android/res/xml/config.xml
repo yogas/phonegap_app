@@ -6,6 +6,7 @@
         <param name="onload" value="true" />
     </feature>
     <allow-intent href="market:*" />
+    <resource-file src="google-services.json" target="app/google-services.json" />
     <name>FLAMAX App</name>
     <description>
         FLAMAX App.

@@ -477,6 +477,10 @@ pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
     margin: 0 auto;
 }
 
+#param-block-volume {
+    margin-right: 35px !important;
+    margin-left: 0 !important;
+}
 
 
 
@@ -722,6 +726,7 @@ pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
     }
     .row-blocks :last-child {
         margin-right: 0 !important;
+        float: right !important;
     }
     .param-block {
         background: #FFFFFF;
@@ -755,6 +760,7 @@ pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
         padding-left: 15px;
         padding-right: 15px;
         margin-bottom: 10px;
+        width: 68%;
     }
     .param-block .volume {
         display: block;
@@ -785,6 +791,11 @@ pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
         padding-left: 15px;
         padding-right: 15px;
         margin-bottom: 10px;
+    }
+
+    #param-block-volume {
+        margin-left: 5px !important;
+        margin-right: 0 !important;
     }
 
 }
@@ -1099,5 +1110,9 @@ pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
         padding-left: 15px;
         padding-right: 15px;
         margin-bottom: 10px;
+    }
+
+    #param-block-volume {
+        margin-left: 40px !important;
     }
 }

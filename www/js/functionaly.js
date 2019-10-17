@@ -1,4 +1,10 @@
 
+
+function checkDevices() {
+    ajax('check_devices');
+}
+
+
 function exit( status ) {
     // *     example 1: exit();
     // *     returns 1: null
@@ -63,8 +69,6 @@ function getDataFromServer() {
 
 
 function getMySessionID() {
-    //console.log('getMySessionID fnc');
-    //console.log(window.localStorage["acc_sessionID"]);
     if (window.localStorage["acc_sessionID"] = 1) {
         return 1;
     } else {
@@ -95,6 +99,8 @@ function ajax_response_ctrl(g, res) {
                 window.localStorage["user_email"] = res.data;
                 $.mobile.changePage('#devices');
                 getDataFromServer();
+                //checkDevices();
+                //setInterval("checkDevices()", 300000);
 			} else {
                 window.localStorage["acc_sessionID"] = 0;
                 window.localStorage["user_email"] = null;
@@ -108,9 +114,13 @@ function ajax_response_ctrl(g, res) {
 
                 for (var t=0; t!=res.data.length; t++) {
                     if (res.data[t]['has_alarm'] == false || parseInt(res.data[t]['has_alarm']) == 0) {
-                        var alarm = 'нет';
+                        //document.getElementById("param-alert").style = style;
+                        var alarm = '<div class="param-block" id="param-alert"><span class="alert">Авария</span>нет</div>';
+                        //var style = '';
                     } else {
-                        var alarm = 'да';
+                        //document.getElementById("param-alert").style = "";
+                        var alarm = '<div class="param-block" style="box-shadow:0px 1px 10px rgba(0, 0, 0, 0.30) !important; font-size:36px !important; padding-bottom:12px !important; background-color:#BE3D3D !important; font-family:\'Roboto-Bold\' !important; color:#FFFFFF !important;"><span class="alert">Авария</span>!</div>';
+                        //var style = '';
                     }
 
                     html_source += '<a href="#" onclick="getDeviceDetailData('+res.data[t]['id']+')" style="margin-bottom:15px; display:block; max-width:585px; margin:0 auto;"><div class="devoce-smart-block">';
@@ -132,16 +142,13 @@ function ajax_response_ctrl(g, res) {
                     html_source += '<div class="row-blocks">';
                     html_source += '<div class="param-block" style="margin-right:35px;">';
                     html_source += '<span class="temp">Температура, С</span>';
-                    html_source += '30';
+                    html_source += res.data[t]['temp'];
                     html_source += '</div>';
-                    html_source += '<div class="param-block" style="margin-right:35px;">';
+                    html_source += '<div class="param-block" id="param-block-volume" style="margin-left:5px;">';
                     html_source += '<span class="volume">Объем, м<sup>3</sup></span>';
                     html_source += res.data[t]['volume'];
                     html_source += '</div>';
-                    html_source += '<div class="param-block">';
-                    html_source += '<span class="alert">Авария</span>';
                     html_source += alarm;
-                    html_source += '</div>';
                     html_source += '</div>';
                     html_source += '</div></a>';
                 }
@@ -149,12 +156,9 @@ function ajax_response_ctrl(g, res) {
                 $("#devices-page-content").html("");
                 $("#devices-page-content").html(html_source);
 
+                //checkDevices();
+
             } else {
-                /*
-                window.localStorage["acc_sessionID"] =  0;
-                window.localStorage["user_email"] = null;
-                $.mobile.changePage('#auth');
-                */
                 checkSession();
             }
         break;
@@ -165,8 +169,6 @@ function ajax_response_ctrl(g, res) {
                 window.localStorage["acc_sessionID"] =  0;
                 window.localStorage["user_email"] = null;
                 $.mobile.changePage('#auth');
-                //console.log(window.localStorage["acc_sessionID"]);
-                //exit();
             }
 		break;
         case 'get_device_detail':
@@ -201,8 +203,6 @@ function ajax_response_ctrl(g, res) {
                 for (var n=0; n!=res.data.parameters.length; n++) {
                     var code = String(res.data.parameters[n].code);
                     if (code == "Tn"+gtn3+"_Manual") {
-                        //console.log(code);
-                        //console.log(parseInt(res.data.parameters[n].value));
                         if (parseInt(res.data.parameters[n].value) == 1 || res.data.parameters[n].value == "1") {
                             tens_manuals[n] = 'P';
                         } else {
@@ -246,8 +246,6 @@ function ajax_response_ctrl(g, res) {
                     }
                 }
 
-                //console.log(tens_manuals);
-
                 var t = 0;
                 for (var n=0; n!=tens_manuals.length; n++) {
                     if (undefined !== tens_manuals[n]) {
@@ -266,9 +264,6 @@ function ajax_response_ctrl(g, res) {
                         continue;
                     }
                 }
-
-                //console.log(tens_manuals_finish);
-                //console.log(tens_alarm_finish);
 
                 var t = 0;
                 for (var n=0; n!=tens.length; n++) {
@@ -295,7 +290,6 @@ function ajax_response_ctrl(g, res) {
                 var l = v * 1000;
                 var ten_of_section = tens_finish.length / tempos_finish.length;
 
-                //var deviceTn = '';
                 var deviceDt = '';
                 var device_wf_h = 360;//document.getElementById("device-work-frame").offsetHeight;
                 var lineheight_temp_block = device_wf_h / tempos_finish.length;
@@ -303,9 +297,6 @@ function ajax_response_ctrl(g, res) {
 
                 var dtn2 = 0;
                 for(var dtn=0; dtn!=tempos_finish.length; dtn++) {
-                    //console.log(tens_manuals_finish[dtn]);
-                    //console.log(tens_alarm_finish[dtn]);
-
                     if (dtn == 0) {
                         var lineheight = lineheight_temp_block / 4;
                     } else {
@@ -327,7 +318,6 @@ function ajax_response_ctrl(g, res) {
                 var vodichkaHeight = Math.ceil(5.5 * percents_L);
                 //var vodichkaTop = 550 - vodichkaHeight;
 
-                //$("#device-work-frame").html(deviceDt);
                 detail_page_html_source += '<div class="sn-block">№ '+sn+'</div><div class="device-schema-block">\n' +
                     '                        <div class="hight-level-brd">\n' +
                     '                            <span class="hight-lavel-block">ПЕРЕЛИВ</span>\n' +
@@ -364,6 +354,13 @@ function ajax_response_ctrl(g, res) {
 
             }
         break;
+        case 'check_devices':
+            if (res.data) {
+                console.log(1);
+            } else {
+                console.log(0);
+            }
+        break;
 	}
 }
 
@@ -373,7 +370,6 @@ function ajax(g, oid) {
     var randomNum = Math.round((Math.random() * (40000 - 1) + 1));
 
 	if (g == "auth_user") {
-	    //alert(33354545454);
 		var user_email = document.getElementById("user_email").value;
 		var user_pass = document.getElementById("user_pass").value;
         window.localStorage["user_email"] = user_email;
@@ -384,6 +380,8 @@ function ajax(g, oid) {
         xmlhttp.open('GET', 'http://dev.hashing24.sale/main/getDevices?&identifer='+window.localStorage["user_email"]+'&rndtik='+randomNum, true);
 	} else if (g == "get_device_detail") {
         xmlhttp.open('GET', 'http://dev.hashing24.sale/main/getDeviceDetail?&identifer='+window.localStorage["user_email"]+'&did='+oid+'&rndtik='+randomNum, true);
+	} else if (g == "check_devices") {
+        xmlhttp.open('GET', 'http://dev.hashing24.sale/main/checkDevices?&identifer='+window.localStorage["user_email"]+'&rndtik='+randomNum, true);
     } else {
         //xmlhttp.open('GET', 'http://super.aspen.ru/mobile_ajax_files/test.php?operation='+g+'&eri='+app_ex_run_id+'&rndtik='+randomNum, true);
 	}
@@ -391,9 +389,6 @@ function ajax(g, oid) {
 	xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 	xmlhttp.send();
 	xmlhttp.onreadystatechange = function() {
-	    //alert(xmlhttp.readyState);
-	    //alert(xmlhttp.status);
-	    //alert(xmlhttp.JSON.parse(xmlhttp.responseText));
 		if (xmlhttp.readyState == 4) {
 			if(xmlhttp.status == 200) {
 				ajax_response_ctrl(g, JSON.parse(xmlhttp.responseText));
@@ -404,12 +399,10 @@ function ajax(g, oid) {
 
 
 function auth_user() {
-    //alert('auth_user');
 	if (document.getElementById("user_email").value != "" && document.getElementById("user_pass").value != "") {
 		document.getElementById("user_email").className = "text-fields";
 		document.getElementById("user_pass").className = "text-fields";
 		ajax("auth_user");
-        //alert('auth_user');
 	} else {
 		if(document.getElementById("user_email").value == "") {
 			document.getElementById("user_email").className = "text-fields error";
