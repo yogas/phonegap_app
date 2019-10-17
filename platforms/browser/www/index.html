@@ -96,6 +96,25 @@
                 });
 
 
+            messaging.getToken()
+                .then(function(currentToken) {
+                    if (currentToken) {
+                        //console.log(currentToken);
+                        alert(currentToken);
+                        //отправка токена на сервер
+                        SendTokenToServer(currentToken);
+                        //document.getElementById('token').innerHTML = currentToken;
+                    } else {
+                        alert('No Instance ID token available. Request permission to generate one.');
+                        //console.log('No Instance ID token available. Request permission to generate one.');
+                    }
+                })
+                .catch(function(err) {
+                    alert('An error occurred while retrieving token. ', err);
+                    //console.log('An error occurred while retrieving token. ', err);
+                    //showToken('Error retrieving Instance ID token. ', err);
+                });
+
             /*
             //обновление токена
             messaging.onTokenRefresh(function() {
