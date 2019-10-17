@@ -11,7 +11,6 @@
     <plugin name="cordova-plugin-whitelist" source="npm" spec="1.1.0" />
     <plugin name="phonegap-plugin-push" spec="~2.1.2" >
         <variable name="FCM_VERSION" value="11.0.1" />
-        <variable name="SENDER_ID" value="xxxxxxxxxxxxx" />
     </plugin>
     <preference name="fullscreen" value="true" />
     <preference name="webviewbounce" value="true" />
