@@ -35,6 +35,14 @@ var app = {
     onDeviceReady: function() {
         //console.log(app);
         app.receivedEvent('index');
+        /*
+        navigator.notification.alert(
+            'You are the winner!',  // message
+            //alertDismissed,         // callback
+            'Game Over',            // title
+            'Done'                  // buttonName
+        );
+        */
     },
 
     // Update DOM on a Received Event
