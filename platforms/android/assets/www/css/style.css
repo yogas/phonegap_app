@@ -760,7 +760,7 @@ pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
         padding-left: 15px;
         padding-right: 15px;
         margin-bottom: 10px;
-        width: 68%;
+        float: none !important;
     }
     .param-block .volume {
         display: block;
@@ -776,7 +776,7 @@ pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
         padding-left: 15px;
         padding-right: 15px;
         margin-bottom: 10px;
-        width: 68%;
+        float: none !important;
     }
     .param-block .alert {
         display: block;
@@ -792,7 +792,7 @@ pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
         padding-left: 15px;
         padding-right: 15px;
         margin-bottom: 10px;
-        width: 68%;
+        float: none !important;
     }
 
     #param-block-volume {
