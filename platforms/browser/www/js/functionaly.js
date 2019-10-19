@@ -119,7 +119,7 @@ function ajax_response_ctrl(g, res) {
                         //var style = '';
                     } else {
                         //document.getElementById("param-alert").style = "";
-                        var alarm = '<div class="param-block" style="box-shadow:0px 1px 10px rgba(0, 0, 0, 0.30) !important; font-size:36px !important; padding-bottom:12px !important; background-color:#BE3D3D !important; font-family:\'Roboto-Bold\' !important; color:#FFFFFF !important;"><span class="alert">Авария</span>!</div>';
+                        var alarm = '<div class="param-block" style="box-shadow:0px 1px 10px rgba(0, 0, 0, 0.30) !important; font-size:36px !important; padding-bottom:12px !important; background-color:#BE3D3D !important; font-family:\'Roboto-Bold\' !important; color:#FFFFFF !important;"><span class="alert">Авария</span><div style="clear:both; width:100%;">!</div></div>';
                         //var style = '';
                     }
 
@@ -336,7 +336,7 @@ function ajax_response_ctrl(g, res) {
                     '                        </div>\n' +
                     '                    <div class="vodichka" style="height:'+vodichkaHeight+'px; margin-top:-'+(vodichkaHeight - 10)+'px;"><div style="color:#000000; text-align:left; margin-left:15px; padding-top:5px;">'+dh+' м / '+h+' м</div><div class="vodichka-text">' + numberWithSpaces(Math.floor(l * 10) / 10) + ' л</div></div></div>';
 
-
+/*
                 detail_page_html_source += '<ul>';
                 detail_page_html_source += '<li><b>Device ID:</b> '+ res.data['id'] +'</li>';
                 detail_page_html_source += '<li><b>Device Name:</b> '+ res.data['name'] +'</li>';
@@ -347,6 +347,7 @@ function ajax_response_ctrl(g, res) {
                 detail_page_html_source += '<li><b>Текущий заполненый объем:</b> '+ Math.floor(v * 1000) / 1000 +' м<sup>3</sup></li>';
                 detail_page_html_source += '<li><b>T_OS:</b> '+ tos +'</li>';
                 detail_page_html_source += '</ul>';
+                */
 
                 $("#device-detail-page-content").html("");
                 $("#device-detail-page-content").html(detail_page_html_source);

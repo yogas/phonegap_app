@@ -459,11 +459,11 @@ pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
     font-size: 28px;
     font-family: "Roboto-Bold";
     font-weight: bold;
-    text-align: right !important;
+    text-align: center !important;
     vertical-align: bottom;
     float: none !important;
     top: 47%;
-    margin-left: 20%;
+    margin-left: 10%;
     position: relative;
 }
 
@@ -776,6 +776,7 @@ pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
         padding-left: 15px;
         padding-right: 15px;
         margin-bottom: 10px;
+        width: 68%;
     }
     .param-block .alert {
         display: block;
@@ -791,6 +792,7 @@ pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
         padding-left: 15px;
         padding-right: 15px;
         margin-bottom: 10px;
+        width: 68%;
     }
 
     #param-block-volume {
