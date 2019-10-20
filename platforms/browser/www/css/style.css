@@ -345,11 +345,13 @@ pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
     height: 600px;
     border: solid 1px #000000;
     margin: 0 auto;
+    margin-bottom: 20px;
 }
 .hight-level-brd {
     width: 100%;
     border-top: solid 2px #AAAAAA;
     margin-top: 30px;
+    position: relative;
 }
 .max-level-brd {
     width: 100%;
@@ -359,7 +361,10 @@ pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
 }
 .device-work-frame {
     width: 100%;
-    height: 360px;
+    height: 570px;
+    z-index: 53;
+    position: relative;
+    top: -30px;
 }
 .min-level-brd {
     width: 100%;
@@ -463,7 +468,7 @@ pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
     vertical-align: bottom;
     float: none !important;
     top: 47%;
-    margin-left: 10%;
+    /*margin-left: 10%;*/
     position: relative;
 }
 

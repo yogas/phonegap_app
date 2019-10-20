@@ -190,6 +190,8 @@ function ajax_response_ctrl(g, res) {
                 var gtn2 = 1;
                 var gtn3 = 1;
                 var gtn4 = 1;
+                var gtn5 = 1;
+
                 var tens_finish = new Array();
                 var tempos_finish = new Array();
                 var diam = 0;
@@ -199,6 +201,8 @@ function ajax_response_ctrl(g, res) {
                 var sn = 0;
 
                 //var alarmTn = 0;
+                var tensGraphLevel = new Array();
+                var tensGraphLevel_finish = new Array();
 
                 for (var n=0; n!=res.data.parameters.length; n++) {
                     var code = String(res.data.parameters[n].code);
@@ -218,6 +222,17 @@ function ajax_response_ctrl(g, res) {
                         }
                         gtn4++;
                     }
+                    //console.log(n);
+                    //console.log("vL"+gtn5);
+                    if (code == "vL"+gtn5 || code == "vL"+gtn5+"_PZ") {
+                        tensGraphLevel[n] = res.data.parameters[n].value;
+                        gtn5++;
+
+                        //console.log(gtn5);
+                        //console.log(res.data.parameters[n].value);
+                    }
+                    //console.log(tensGraphLevel);
+
 
                     if (code == "Tn"+gtn) {
                         tens[n] = res.data.parameters[n].value;
@@ -247,7 +262,7 @@ function ajax_response_ctrl(g, res) {
                 }
 
                 var t = 0;
-                for (var n=0; n!=tens_manuals.length; n++) {
+                for (var n=tens_manuals.length; n!=0; n--) {
                     if (undefined !== tens_manuals[n]) {
                         tens_manuals_finish[t] = tens_manuals[n];
                         t++;
@@ -256,7 +271,7 @@ function ajax_response_ctrl(g, res) {
                     }
                 }
                 var t = 0;
-                for (var n=0; n!=tens_alarm.length; n++) {
+                for (var n=tens_alarm.length; n!=0; n--) {
                     if (undefined !== tens_alarm[n]) {
                         tens_alarm_finish[t] = tens_alarm[n];
                         t++;
@@ -264,6 +279,16 @@ function ajax_response_ctrl(g, res) {
                         continue;
                     }
                 }
+                var t = 0;
+                for (var n=tensGraphLevel.length; n!=0; n--) {
+                    if (undefined !== tensGraphLevel[n]) {
+                        tensGraphLevel_finish[t] = tensGraphLevel[n];
+                        t++;
+                    } else {
+                        continue;
+                    }
+                }
+                //console.log(tensGraphLevel_finish);
 
                 var t = 0;
                 for (var n=0; n!=tens.length; n++) {
@@ -291,19 +316,34 @@ function ajax_response_ctrl(g, res) {
                 var ten_of_section = tens_finish.length / tempos_finish.length;
 
                 var deviceDt = '';
-                var device_wf_h = 360;//document.getElementById("device-work-frame").offsetHeight;
+                var device_wf_h = 570;//document.getElementById("device-work-frame").offsetHeight;
                 var lineheight_temp_block = device_wf_h / tempos_finish.length;
                 var bgs = ["#BE3D3D", "#3DBE52", "#3D88BE"];
+
+                var one_percent_H = Math.floor((h / 100) * 10000) / 10000;
+                var percents_L = Math.floor((dh / one_percent_H) * 100) / 100;
+                var vodichkaHeight = Math.ceil((device_wf_h / 100) * percents_L);
+
+                //var maxLevelValue = tensGraphLevel_finish[0];
+                var minLevelValue = tensGraphLevel_finish[tensGraphLevel_finish.length - 1];
+                var percents_MaxLevel = Math.floor(tensGraphLevel_finish[0] / one_percent_H);
+                var marginMaxLevelBlock = device_wf_h - (Math.ceil((device_wf_h / 100) * percents_MaxLevel));
+                var marginMinLevelBlock = device_wf_h - (Math.ceil((device_wf_h / 100) * minLevelValue));
+                console.log(vodichkaHeight);
+
+                //deviceDt += '';
+                deviceDt += '<div class="max-level-brd" style="margin-top:'+marginMaxLevelBlock+'px;"><span class="max-lavel-block">MAX</span></div>';
 
                 var dtn2 = 0;
                 for(var dtn=0; dtn!=tempos_finish.length; dtn++) {
                     if (dtn == 0) {
-                        var lineheight = lineheight_temp_block / 4;
+                        var lineheight = -10;//lineheight_temp_block / 4;
                     } else {
-                        var lineheight = ((lineheight_temp_block * dtn) + (lineheight_temp_block / 2)) - (lineheight_temp_block / 4);
+                        //var lineheight = ((lineheight_temp_block * dtn) + (lineheight_temp_block / 2)) - (lineheight_temp_block / 4);
+                        
                     }
                     deviceDt += '<span class="device-dt" style="top:'+lineheight+'px; background-color:'+bgs[dtn]+'; left:-30px; line-height:2;">+'+tempos_finish[dtn]+' &#8451;</span>';
-                    deviceDt += '<span style="top:'+lineheight+'px; display:block; position:relative; z-index:48; width:55px; float:right; right:-14px; clear:both;">';
+                    deviceDt += '<span style="top:'+lineheight+'px; display:block; position:absolute; z-index:48; width:55px; float:right; right:-14px; clear:both;">';
 
                     for (var tnn=0; tnn!=ten_of_section; tnn++) {
                         deviceDt += '<span class="device-tn" style="background-color:'+tens_alarm_finish[dtn2]+';">'+tens_manuals_finish[dtn2]+'</span>';
@@ -313,28 +353,20 @@ function ajax_response_ctrl(g, res) {
                     deviceDt += '</span>';
                 }
 
-                var one_percent_H = Math.floor((h / 100) * 10000) / 10000;
-                var percents_L = Math.floor((dh / one_percent_H) * 100) / 100;
-                var vodichkaHeight = Math.ceil(5.5 * percents_L);
-                //var vodichkaTop = 550 - vodichkaHeight;
+                //deviceDt += '<div class="min-level-brd" style="margin-bottom:'+Math.ceil((device_wf_h / 100) * minLevelValue)+'px;"><span class="min-lavel-block">MIN</span></div>';
 
-                detail_page_html_source += '<div class="sn-block">№ '+sn+'</div><div class="device-schema-block">\n' +
-                    '                        <div class="hight-level-brd">\n' +
-                    '                            <span class="hight-lavel-block">ПЕРЕЛИВ</span>\n' +
-                    '                        </div>\n' +
-                    '                        <div class="max-level-brd">\n' +
-                    '                            <span class="max-lavel-block">MAX</span>\n' +
-                    '                        </div>\n' +
-                    '\n' +
-                    '                        <div class="device-work-frame" id="device-work-frame">'+deviceDt+'</div>\n' +
-                    '\n' +
-                    '                        <div class="min-level-brd">\n' +
-                    '                            <span class="min-lavel-block">MIN</span>\n' +
-                    '                        </div>\n' +
-                    '                        <div class="low-level-brd">\n' +
+                //var vodichkaTop = 550 - vodichkaHeight;
+//                console.log(tensGraphLevel);
+
+                detail_page_html_source += '<div class="sn-block">№ '+sn+'</div>' +
+                    '<div class="device-schema-block">\n' +
+                    '<div class="hight-level-brd"><span class="hight-lavel-block">ПЕРЕЛИВ</span></div>' +
+                    '<div class="device-work-frame" id="device-work-frame">'+deviceDt+'</div>' +
+                    '<div class="low-level-brd">\n' +
                     '                            <span class="low-lavel-block">НЕВЫБИРАЕМЫЙ ОСТАТОК</span>\n' +
                     '                        </div>\n' +
-                    '                    <div class="vodichka" style="height:'+vodichkaHeight+'px; margin-top:-'+(vodichkaHeight - 10)+'px;"><div style="color:#000000; text-align:left; margin-left:15px; padding-top:5px;">'+dh+' м / '+h+' м</div><div class="vodichka-text">' + numberWithSpaces(Math.floor(l * 10) / 10) + ' л</div></div></div>';
+                    '                    <div class="vodichka" style="height:'+vodichkaHeight+'px; margin-top:-'+(device_wf_h - 7)+'px;"><div style="color:#000000; text-align:left; margin-left:15px; padding-top:5px;">'+dh+' м / '+h+' м</div><div class="vodichka-text">' + numberWithSpaces(Math.floor(l * 10) / 10) + ' л</div>' +
+                    '</div>';
 
 /*
                 detail_page_html_source += '<ul>';

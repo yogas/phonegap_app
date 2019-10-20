@@ -22,7 +22,7 @@
 		Luxxx
     </author>
     <content src="index.html" />
-    <preference name="fullscreen" value="true" />
+    <preference name="fullscreen" value="false" />
     <preference name="webviewbounce" value="true" />
     <preference name="useBrowserHistory" value="true" />
     <preference name="exit-on-suspend" value="true" />
