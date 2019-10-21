@@ -428,8 +428,8 @@ pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
     top: -15px;
     margin: 0 auto;
     border-radius: 100px;
-    line-height: 3.2;
-    font-size: 10px;
+    line-height: 3.8;
+    font-size: 8px;
 }
 .device-dt {
     display: block;

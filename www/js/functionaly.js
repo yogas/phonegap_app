@@ -200,7 +200,6 @@ function ajax_response_ctrl(g, res) {
                 var tos = 0;
                 var sn = 0;
 
-                //var alarmTn = 0;
                 var tensGraphLevel = new Array();
                 var tensGraphLevel_finish = new Array();
 
@@ -222,16 +221,11 @@ function ajax_response_ctrl(g, res) {
                         }
                         gtn4++;
                     }
-                    //console.log(n);
-                    //console.log("vL"+gtn5);
+
                     if (code == "vL"+gtn5 || code == "vL"+gtn5+"_PZ") {
                         tensGraphLevel[n] = res.data.parameters[n].value;
                         gtn5++;
-
-                        //console.log(gtn5);
-                        //console.log(res.data.parameters[n].value);
                     }
-                    //console.log(tensGraphLevel);
 
 
                     if (code == "Tn"+gtn) {
@@ -288,7 +282,6 @@ function ajax_response_ctrl(g, res) {
                         continue;
                     }
                 }
-                //console.log(tensGraphLevel_finish);
 
                 var t = 0;
                 for (var n=0; n!=tens.length; n++) {
@@ -308,6 +301,7 @@ function ajax_response_ctrl(g, res) {
                         continue;
                     }
                 }
+
 
                 var tLevels_percent = new Array();
                 var tLevels = new Array();
@@ -339,9 +333,9 @@ function ajax_response_ctrl(g, res) {
                 tLevels_percent[1] = Math.floor((tensGraphLevel_finish[tensGraphLevel_finish.length - 4] * 100) / h);
                 tLevels[1] = Math.floor((device_wf_h / 100) * tLevels_percent[1]);
 
-                //tLevels_percent[2] = Math.floor((tensGraphLevel_finish[tensGraphLevel_finish.length - 5] * 100) / h);
-                //tLevels[2] = Math.floor((device_wf_h / 100) * tLevels_percent[2]);
-                tLevels[2] = maxLevel;
+                tLevels_percent[2] = Math.floor((tensGraphLevel_finish[tensGraphLevel_finish.length - 5] * 100) / h);
+                tLevels[2] = Math.floor((device_wf_h / 100) * tLevels_percent[2]);
+                //tLevels[2] = maxLevel;
 
                 var one_percent_H = Math.floor((h / 100) * 10000) / 10000;
                 var percents_L = Math.floor((dh / one_percent_H) * 100) / 100;
@@ -350,16 +344,14 @@ function ajax_response_ctrl(g, res) {
                 var dtn2 = tens_manuals_finish.length - 1;
                 var dtn3 = 1;
                 for(var dtn=0; dtn!=tempos_finish.length; dtn++) {
-                    if (dtn == (tempos_finish.length - 1)) {
-                        var lineheight = 6;//lineheight_temp_block / 4;
+                    if (dtn == (tempos_finish.length - 1) || dtn == (tempos_finish.length - 2)) {
+                        var lineheight = 6;
                         var tens_lineheight = 0;
                         var tens_lineheight2 = 0;
                     } else {
-                        //var lineheight = ((lineheight_temp_block * dtn) + (lineheight_temp_block / 2)) - (lineheight_temp_block / 4);
                         var lineheight = 0;
                         var tens_lineheight = (ten_of_section * 25) + (5 * ten_of_section);
                         var tens_lineheight2 =  35;
-                        //console.log(tens_lineheight);
                     }
                     var bgs = '';
                     if (parseInt(tempos_finish[dtn]) >= 5 && parseInt(tempos_finish[dtn]) <= 60) {
@@ -370,21 +362,28 @@ function ajax_response_ctrl(g, res) {
                         bgs = "#3D88BE";
                     }
                     deviceDt += '<span class="device-dt" style="top:'+(((device_wf_h - tLevels[dtn]) - 60) + lineheight)+'px; background-color:'+bgs+'; left:-30px; line-height:2;">+'+tempos_finish[dtn]+' &#8451;</span>';
-console.log(tens_manuals_finish);
                     deviceDt += '<span style="top:'+((((device_wf_h - tLevels[dtn]) - 60) + lineheight) - tens_lineheight2)+'px; display:block; position:absolute; z-index:48; width:55px; float:right; right:-14px; clear:both;">';
-                    //dtn3--;
+
+                    var revert_alarms_data= new Array();
+                    var revert_manuals_data= new Array();
+                    var ten_numbers_data = new Array();
                     for (var tnn=0; tnn!=ten_of_section; tnn++) {
-                        console.log(dtn2);
-                        deviceDt += '<span class="device-tn" style="background-color:'+tens_alarm_finish[dtn2]+';">'+tens_manuals_finish[dtn2]+'</span><span class="ten-title">ТЕН '+dtn3+'</span>';
+                        revert_alarms_data[tnn] = tens_alarm_finish[dtn2];
+                        revert_manuals_data[tnn] = tens_manuals_finish[dtn2];
+                        ten_numbers_data[tnn] = dtn3;
                         dtn2--;
                         dtn3++;
                     }
+                    revert_alarms_data = revert_alarms_data.reverse();
+                    revert_manuals_data = revert_manuals_data.reverse();
+                    ten_numbers_data = ten_numbers_data.reverse();
+                    for (var tnn=0; tnn!=ten_of_section; tnn++) {
+                        deviceDt += '<span class="device-tn" style="background-color:'+revert_alarms_data[tnn]+';">'+revert_manuals_data[tnn]+'</span><span class="ten-title">ТЕН '+ten_numbers_data[tnn]+'</span>';
+                    }
                     deviceDt += '</span>';
-                    //dtn3 = dtn3 - ten_of_section;
                 }
 
                 deviceDt += '<div class="min-level-brd" style="top:'+((device_wf_h - minLevel) - 60)+'px;"><span class="min-lavel-block">MIN</span></div>';
-                //console.log(tensGraphLevel_finish);
 
                 detail_page_html_source += '<div class="sn-block">№ '+sn+'</div>' +
                 '<div class="device-schema-block">\n' +
@@ -393,16 +392,6 @@ console.log(tens_manuals_finish);
                     '<div class="vodichka" style="height:'+vodichkaHeight+'px; margin-top:-'+(vodichkaHeight + 46)+'px;"><div style="color:#000000; text-align:left; margin-left:15px; padding-top:5px;">'+dh+' м / '+h+' м</div><div class="vodichka-text">' + numberWithSpaces(Math.floor(l * 10) / 10) + ' л</div>' +
                 '</div>';
 
-                //deviceDt += '';
-                /*
-
-
-
-
-                    '\n' +
-                    '                    <div class="vodichka" style="height:'+vodichkaHeight+'px; margin-top:-'+(device_wf_h - 7)+'px;"><div style="color:#000000; text-align:left; margin-left:15px; padding-top:5px;">'+dh+' м / '+h+' м</div><div class="vodichka-text">' + numberWithSpaces(Math.floor(l * 10) / 10) + ' л</div>' +
-
-                */
 
                 $("#device-detail-page-content").html("");
                 $("#device-detail-page-content").html(detail_page_html_source);
