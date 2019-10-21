@@ -320,7 +320,6 @@ function ajax_response_ctrl(g, res) {
 
                 var deviceDt = '';
                 var device_wf_h = 540;//document.getElementById("device-work-frame").offsetHeight;
-                var bgs = ["#BE3D3D", "#3DBE52", "#3D88BE"];
 
                 var maxLevel_percent = Math.floor((tensGraphLevel_finish[0] * 100) / h);
                 var maxLevel = Math.floor((device_wf_h / 100) * maxLevel_percent);
@@ -349,6 +348,7 @@ function ajax_response_ctrl(g, res) {
                 var vodichkaHeight = Math.ceil((device_wf_h / 100) * percents_L);
 
                 var dtn2 = tens_manuals_finish.length - 1;
+                var dtn3 = 1;
                 for(var dtn=0; dtn!=tempos_finish.length; dtn++) {
                     if (dtn == (tempos_finish.length - 1)) {
                         var lineheight = 6;//lineheight_temp_block / 4;
@@ -361,14 +361,26 @@ function ajax_response_ctrl(g, res) {
                         var tens_lineheight2 =  35;
                         //console.log(tens_lineheight);
                     }
-                    deviceDt += '<span class="device-dt" style="top:'+(((device_wf_h - tLevels[dtn]) - 60) + lineheight)+'px; background-color:'+bgs[dtn]+'; left:-30px; line-height:2;">+'+tempos_finish[dtn]+' &#8451;</span>';
-
+                    var bgs = '';
+                    if (parseInt(tempos_finish[dtn]) >= 5 && parseInt(tempos_finish[dtn]) <= 60) {
+                        bgs = "#3DBE52";
+                    } else if (parseInt(tempos_finish[dtn]) > 60) {
+                        bgs = "#BE3D3D";
+                    } else if (parseInt(tempos_finish[dtn]) < 5) {
+                        bgs = "#3D88BE";
+                    }
+                    deviceDt += '<span class="device-dt" style="top:'+(((device_wf_h - tLevels[dtn]) - 60) + lineheight)+'px; background-color:'+bgs+'; left:-30px; line-height:2;">+'+tempos_finish[dtn]+' &#8451;</span>';
+console.log(tens_manuals_finish);
                     deviceDt += '<span style="top:'+((((device_wf_h - tLevels[dtn]) - 60) + lineheight) - tens_lineheight2)+'px; display:block; position:absolute; z-index:48; width:55px; float:right; right:-14px; clear:both;">';
+                    //dtn3--;
                     for (var tnn=0; tnn!=ten_of_section; tnn++) {
-                        deviceDt += '<span class="device-tn" style="background-color:'+tens_alarm_finish[dtn2]+';">'+tens_manuals_finish[dtn2]+'</span>';
+                        console.log(dtn2);
+                        deviceDt += '<span class="device-tn" style="background-color:'+tens_alarm_finish[dtn2]+';">'+tens_manuals_finish[dtn2]+'</span><span class="ten-title">ТЕН '+dtn3+'</span>';
                         dtn2--;
+                        dtn3++;
                     }
                     deviceDt += '</span>';
+                    //dtn3 = dtn3 - ten_of_section;
                 }
 
                 deviceDt += '<div class="min-level-brd" style="top:'+((device_wf_h - minLevel) - 60)+'px;"><span class="min-lavel-block">MIN</span></div>';

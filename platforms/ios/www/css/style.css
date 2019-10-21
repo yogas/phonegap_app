@@ -340,7 +340,7 @@ pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
 
 
 .device-schema-block {
-    width: 75%;
+    width: 65%;
     max-width: 512px;
     height: 600px;
     border: solid 1px #000000;
@@ -487,6 +487,16 @@ pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
 #param-block-volume {
     margin-right: 35px !important;
     margin-left: 0 !important;
+}
+
+.ten-title {
+    font-size: 8px;
+    float: right;
+    display: block;
+    position: relative;
+    left: 60px;
+    width: 30px;
+    margin-top: 10px;
 }
 
 
