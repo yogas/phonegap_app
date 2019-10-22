@@ -353,6 +353,11 @@ function ajax_response_ctrl(g, res) {
                         var tens_lineheight = (ten_of_section * 25) + (5 * ten_of_section);
                         var tens_lineheight2 =  35;
                     }
+
+                    if (parseInt(tens_finish[dtn]) < 1) {
+                        tens_alarm_finish[dtn] = "#cccccc";
+                    }
+
                     var bgs = '';
                     if (parseInt(tempos_finish[dtn]) >= 5 && parseInt(tempos_finish[dtn]) <= 60) {
                         bgs = "#3DBE52";
@@ -361,6 +366,7 @@ function ajax_response_ctrl(g, res) {
                     } else if (parseInt(tempos_finish[dtn]) < 5) {
                         bgs = "#3D88BE";
                     }
+
                     deviceDt += '<span class="device-dt" style="top:'+(((device_wf_h - tLevels[dtn]) - 60) + lineheight)+'px; background-color:'+bgs+'; left:-30px; line-height:2;">+'+tempos_finish[dtn]+' &#8451;</span>';
                     deviceDt += '<span style="top:'+((((device_wf_h - tLevels[dtn]) - 60) + lineheight) - tens_lineheight2)+'px; display:block; position:absolute; z-index:48; width:55px; float:right; right:-14px; clear:both;">';
 
@@ -385,7 +391,7 @@ function ajax_response_ctrl(g, res) {
 
                 deviceDt += '<div class="min-level-brd" style="top:'+((device_wf_h - minLevel) - 60)+'px;"><span class="min-lavel-block">MIN</span></div>';
 
-                detail_page_html_source += '<div class="sn-block">№ '+sn+'</div>' +
+                detail_page_html_source += '<div class="sn-block">№ '+sn+'<br>T_OS: '+tos+'</div>' +
                 '<div class="device-schema-block">\n' +
                     '<div class="hight-level-brd"><span class="hight-lavel-block">ПЕРЕЛИВ</span></div>' +
                     '<div class="device-work-frame" id="device-work-frame">'+deviceDt+'</div>' +
