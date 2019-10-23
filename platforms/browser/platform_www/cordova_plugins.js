@@ -17,6 +17,14 @@ module.exports = [
         ]
     },
     {
+        "file": "plugins/pushwoosh-cordova-plugin/www/PushNotification.js",
+        "id": "pushwoosh-cordova-plugin.PushNotification",
+        "pluginId": "pushwoosh-cordova-plugin",
+        "clobbers": [
+            "plugins.pushNotification"
+        ]
+    },
+    {
         "file": "plugins/cordova-plugin-statusbar/www/statusbar.js",
         "id": "cordova-plugin-statusbar.statusbar",
         "pluginId": "cordova-plugin-statusbar",
@@ -47,16 +55,26 @@ module.exports = [
         "clobbers": [
             "PushNotification"
         ]
+    },
+    {
+        "file": "plugins/onesignal-cordova-plugin/www/OneSignal.js",
+        "id": "onesignal-cordova-plugin.OneSignal",
+        "pluginId": "onesignal-cordova-plugin",
+        "clobbers": [
+            "OneSignal"
+        ]
     }
 ];
 module.exports.metadata = 
 // TOP OF METADATA
 {
-    "cordova-plugin-console": "1.0.7",
-    "cordova-plugin-dialogs": "1.2.1",
-    "cordova-plugin-statusbar": "2.1.3",
     "cordova-plugin-whitelist": "1.2.2",
-    "phonegap-plugin-push": "1.8.4"
+    "cordova-plugin-dialogs": "2.0.2",
+    "pushwoosh-cordova-plugin": "7.18.2",
+    "cordova-plugin-statusbar": "2.1.3",
+    "phonegap-plugin-push": "1.8.4",
+    "cordova-plugin-console": "1.0.7",
+    "onesignal-cordova-plugin": "2.6.0"
 }
 // BOTTOM OF METADATA
 });

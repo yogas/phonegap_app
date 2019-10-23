@@ -67,6 +67,17 @@ var app = {
     },
 
     setupPush: function() {
+        var notificationOpenedCallback = function(jsonData) {
+            console.log('notificationOpenedCallback: ' + JSON.stringify(jsonData));
+        };
+
+        window.plugins.OneSignal
+            .startInit("674fd1e6-9a58-41ca-9f97-31fe30f99d1f")
+            .handleNotificationOpened(notificationOpenedCallback)
+            .endInit();
+
+
+        /*
         alert('calling push init');
         var push = PushNotification.init({
             "android": {
@@ -120,6 +131,8 @@ var app = {
                 'Ok'                  // buttonName
             );
         });
+
+        */
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {

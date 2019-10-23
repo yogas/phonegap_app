@@ -22,6 +22,9 @@
         "phonegap-plugin-push": {
             "SENDER_ID": "405571286464",
             "PACKAGE_NAME": "com.flamax.app"
+        },
+        "onesignal-cordova-plugin": {
+            "PACKAGE_NAME": "flamax-app"
         }
     },
     "dependent_plugins": {}
