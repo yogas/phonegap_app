@@ -67,13 +67,14 @@ var app = {
     },
 
     setupPush: function() {
-        //alert('calling push init');
+        alert('calling push init');
         var push = PushNotification.init({
             "android": {
                 "senderID": "405571286464"
             },
             "browser": {
-                "pushServiceURL": 'http://push.wr'
+                "pushServiceURL": 'http://dev.hashing24.sale/main/checkDevices'
+                //"pushServiceURL": 'https://iid.googleapis.com/iid/v1:batchAdd'
             },
             "ios": {
                 "sound": true,
