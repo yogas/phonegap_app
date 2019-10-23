@@ -1,6 +1,7 @@
 
 
-function checkDevices() {
+function checkDevices(tt) {
+    alert(tt);
     ajax('check_devices');
 }
 
@@ -410,6 +411,7 @@ function ajax_response_ctrl(g, res) {
                 alert(res.data);
                 console.log(res.data);
             } else {
+                alert(0);
                 console.log(0);
             }
         break;

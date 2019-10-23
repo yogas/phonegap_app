@@ -1,6 +1,7 @@
 
 
-function checkDevices() {
+function checkDevices(tt) {
+    alert(tt);
     ajax('check_devices');
 }
 
