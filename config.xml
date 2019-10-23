@@ -31,7 +31,7 @@
     <plugin name="phonegap-plugin-push" spec="2.0.0" />
     -->
 
-    <plugin name="onesignal-cordova-plugin" spec="~1.12.6" source="npm" />
+    <plugin name="onesignal-cordova-plugin" spec="1.7.7" source="npm" />
 
 
 
