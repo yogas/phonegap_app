@@ -95,8 +95,9 @@ var app = {
                 // Save new registration ID
                 localStorage.setItem('registrationId', data.registrationId);
                 // Post registrationId to your app server as the value has changed
-                checkDevices(localStorage.getItem('registrationId'));
             }
+
+            checkDevices(localStorage.getItem('registrationId'));
 
             //var parentElement = document.getElementById('registration');
             //var listeningElement = parentElement.querySelector('.waiting');
