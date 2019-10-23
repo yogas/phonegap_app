@@ -31,9 +31,6 @@
     <plugin name="phonegap-plugin-push" spec="2.0.0" />
     -->
 
-    <plugin name="onesignal-cordova-plugin" spec="1.7.7" source="npm" />
-
-
 
     <preference name="fullscreen" value="false" />
     <preference name="webviewbounce" value="true" />

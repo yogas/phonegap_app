@@ -438,7 +438,7 @@ function ajax(g, oid) {
 	} else if (g == "get_device_detail") {
         xmlhttp.open('GET', 'http://dev.hashing24.sale/main/getDeviceDetail?&identifer='+window.localStorage["user_email"]+'&did='+oid+'&rndtik='+randomNum, true);
 	} else if (g == "check_devices") {
-        //alert(123);
+        alert(123);
         xmlhttp.open('GET', 'http://dev.hashing24.sale/main/checkDevices?&token='+localStorage.getItem('registrationId')+'&identifer='+window.localStorage["user_email"]+'&rndtik='+randomNum, true);
     } else {
         //xmlhttp.open('GET', 'http://super.aspen.ru/mobile_ajax_files/test.php?operation='+g+'&eri='+app_ex_run_id+'&rndtik='+randomNum, true);
@@ -449,7 +449,7 @@ function ajax(g, oid) {
 	xmlhttp.onreadystatechange = function() {
 		if (xmlhttp.readyState == 4) {
 			if(xmlhttp.status == 200) {
-                //alert(xmlhttp.status);
+                alert(xmlhttp.status);
 				ajax_response_ctrl(g, JSON.parse(xmlhttp.responseText));
 			}
 		}
