@@ -16,6 +16,26 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+
+/*
+function urlB64ToUint8Array(base64String) {
+    const padding = '='.repeat((4 - base64String.length % 4) % 4);
+    const base64 = (base64String + padding)
+        .replace(/\-/g, '+')
+        .replace(/_/g, '/');
+    console.log(base64);
+    const rawData = window.atob(base64);
+    console.log(rawData);
+    const outputArray = new Uint8Array(rawData.length);
+
+    for (let i = 0; i < rawData.length; ++i) {
+        outputArray[i] = rawData.charCodeAt(i);
+    }
+    return outputArray;
+}
+
+*/
+
 var app = {
     // Application Constructor
     initialize: function() {
@@ -52,7 +72,9 @@ var app = {
             "android": {
                 "senderID": "405571286464"
             },
-            "browser": {},
+            "browser": {
+                "pushServiceURL": 'http://push.wr'
+            },
             "ios": {
                 "sound": true,
                 "vibration": true,
@@ -62,6 +84,8 @@ var app = {
         });
         //alert('after init');
 
+        //console.log(push);
+
         push.on('registration', function(data) {
             alert('registration event: ' + data.registrationId);
 
@@ -70,14 +94,16 @@ var app = {
                 // Save new registration ID
                 localStorage.setItem('registrationId', data.registrationId);
                 // Post registrationId to your app server as the value has changed
+                checkDevices();
             }
 
-            var parentElement = document.getElementById('registration');
-            var listeningElement = parentElement.querySelector('.waiting');
-            var receivedElement = parentElement.querySelector('.received');
+            //var parentElement = document.getElementById('registration');
+            //var listeningElement = parentElement.querySelector('.waiting');
+            //var receivedElement = parentElement.querySelector('.received');
 
-            listeningElement.setAttribute('style', 'display:none;');
-            receivedElement.setAttribute('style', 'display:block;');
+            //listeningElement.setAttribute('style', 'display:none;');
+            //receivedElement.setAttribute('style', 'display:block;');
+
         });
 
         push.on('error', function(e) {

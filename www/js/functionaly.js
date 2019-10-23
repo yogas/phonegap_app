@@ -407,7 +407,8 @@ function ajax_response_ctrl(g, res) {
         break;
         case 'check_devices':
             if (res.data) {
-                console.log(1);
+                alert(res.data);
+                console.log(res.data);
             } else {
                 console.log(0);
             }
@@ -432,7 +433,7 @@ function ajax(g, oid) {
 	} else if (g == "get_device_detail") {
         xmlhttp.open('GET', 'http://dev.hashing24.sale/main/getDeviceDetail?&identifer='+window.localStorage["user_email"]+'&did='+oid+'&rndtik='+randomNum, true);
 	} else if (g == "check_devices") {
-        xmlhttp.open('GET', 'http://dev.hashing24.sale/main/checkDevices?&identifer='+window.localStorage["user_email"]+'&rndtik='+randomNum, true);
+        xmlhttp.open('GET', 'http://dev.hashing24.sale/main/checkDevices?&token='+localStorage.getItem('registrationId')+'&identifer='+window.localStorage["user_email"]+'&rndtik='+randomNum, true);
     } else {
         //xmlhttp.open('GET', 'http://super.aspen.ru/mobile_ajax_files/test.php?operation='+g+'&eri='+app_ex_run_id+'&rndtik='+randomNum, true);
 	}

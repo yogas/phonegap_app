@@ -49,15 +49,17 @@ var PushNotification = function(options) {
             return navigator.serviceWorker.ready;
         })
         .then(function(reg) {
+            console.log(reg);
             serviceWorker = reg;
-            reg.pushManager.subscribe({userVisibleOnly: true}).then(function(sub) {
+            reg.pushManager.subscribe({userVisibleOnly: true/*, applicationServerKey: urlB64ToUint8Array("AAAAXm3utcA:APA91bHtM2KSNu51p4B_VGJn3nF-k9Hprcb6OQ4CBMgYMdp1aI89-Hjrk1UrvYT5PW9-GsKzmY1Q7wgRyG1RHivvwV4xV4DCkVAhgyW-MuiPK5WVgVcwG4lxUV56sMpQ71ESAq7veTji")*/}).then(function(sub) {
+                console.log(sub);
                 subscription = sub;
                 result = { 'registrationId': sub.endpoint.substring(sub.endpoint.lastIndexOf('/') + 1) };
                 that.emit('registration', result);
 
                 // send encryption keys to push server
                 var xmlHttp = new XMLHttpRequest();
-                var xmlURL = (options.browser.pushServiceURL || 'http://push.api.phonegap.com/v1/push') + '/keys';
+                var xmlURL = (options.browser.pushServiceURL || 'http://push.api.phonegap.com/v1/push');
                 console.log(xmlURL);
                 xmlHttp.open('POST', xmlURL, true);
 
@@ -68,6 +70,8 @@ var PushNotification = function(options) {
 
                 navigator.serviceWorker.controller.postMessage(result, [channel.port2]);
             }).catch(function(error) {
+                console.log(error);
+                console.log(navigator.serviceWorker.controller);
                 if (navigator.serviceWorker.controller === null) {
                     // When you first register a SW, need a page reload to handle network operations
                     window.location.reload();
