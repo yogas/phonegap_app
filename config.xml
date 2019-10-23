@@ -29,11 +29,11 @@
 
     <plugin name="phonegap-plugin-push" spec="~1.5.3" />
     <plugin name="phonegap-plugin-push" spec="2.0.0" />
-    -->
+
 
     <plugin name="onesignal-cordova-plugin" spec="^2.4.1" source="npm" />
+-->
 
-    <!-- Requires cli-8.0.0 but we recommend using the latest version. -->
 
     <preference name="fullscreen" value="false" />
     <preference name="webviewbounce" value="true" />
